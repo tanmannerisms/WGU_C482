@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Tables set in place and search bars added.">
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Set min width/height values for anchor panes in HBox">
       <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +30,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
@@ -110,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671831100937</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Set min width/height values for anchor panes in HBox">
+      <created>1671831526189</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671831526189</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +137,8 @@
     <MESSAGE value="Initial" />
     <MESSAGE value="Layout set" />
     <MESSAGE value="Tables set in place and search bars added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tables set in place and search bars added." />
+    <MESSAGE value="Set min width/height values for anchor panes in HBox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set min width/height values for anchor panes in HBox" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
