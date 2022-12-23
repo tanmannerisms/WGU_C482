@@ -41,10 +41,10 @@
                         <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
                             <columns>
-                                <TableColumn prefWidth="75.0" text="ID" />
-                                <TableColumn prefWidth="75.0" text="Name" />
-                                <TableColumn prefWidth="75.0" text="Inventory" />
-                                <TableColumn prefWidth="75.0" text="Price/Cost Per Unit" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
                             </columns>
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
@@ -82,10 +82,10 @@
                         <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <TableView prefHeight="200" prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="1">
                             <columns>
-                                <TableColumn prefWidth="75" text="ID" />
-                                <TableColumn prefWidth="75" text="Name" />
-                                <TableColumn prefWidth="75" text="Inventory" />
-                                <TableColumn prefWidth="75" text="Price/Cost per Unit" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                                <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
                             </columns>
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">

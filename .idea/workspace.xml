@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Code cleanup">
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Changed exit button position">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
     </list>
@@ -161,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671834579629</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changed exit button position">
+      <created>1671835464987</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671835464987</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,7 +199,8 @@
     <MESSAGE value="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
     <MESSAGE value="Got rid of the anchor pane wrapper and made the window not resizable." />
     <MESSAGE value="Code cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
+    <MESSAGE value="Changed exit button position" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed exit button position" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
