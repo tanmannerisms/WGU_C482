@@ -18,66 +18,70 @@
             </padding>
         </AnchorPane>
            <HBox minHeight="425.0" minWidth="900.0">
-               <AnchorPane minWidth="450" minHeight="375" prefWidth="450.0" prefHeight="375.0">
-                   <GridPane AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                       <columnConstraints>
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                       </columnConstraints>
-                       <rowConstraints>
-                           <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
-                           <RowConstraints minHeight="-Infinity" prefHeight="285.0" vgrow="SOMETIMES" />
-                           <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
-                       </rowConstraints>
-                       <Label text="Products" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                           <font>
-                               <Font name="System Bold" size="16.0" />
-                           </font>
-                           <padding>
-                               <Insets left="20.0" />
-                           </padding>
-                       </Label>
-                       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                           <columns>
-                               <TableColumn prefWidth="75.0" text="ID" />
-                               <TableColumn prefWidth="75.0" text="Name" />
-                               <TableColumn prefWidth="75.0" text="Inventory" />
-                               <TableColumn prefWidth="75.0" text="Price/Cost Per Unit" />
-                           </columns>
-                       </TableView>
-                       <TextField promptText="Search by Name or ID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                   </GridPane>
-               </AnchorPane>
-               <AnchorPane minWidth="450" minHeight="375" prefWidth="450.0" prefHeight="375.0">
-                  <GridPane AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                      <columnConstraints>
-                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      </columnConstraints>
-                      <rowConstraints>
-                          <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
-                          <RowConstraints minHeight="-Infinity" prefHeight="285.0" vgrow="SOMETIMES" />
-                          <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
-                      </rowConstraints>
-                      <Label text="Parts" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                          <font>
-                              <Font name="System Bold" size="16.0" />
-                          </font>
-                          <padding>
-                              <Insets left="20" />
-                          </padding>
-                      </Label>
-                      <TableView prefHeight="200" prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                          <columns>
-                              <TableColumn prefWidth="75" text="ID" />
-                              <TableColumn prefWidth="75" text="Name" />
-                              <TableColumn prefWidth="75" text="Inventory" />
-                              <TableColumn prefWidth="75" text="Price/Cost per Unit" />
-                          </columns>
-                      </TableView>
-                      <TextField promptText="Search by Name or ID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                  </GridPane>
-               </AnchorPane>
+               <VBox>
+                   <AnchorPane minHeight="375" minWidth="450" prefHeight="375.0" prefWidth="450.0">
+                       <GridPane AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <columnConstraints>
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                               <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                               <RowConstraints minHeight="-Infinity" prefHeight="285.0" vgrow="SOMETIMES" />
+                               <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <Label text="Products" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                               <font>
+                                   <Font name="System Bold" size="16.0" />
+                               </font>
+                               <padding>
+                                   <Insets left="20.0" />
+                               </padding>
+                           </Label>
+                           <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                               <columns>
+                                   <TableColumn prefWidth="75.0" text="ID" />
+                                   <TableColumn prefWidth="75.0" text="Name" />
+                                   <TableColumn prefWidth="75.0" text="Inventory" />
+                                   <TableColumn prefWidth="75.0" text="Price/Cost Per Unit" />
+                               </columns>
+                           </TableView>
+                           <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                       </GridPane>
+                   </AnchorPane>
+               </VBox>
+               <VBox>
+                   <AnchorPane minHeight="375" minWidth="450" prefHeight="375.0" prefWidth="450.0">
+                       <GridPane AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <columnConstraints>
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                               <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                               <RowConstraints minHeight="-Infinity" prefHeight="285.0" vgrow="SOMETIMES" />
+                               <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <Label text="Parts" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                               <font>
+                                   <Font name="System Bold" size="16.0" />
+                               </font>
+                               <padding>
+                                   <Insets left="20" />
+                               </padding>
+                           </Label>
+                           <TableView prefHeight="200" prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                               <columns>
+                                   <TableColumn prefWidth="75" text="ID" />
+                                   <TableColumn prefWidth="75" text="Name" />
+                                   <TableColumn prefWidth="75" text="Inventory" />
+                                   <TableColumn prefWidth="75" text="Price/Cost per Unit" />
+                               </columns>
+                           </TableView>
+                           <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                       </GridPane>
+                   </AnchorPane>
+               </VBox>
            </HBox>
        </VBox>
 </AnchorPane>
