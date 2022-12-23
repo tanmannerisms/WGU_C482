@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <VBox minHeight="500" minWidth="900" prefHeight="500" prefWidth="900" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
     <AnchorPane minHeight="-Infinity" prefHeight="75.0" prefWidth="900.0">
          <Label layoutX="14.0" layoutY="24.0" text="Inventory Management">
@@ -48,7 +47,13 @@
                                 <TableColumn prefWidth="75.0" text="Price/Cost Per Unit" />
                             </columns>
                         </TableView>
-
+                        <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
+                            <buttons>
+                                <Button text="Add" />
+                                <Button text="Change" />
+                                <Button text="Delete" />
+                            </buttons>
+                        </ButtonBar>
                     </GridPane>
                 </AnchorPane>
             </VBox>
@@ -83,6 +88,13 @@
                                 <TableColumn prefWidth="75" text="Price/Cost per Unit" />
                             </columns>
                         </TableView>
+                        <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
+                            <buttons>
+                                <Button text="Add" />
+                                <Button text="Change" />
+                                <Button text="Delete" />
+                            </buttons>
+                        </ButtonBar>
                     </GridPane>
                 </AnchorPane>
                 <AnchorPane prefHeight="50.0" prefWidth="450">
