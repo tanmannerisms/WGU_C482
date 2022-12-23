@@ -8,10 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Added VBoxes as parents of the Anchor Panes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="adjust_gridPane" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -140,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671832606466</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down">
+      <created>1671833358878</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671833358878</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,7 +152,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -162,7 +172,8 @@
     <MESSAGE value="Set min width/height values for anchor panes in HBox" />
     <MESSAGE value="Altered the heights of the GridPanes in both HBox boxes to allow for room for the buttons." />
     <MESSAGE value="Added VBoxes as parents of the Anchor Panes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added VBoxes as parents of the Anchor Panes" />
+    <MESSAGE value="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
