@@ -8,9 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="workspace file changed??">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wgu/me/c482/InvManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wgu/me/c482/InvManagement.java" afterDir="false" />
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Got rid of the anchor pane wrapper and made the window not resizable.">
       <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671833358878</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Got rid of the anchor pane wrapper and made the window not resizable.">
+      <created>1671834155478</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671834155478</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,7 +182,8 @@
     <MESSAGE value="Altered the heights of the GridPanes in both HBox boxes to allow for room for the buttons." />
     <MESSAGE value="Added VBoxes as parents of the Anchor Panes" />
     <MESSAGE value="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AnchorPane wrappers and exit button.&#10;Also anchored some things down" />
+    <MESSAGE value="Got rid of the anchor pane wrapper and made the window not resizable." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got rid of the anchor pane wrapper and made the window not resizable." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
