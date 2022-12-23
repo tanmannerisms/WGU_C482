@@ -13,6 +13,7 @@ public class InvManagement  extends Application {
         Scene scene = new Scene(loader.load(), 900, 500);
         stage.setTitle("Home Page");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }
