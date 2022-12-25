@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
+    <AnchorPane>
+        <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+    </AnchorPane>
+    <AnchorPane>
+        <HBox>
+            <padding>
+                <Insets topRightBottomLeft="5" />
+            </padding>
+            <AnchorPane>
+                <padding>
+                    <Insets left="5" right="5" />
+                </padding>
+                <RadioButton mnemonicParsing="false" text="Internal" prefWidth="200"/>
+            </AnchorPane>
+            <AnchorPane>
+                <padding>
+                    <Insets left="5" right="5" />
+                </padding>
+                <RadioButton mnemonicParsing="false" text="Outsourced" prefWidth="200"/>
+            </AnchorPane>
+        </HBox>
+    </AnchorPane>
+    <AnchorPane>
+    </AnchorPane>
+    <AnchorPane>
+    </AnchorPane>
+</VBox>

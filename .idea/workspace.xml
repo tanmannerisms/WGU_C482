@@ -9,7 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Changed exit button position">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wgu/me/c482/FormContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wgu/me/c482/FormContoller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -50,6 +54,12 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
