@@ -8,12 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Changed exit button position">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" afterDir="false" />
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Initial add-part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wgu/me/c482/FormContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wgu/me/c482/FormContoller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/main-form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671835464987</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Initial add-part">
+      <created>1672010551048</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672010551048</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,7 +214,8 @@
     <MESSAGE value="Got rid of the anchor pane wrapper and made the window not resizable." />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Changed exit button position" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed exit button position" />
+    <MESSAGE value="Initial add-part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial add-part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
