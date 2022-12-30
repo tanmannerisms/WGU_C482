@@ -5,7 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox minHeight="500" minWidth="900" prefHeight="500" prefWidth="900" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
+<VBox minHeight="500"
+      minWidth="900"
+      prefHeight="500"
+      prefWidth="900"
+      xmlns="http://javafx.com/javafx/11.0.14-internal"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="wgu.me.c482.FormContoller" >
     <AnchorPane minHeight="-Infinity" prefHeight="75.0" prefWidth="900.0">
          <Label layoutX="14.0" layoutY="24.0" text="Inventory Management">
              <font>
@@ -49,9 +55,9 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button text="Add" />
-                                <Button text="Change" />
-                                <Button text="Delete" />
+                                <Button fx:id="add-product" text="Add" />
+                                <Button fx:id="change-product" text="Change" />
+                                <Button fx:id="delete-product" text="Delete" />
                             </buttons>
                         </ButtonBar>
                     </GridPane>
@@ -90,9 +96,9 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button text="Add" />
-                                <Button text="Change" />
-                                <Button text="Delete" />
+                                <Button fx:id="add-part" text="Add" />
+                                <Button fx:id="change-part" text="Change" />
+                                <Button fx:id="delete-part" text="Delete" />
                             </buttons>
                         </ButtonBar>
                     </GridPane>
