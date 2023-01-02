@@ -54,13 +54,13 @@
             <Label text="Min" GridPane.columnIndex="0" GridPane.rowIndex="4" />
             <Label text="Max" GridPane.columnIndex="0" GridPane.rowIndex="5" />
             <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <TextField editable="false" prefWidth="120.0" maxWidth="180.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         </GridPane>
       <padding>
          <Insets bottom="20.0" top="20.0" />
@@ -68,15 +68,11 @@
     </AnchorPane>
     <AnchorPane prefHeight="50" prefWidth="400">
         <HBox prefHeight="50" prefWidth="400">
-            <AnchorPane>
-                <Button text="Save">
-
-                </Button>
+            <AnchorPane prefWidth="200">
+                <Button prefHeight="25" prefWidth="75" text="Save" AnchorPane.bottomAnchor="12.5" AnchorPane.leftAnchor="62.5" AnchorPane.rightAnchor="62.5" AnchorPane.topAnchor="0" />
             </AnchorPane>
-            <AnchorPane>
-                <Button text="Cancel">
-
-                </Button>
+            <AnchorPane prefWidth="200">
+                <Button prefHeight="25" prefWidth="75" text="Cancel" AnchorPane.bottomAnchor="12.5" AnchorPane.leftAnchor="62.5" AnchorPane.rightAnchor="62.5" AnchorPane.topAnchor="0" />
             </AnchorPane>
         </HBox>
     </AnchorPane>

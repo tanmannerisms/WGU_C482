@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Initial add-part">
+    <list default="true" id="3aa49ceb-5c9d-49ff-84f7-27299f7de3d9" name="Changes" comment="Initial layout set for add-part.fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wgu/me/c482/add-part.fxml" afterDir="false" />
     </list>
@@ -182,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672010551048</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Initial layout set for add-part.fxml">
+      <created>1672196793721</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1672196793721</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,7 +222,8 @@
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Changed exit button position" />
     <MESSAGE value="Initial add-part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial add-part" />
+    <MESSAGE value="Initial layout set for add-part.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial layout set for add-part.fxml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
