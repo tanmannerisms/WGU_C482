@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormController">
     <HBox prefHeight="500">
         <AnchorPane prefWidth="450">
-            <VBox AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <VBox AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                 <AnchorPane prefHeight="50">
                     <Label text="Add Product" AnchorPane.bottomAnchor="15" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15">
                         <font>
@@ -69,14 +69,43 @@
                     <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                     <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 </GridPane>
+                <AnchorPane prefHeight="50" >
+                    <ButtonBar AnchorPane.bottomAnchor="10" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10">
+                        <buttons>
+                            <Button text="Save" />
+                            <Button text="Cancel" />
+                        </buttons>
+                    </ButtonBar>
+                </AnchorPane>
             </VBox>
         </AnchorPane>
         <AnchorPane prefWidth="450">
-            <VBox AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-                <AnchorPane prefHeight="230">
+            <VBox AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                <AnchorPane prefHeight="235">
+                    <TextField prefWidth="180" promptText="Search by Part ID or Name" AnchorPane.rightAnchor="35"/>
+                    <TableView prefHeight="170.0"
+                               prefWidth="400.0"
+                               AnchorPane.leftAnchor="0"
+                               AnchorPane.topAnchor="30">
+                        <columns>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                        </columns>
+                    </TableView>
+                    <Button text="Add Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
                 </AnchorPane>
-                <AnchorPane prefHeight="230">
-
+                <AnchorPane prefHeight="235">
+                    <TableView prefHeight="170.0" prefWidth="400.0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="30">
+                        <columns>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                        </columns>
+                    </TableView>
+                    <Button text="Remove Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
                 </AnchorPane>
             </VBox>
         </AnchorPane>
