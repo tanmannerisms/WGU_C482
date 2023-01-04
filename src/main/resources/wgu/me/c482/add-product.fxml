@@ -21,6 +21,7 @@
                         <ColumnConstraints hgrow="SOMETIMES" prefWidth="150" />
                         <ColumnConstraints hgrow="SOMETIMES" prefWidth="250" />
                     </columnConstraints>
+
                     <rowConstraints>
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
@@ -29,6 +30,7 @@
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                     </rowConstraints>
+
                     <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
                         <padding>
                             <Insets right="15.0" />
@@ -59,6 +61,13 @@
                             <Insets right="15.0" />
                         </padding>
                     </Label>
+
+                    <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 </GridPane>
             </VBox>
         </AnchorPane>
