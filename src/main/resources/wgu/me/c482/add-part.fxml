@@ -42,13 +42,41 @@
                 <RowConstraints minHeight="5" prefHeight="50" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="5" prefHeight="50" vgrow="SOMETIMES" />
             </rowConstraints>
-            <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
-            <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-            <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
-            <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+            <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                <padding>
+                   <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
+            <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" >
+                <padding>
+                    <Insets right="15.0" />
+                </padding>
+            </Label>
             <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
