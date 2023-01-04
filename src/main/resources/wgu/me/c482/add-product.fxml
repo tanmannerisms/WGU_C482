@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -28,7 +29,36 @@
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                     </rowConstraints>
-
+                    <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
                 </GridPane>
             </VBox>
         </AnchorPane>
