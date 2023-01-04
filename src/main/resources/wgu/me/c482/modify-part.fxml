@@ -7,7 +7,7 @@
 
 <VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
     <AnchorPane prefHeight="50">
-        <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5">
+        <Label text="Modify Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5">
             <padding>
                 <Insets topRightBottomLeft="10" />
             </padding>
@@ -72,7 +72,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <Label fx:id="machine_or_company" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
