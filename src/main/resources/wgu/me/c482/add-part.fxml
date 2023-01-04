@@ -17,11 +17,11 @@
         </Label>
     </AnchorPane>
     <AnchorPane>
-        <AnchorPane>
-            <RadioButton mnemonicParsing="false" prefWidth="190" text="Internal" />
+        <AnchorPane AnchorPane.leftAnchor="75" AnchorPane.rightAnchor="200">
+            <RadioButton mnemonicParsing="false" text="Internal" />
         </AnchorPane>
-        <AnchorPane>
-            <RadioButton mnemonicParsing="false" prefWidth="190" text="Outsourced" />
+        <AnchorPane AnchorPane.leftAnchor="225" AnchorPane.rightAnchor="0">
+            <RadioButton mnemonicParsing="false" text="Outsourced" />
         </AnchorPane>
     </AnchorPane>
     <AnchorPane prefWidth="400">
