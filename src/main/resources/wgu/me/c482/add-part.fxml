@@ -7,7 +7,7 @@
 
 <VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
     <AnchorPane prefHeight="50">
-        <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
+        <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5">
             <padding>
                 <Insets topRightBottomLeft="10" />
             </padding>
@@ -47,32 +47,32 @@
                    <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" >
+            <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" >
+            <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" >
+            <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" >
+            <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" >
+            <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" >
+            <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
