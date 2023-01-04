@@ -1,0 +1,55 @@
+Index: src/main/resources/wgu/me/c482/add-part.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.*?>\r\n<?import javafx.scene.control.*?>\r\n<?import javafx.scene.layout.*?>\r\n<?import javafx.scene.text.*?>\r\n\r\n<VBox prefHeight=\"600.0\" prefWidth=\"400.0\" xmlns=\"http://javafx.com/javafx/17.0.2-ea\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"wgu.me.c482.FormContoller\">\r\n    <AnchorPane>\r\n        <Label text=\"Add Part\" AnchorPane.bottomAnchor=\"5\" AnchorPane.leftAnchor=\"5\" AnchorPane.topAnchor=\"5\">\r\n            <padding>\r\n                <Insets topRightBottomLeft=\"10\" />\r\n            </padding>\r\n            <font>\r\n                <Font name=\"System Bold\" size=\"20.0\" />\r\n            </font>\r\n        </Label>\r\n    </AnchorPane>\r\n    <AnchorPane>\r\n        <HBox prefWidth=\"400\">\r\n            <padding>\r\n                <Insets topRightBottomLeft=\"5\" />\r\n            </padding>\r\n            <AnchorPane>\r\n                <RadioButton mnemonicParsing=\"false\" prefWidth=\"190\" text=\"Internal\" />\r\n            </AnchorPane>\r\n            <AnchorPane>\r\n                <RadioButton mnemonicParsing=\"false\" prefWidth=\"190\" text=\"Outsourced\" />\r\n            </AnchorPane>\r\n        </HBox>\r\n    </AnchorPane>\r\n    <AnchorPane prefWidth=\"400\">\r\n        <GridPane AnchorPane.bottomAnchor=\"20.0\" AnchorPane.leftAnchor=\"20\" AnchorPane.rightAnchor=\"20\" AnchorPane.topAnchor=\"20.0\">\r\n            <padding>\r\n                <Insets bottom=\"5.0\" left=\"5.0\" right=\"5.0\" top=\"5.0\" />\r\n            </padding>\r\n            <columnConstraints>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"100\" prefWidth=\"120\" />\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"24\" prefWidth=\"240\" />\r\n            </columnConstraints>\r\n            <rowConstraints>\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n                <RowConstraints minHeight=\"5\" prefHeight=\"50\" vgrow=\"SOMETIMES\" />\r\n            </rowConstraints>\r\n\r\n            <Label prefWidth=\"120\" text=\"ID\" GridPane.rowIndex=\"0\" />\r\n            <Label text=\"Name\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"1\" />\r\n            <Label text=\"Inv\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"2\" />\r\n            <Label text=\"Price/Cost\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"3\" />\r\n            <Label text=\"Min\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"4\" />\r\n            <Label text=\"Max\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"5\" />\r\n            <Label fx:id=\"machine_or_comp\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"6\" />\r\n\r\n            <TextField editable=\"false\" prefWidth=\"120.0\" maxWidth=\"180.0\" promptText=\"Auto-Generated\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"0\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"1\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"2\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"3\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"4\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"5\" />\r\n            <TextField prefWidth=\"120\" maxWidth=\"180.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"6\" />\r\n        </GridPane>\r\n      <padding>\r\n         <Insets bottom=\"20.0\" top=\"20.0\" />\r\n      </padding>\r\n    </AnchorPane>\r\n    <AnchorPane prefHeight=\"50\" prefWidth=\"400\">\r\n        <HBox prefHeight=\"50\" prefWidth=\"400\">\r\n            <AnchorPane>\r\n                <Button text=\"Save\">\r\n\r\n                </Button>\r\n            </AnchorPane>\r\n            <AnchorPane>\r\n                <Button text=\"Cancel\">\r\n\r\n                </Button>\r\n            </AnchorPane>\r\n        </HBox>\r\n    </AnchorPane>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/wgu/me/c482/add-part.fxml b/src/main/resources/wgu/me/c482/add-part.fxml
+--- a/src/main/resources/wgu/me/c482/add-part.fxml	(revision 47c0745b4742ae6e90ba85ee46bdba724aadd96e)
++++ b/src/main/resources/wgu/me/c482/add-part.fxml	(date 1672684227400)
+@@ -5,7 +5,7 @@
+ <?import javafx.scene.layout.*?>
+ <?import javafx.scene.text.*?>
+ 
+-<VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
++<VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormContoller">
+     <AnchorPane>
+         <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5">
+             <padding>
+@@ -51,18 +51,26 @@
+             <Label prefWidth="120" text="ID" GridPane.rowIndex="0" />
+             <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+             <Label text="Inv" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+-            <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+-            <Label text="Min" GridPane.columnIndex="0" GridPane.rowIndex="4" />
++            <Label text="Price/Cost" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="3">
++                <padding>
++                    <Insets left="50.0" />
++                </padding>
++            </Label>
++            <Label text="Min" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="4">
++                <padding>
++                   <Insets left="50.0" />
++                </padding>
++            </Label>
+             <Label text="Max" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+             <Label fx:id="machine_or_comp" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+ 
+-            <TextField editable="false" prefWidth="120.0" maxWidth="180.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+-            <TextField prefWidth="120" maxWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
++            <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="4" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="5" />
++            <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </GridPane>
+       <padding>
+          <Insets bottom="20.0" top="20.0" />

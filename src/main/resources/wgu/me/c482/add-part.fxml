@@ -17,17 +17,12 @@
         </Label>
     </AnchorPane>
     <AnchorPane>
-        <HBox prefWidth="400">
-            <padding>
-                <Insets topRightBottomLeft="5" />
-            </padding>
-            <AnchorPane>
-                <RadioButton mnemonicParsing="false" prefWidth="190" text="Internal" />
-            </AnchorPane>
-            <AnchorPane>
-                <RadioButton mnemonicParsing="false" prefWidth="190" text="Outsourced" />
-            </AnchorPane>
-        </HBox>
+        <AnchorPane AnchorPane.leftAnchor="75" AnchorPane.rightAnchor="200">
+            <RadioButton mnemonicParsing="false" text="Internal" />
+        </AnchorPane>
+        <AnchorPane AnchorPane.leftAnchor="225" AnchorPane.rightAnchor="0">
+            <RadioButton mnemonicParsing="false" text="Outsourced" />
+        </AnchorPane>
     </AnchorPane>
     <AnchorPane prefWidth="400">
         <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20.0">
