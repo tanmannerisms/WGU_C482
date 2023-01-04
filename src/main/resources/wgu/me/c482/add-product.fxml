@@ -72,7 +72,13 @@
             </VBox>
         </AnchorPane>
         <AnchorPane prefWidth="450">
+            <VBox AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                <AnchorPane prefHeight="230">
+                </AnchorPane>
+                <AnchorPane prefHeight="230">
 
+                </AnchorPane>
+            </VBox>
         </AnchorPane>
     </HBox>
 </AnchorPane>
