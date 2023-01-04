@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="wgu.me.c482.AddProduct"
+            fx:controller="wgu.me.c482.FormController"
             prefHeight="500.0" prefWidth="900.0">
     <HBox prefHeight="500">
         <AnchorPane prefWidth="450">
