@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.FormController">
+    <HBox prefHeight="500">
+        <AnchorPane prefWidth="450">
+            <VBox AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                <AnchorPane prefHeight="50">
+                    <Label text="Modify Product" AnchorPane.bottomAnchor="15" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="150" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="250" />
+                    </columnConstraints>
+
+                    <rowConstraints>
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
+                    </rowConstraints>
+
+                    <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Name" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Min" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+                    <Label text="Max" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                        <padding>
+                            <Insets right="15.0" />
+                        </padding>
+                    </Label>
+
+                    <TextField editable="false" maxWidth="180.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField maxWidth="80.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                </GridPane>
+                <AnchorPane prefHeight="50" >
+                    <ButtonBar AnchorPane.bottomAnchor="10" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10">
+                        <buttons>
+                            <Button text="Save" />
+                            <Button text="Cancel" />
+                        </buttons>
+                    </ButtonBar>
+                </AnchorPane>
+            </VBox>
+        </AnchorPane>
+        <AnchorPane prefWidth="450">
+            <VBox AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                <AnchorPane prefHeight="235">
+                    <TextField prefWidth="180" promptText="Search by Part ID or Name" AnchorPane.rightAnchor="35"/>
+                    <TableView prefHeight="170.0"
+                               prefWidth="400.0"
+                               AnchorPane.leftAnchor="0"
+                               AnchorPane.topAnchor="30">
+                        <columns>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                        </columns>
+                    </TableView>
+                    <Button text="Add Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
+                </AnchorPane>
+                <AnchorPane prefHeight="235">
+                    <TableView prefHeight="170.0" prefWidth="400.0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="30">
+                        <columns>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                        </columns>
+                    </TableView>
+                    <Button text="Remove Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
+                </AnchorPane>
+            </VBox>
+        </AnchorPane>
+    </HBox>
+</AnchorPane>
