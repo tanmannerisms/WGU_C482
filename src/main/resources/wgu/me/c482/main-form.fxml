@@ -55,9 +55,9 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button fx:id="add-product" text="Add" />
-                                <Button fx:id="change-product" text="Change" />
-                                <Button fx:id="delete-product" text="Delete" />
+                                <Button text="Add" />
+                                <Button text="Change" />
+                                <Button text="Delete" />
                             </buttons>
                         </ButtonBar>
                     </GridPane>
@@ -96,9 +96,9 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button fx:id="add-part" text="Add" />
-                                <Button fx:id="change-part" text="Change" />
-                                <Button fx:id="delete-part" text="Delete" />
+                                <Button text="Add" />
+                                <Button text="Change" />
+                                <Button text="Delete" />
                             </buttons>
                         </ButtonBar>
                     </GridPane>
