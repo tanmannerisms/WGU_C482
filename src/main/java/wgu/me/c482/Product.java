@@ -77,6 +77,6 @@ public class Product {
     }
 
     public ObservableList<Part> getAllAssociatedParts() {
-
+        return this.associatedParts;
     }
 }
