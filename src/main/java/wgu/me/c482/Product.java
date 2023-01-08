@@ -69,11 +69,11 @@ public class Product {
     }
 
     public void addAssociatedPart(Part part) {
-
+        this.associatedParts.add(part);
     }
 
     public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
-
+        return this.associatedParts.remove(selectedAssociatedPart);
     }
 
     public ObservableList<Part> getAllAssociatedParts() {
