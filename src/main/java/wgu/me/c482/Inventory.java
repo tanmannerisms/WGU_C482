@@ -5,8 +5,8 @@ import javafx.collections.ObservableList;
 import java.util.*;
 
 public class Inventory {
-    private ObservableList allParts;
-    private ObservableList allProducts;
+    private ObservableList<Part> allParts;
+    private ObservableList<Product> allProducts;
 
     public void addPart(Part part) {
         this.allParts.add(part);
@@ -18,7 +18,7 @@ public class Inventory {
 
     public Part lookupPart(int partId) {
 
-    }
+}
 
     public Product lookupProduct(int productId) {
 

@@ -45,11 +45,11 @@ public class Product {
     }
 
     public int getId() {
-        return this.id
+        return this.id;
     }
 
     public String getName() {
-        return this.name
+        return this.name;
     }
 
     public double getPrice() {
