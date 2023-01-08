@@ -9,11 +9,11 @@ public class Inventory {
     private ObservableList allProducts;
 
     public void addPart(Part part) {
-
+        this.allParts.add(part);
     }
 
     public void addProduct(Product product) {
-
+        this.allProducts.add(product);
     }
 
     public Part lookupPart(int partId) {
@@ -33,25 +33,25 @@ public class Inventory {
     }
 
     public void updatePart(int index, Part selectedPart) {
-
+        this.allParts.set(index, selectedPart);
     }
 
     public void updateProduct(int index, Product newProduct) {
-
+        this.allProducts.set(index, newProduct);
     }
 
     public boolean deletePart(Part selectedPart) {
-
+        return this.allParts.remove(selectedPart);
     }
 
     public boolean deleteProduct(Product selectedProduct) {
-
+        return this.allProducts.remove(selectedProduct);
     }
 
     public ObservableList<Part> getAllParts() {
-
+        return this.allParts;
     }
     public ObservableList<Product> getAllProducts() {
-
+        return this.allProducts;
     }
 }
