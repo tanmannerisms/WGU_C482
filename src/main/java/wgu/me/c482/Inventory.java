@@ -17,19 +17,19 @@ public class Inventory {
     }
 
     public Part lookupPart(int partId) {
-
-}
+        return this.allParts.get(partId);
+    }
 
     public Product lookupProduct(int productId) {
-
+        return this.allProducts.get(productId);
     }
 
     public ObservableList<Part> lookupPart(String partName) {
-
+        return this.allParts;
     }
 
     public ObservableList<Product> lookupProduct(String productName) {
-
+        return this.allProducts;
     }
 
     public void updatePart(int index, Part selectedPart) {
