@@ -72,7 +72,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label fx:id="machine_or_company" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <Label  GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
