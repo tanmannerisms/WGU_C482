@@ -17,14 +17,17 @@ public class InvManagement extends Application {
     FXMLLoader addPartLoader = new FXMLLoader(InvManagement.class.getResource("add-part.fxml"));
 
     @Override
-    public void start(Stage mainStage) throws Exception {
-        this.mainStage = mainStage;
+    public void start(Stage stage) throws Exception {
+        this.mainStage = stage;
         FXMLLoader mainForm = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));
         Scene mainScene = new Scene(mainForm.load(), 900, 500);
-        this.mainStage.setTitle("Home Page");
-        this.mainStage.setScene(mainScene);
-        this.mainStage.setResizable(false);
-        this.mainStage.show();
+        mainStage.setTitle("Home Page");
+        mainStage.setScene(mainScene);
+        mainStage.setResizable(false);
+        mainStage.show();
+        if(mainStage != null) {
+            System.out.println("mainStage initialized");
+        }
     }
 
     @FXML
@@ -43,6 +46,6 @@ public class InvManagement extends Application {
 
     @FXML
     public void exit() {
-        this.mainStage.close();
+        mainStage.close();
     }
 }
