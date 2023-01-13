@@ -25,9 +25,6 @@ public class InvManagement extends Application {
         mainStage.setScene(mainScene);
         mainStage.setResizable(false);
         mainStage.show();
-        if(mainStage != null) {
-            System.out.println("mainStage initialized");
-        }
     }
 
     @FXML
