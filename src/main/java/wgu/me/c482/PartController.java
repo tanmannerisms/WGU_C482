@@ -1,4 +1,8 @@
 package wgu.me.c482;
 
-public class PartController {
+public class PartController extends Controller{
+    @Override
+    void exit() {
+
+    }
 }
