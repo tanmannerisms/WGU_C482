@@ -11,7 +11,7 @@
       prefWidth="900"
       xmlns="http://javafx.com/javafx/11.0.14-internal"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="wgu.me.c482.InvManagement" >
+      fx:controller="wgu.me.c482.MainController" >
     <AnchorPane minHeight="-Infinity" prefHeight="75.0" prefWidth="900.0">
          <Label layoutX="14.0" layoutY="24.0" text="Inventory Management">
              <font>
@@ -55,7 +55,7 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button onAction="#switchScene" text="Add" />
+                                <Button text="Add" />
                                 <Button text="Change" />
                                 <Button text="Delete" />
                             </buttons>
@@ -104,7 +104,7 @@
                     </GridPane>
                 </AnchorPane>
                 <AnchorPane prefHeight="50.0" prefWidth="450">
-                    <Button fx:id="exitButton" onAction="#exit" prefHeight="25.0" prefWidth="75.0" text="EXIT" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="6.0">
+                    <Button prefHeight="25.0" prefWidth="75.0" text="EXIT" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="6.0">
                         <font>
                             <Font name="System Bold" size="14.0" />
                         </font>
