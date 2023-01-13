@@ -6,14 +6,24 @@ import javafx.scene.Scene;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 
-public class InvManagement  extends Application {
+public class InvManagement extends Application {
+    public Stage mainStage;
+    public Scene addPartScene;
+    public Scene addProductScene;
     @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));
-        Scene scene = new Scene(loader.load(), 900, 500);
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+    public void start(Stage mainStage) throws Exception {
+        FXMLLoader mainForm = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));
+        Scene mainScene = new Scene(mainForm.load(), 900, 500);
+        mainStage.setTitle("Home Page");
+        mainStage.setScene(mainScene);
+        mainStage.setResizable(false);
+        mainStage.show();
+
+
+    }
+
+    public void switchScene(Scene nextScene) {
+        mainStage.setScene(nextScene);
+        mainStage.show();
     }
 }
