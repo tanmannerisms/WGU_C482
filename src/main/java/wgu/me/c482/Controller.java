@@ -33,18 +33,16 @@ abstract class Controller {
 
     private void createStage() {
         nextStage = new Stage();
-        nextStage.setScene(nextScene);
-
     }
     private void createFXMLLoader(String file) {
         nextLoader = new FXMLLoader(Controller.class.getResource(file));
-
     }
     private void createScene() {
         try {
             nextScene = new Scene(nextLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("XML file could not be loaded.");
         }
     }
 }
