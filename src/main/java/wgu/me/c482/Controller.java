@@ -8,21 +8,32 @@ import java.io.IOException;
 
 abstract class Controller {
     protected String title;
-    protected Stage currentStage;
-    protected FXMLLoader currentLoader;
-    protected Scene currentScene;
+    protected Stage stage;
+    protected FXMLLoader loader;
+    protected Scene scene;
 
     private static Stage nextStage;
     private static FXMLLoader nextLoader;
     private static Scene nextScene;
 
     Controller() {
-        title = "Title";
+        title = "Default Title";
+    }
+    Controller(String file, String title) {
+        this.title = title;
+        this.loader = new FXMLLoader(Controller.class.getResource(file));
+        try {
+            this.scene = new Scene(this.loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("XML file could not be loaded.");
+        }
+        this.stage = new Stage();
     }
 
-    public void exit() {
-
-    };
+    public void closeWindow() {
+        this.stage.close();
+    }
     abstract void cancel();
     protected static void newWindow(String file, String title) {
         createFXMLLoader(file);
