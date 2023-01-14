@@ -12,6 +12,7 @@ import java.net.URL;
 import javafx.fxml.FXMLLoader;
 
 public class InvManagement extends Application {
+    //public String mainFormXml = "main-form.fxml";
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader mainForm = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));

@@ -96,7 +96,7 @@
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button text="Add" />
+                                <Button onAction="#addPartSceneChange" text="Add" />
                                 <Button text="Change" />
                                 <Button text="Delete" />
                             </buttons>
