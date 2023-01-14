@@ -5,4 +5,8 @@ public class PartController extends Controller{
     void exit() {
 
     }
+    @Override
+    void cancel() {
+
+    }
 }

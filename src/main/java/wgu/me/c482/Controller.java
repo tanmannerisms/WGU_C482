@@ -21,6 +21,7 @@ abstract class Controller {
     }
 
     abstract void exit();
+    abstract void cancel();
     protected void newWindow(String file) {
         createFXMLLoader(file);
         createScene();

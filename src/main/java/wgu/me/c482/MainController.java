@@ -15,4 +15,8 @@ public class MainController extends Controller{
     void exit() {
 
     }
+    @Override
+    void cancel() {
+
+    }
 }
