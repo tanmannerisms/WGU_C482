@@ -1,6 +1,6 @@
 package wgu.me.c482;
 
-public class ProjectController extends Controller{
+public class ProductController extends Controller{
 
     @Override
     void exit() {
