@@ -20,10 +20,6 @@ public class MainController extends Controller{
         newWindow(addProductXml, addProductTitle);
     }
     @Override
-    void exit() {
-
-    }
-    @Override
     void cancel() {
 
     }

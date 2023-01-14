@@ -20,7 +20,9 @@ abstract class Controller {
         title = "Title";
     }
 
-    abstract void exit();
+    public void exit() {
+
+    };
     abstract void cancel();
     protected static void newWindow(String file, String title) {
         createFXMLLoader(file);
