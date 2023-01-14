@@ -22,7 +22,7 @@ abstract class Controller {
 
     abstract void exit();
     abstract void cancel();
-    protected void newWindow(String file) {
+    protected static void newWindow(String file, String title) {
         createFXMLLoader(file);
         createScene();
         createStage();
@@ -31,13 +31,13 @@ abstract class Controller {
         nextStage.showAndWait();
     }
 
-    private void createStage() {
+    private static void createStage() {
         nextStage = new Stage();
     }
-    private void createFXMLLoader(String file) {
+    private static void createFXMLLoader(String file) {
         nextLoader = new FXMLLoader(Controller.class.getResource(file));
     }
-    private void createScene() {
+    private static void createScene() {
         try {
             nextScene = new Scene(nextLoader.load());
         } catch (IOException e) {
