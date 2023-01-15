@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 abstract class Controller {
+    protected String file;
     protected String title;
     protected Stage stage;
     protected FXMLLoader loader;
@@ -20,22 +21,24 @@ abstract class Controller {
         title = "Default Title";
     }
     Controller(String file, String title) {
+        this.file = file;
         this.title = title;
-        this.loader = createLoader(file);
-        try {
-            this.scene = new Scene(this.loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("XML file could not be loaded.");
-        }
+        createLoader();
+        createScene();
         this.stage = new Stage();
         this.stage.setScene(this.scene);
         this.stage.show();
     }
-
-    private FXMLLoader createLoader(String file) {
-        FXMLLoader loader = new FXMLLoader(Controller.class.getResource(file));
-        return loader;
+    private void createLoader() {
+        loader = new FXMLLoader(Controller.class.getResource(file));
+    }
+    private void createScene() {
+        try {
+            scene = new Scene(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("XML file " + file + " could not be loaded.");
+        }
     }
 
     public void closeWindow() {
@@ -44,7 +47,7 @@ abstract class Controller {
     abstract void cancel();
     protected static void newWindow(String file, String title) {
         createFXMLLoader(file);
-        createScene();
+        createdScene();
         createStage();
         nextStage.setTitle(title);
         nextStage.setScene(nextScene);
@@ -56,7 +59,7 @@ abstract class Controller {
     private static void createFXMLLoader(String file) {
         nextLoader = new FXMLLoader(Controller.class.getResource(file));
     }
-    private static void createScene() {
+    private static void createdScene() {
         try {
             nextScene = new Scene(nextLoader.load());
         } catch (IOException e) {
