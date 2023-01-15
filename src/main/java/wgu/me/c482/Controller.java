@@ -21,7 +21,7 @@ abstract class Controller {
     }
     Controller(String file, String title) {
         this.title = title;
-        this.loader = new FXMLLoader(Controller.class.getResource(file));
+        this.loader = createLoader(file);
         try {
             this.scene = new Scene(this.loader.load());
         } catch (IOException e) {
@@ -31,6 +31,11 @@ abstract class Controller {
         this.stage = new Stage();
         this.stage.setScene(this.scene);
         this.stage.show();
+    }
+
+    private FXMLLoader createLoader(String file) {
+        FXMLLoader loader = new FXMLLoader(Controller.class.getResource(file));
+        return loader;
     }
 
     public void closeWindow() {
