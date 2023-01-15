@@ -29,6 +29,8 @@ abstract class Controller {
             System.out.println("XML file could not be loaded.");
         }
         this.stage = new Stage();
+        this.stage.setScene(this.scene);
+        this.stage.show();
     }
 
     public void closeWindow() {
@@ -43,7 +45,6 @@ abstract class Controller {
         nextStage.setScene(nextScene);
         nextStage.showAndWait();
     }
-
     private static void createStage() {
         nextStage = new Stage();
     }
