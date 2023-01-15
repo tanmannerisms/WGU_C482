@@ -15,11 +15,16 @@ public class InvManagement extends Application {
     //public String mainFormXml = "main-form.fxml";
     @Override
     public void start(Stage stage) throws Exception {
+        /*
         FXMLLoader mainForm = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));
         Scene mainScene = new Scene(mainForm.load(), 900, 500);
         stage.setTitle("Home Page");
         stage.setScene(mainScene);
         stage.setResizable(false);
         stage.show();
+         */
+
+        MainController main = new MainController();
+        main.newWindow("main-form.fxml", "Home");
     }
 }
