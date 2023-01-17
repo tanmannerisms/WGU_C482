@@ -20,16 +20,23 @@ public class MainController extends Controller{
     @FXML
     private void changeProductSceneChange() {
         newSceneFile = "modify-product.fxml";
-        newSceneTitle = "Change Product";
+        newSceneTitle = "Edit Product";
         ProductController changeProductController = new ProductController(newSceneFile, newSceneTitle);
         changeProductController.showStage();
     }
     @FXML
     private void addPartSceneChange() {
         newSceneFile = "add-part.fxml";
-        newSceneTitle = "Add-Part";
+        newSceneTitle = "Add Part";
         PartController addpartController = new PartController(newSceneFile, newSceneTitle);
         addpartController.showStage();
+    }
+    @FXML
+    private void changePartSceneChange() {
+        newSceneFile = "modify-part.fxml";
+        newSceneTitle = "Edit Part";
+        PartController changePartController = new PartController(newSceneFile, newSceneTitle);
+        changePartController.showStage();
     }
     @Override
     void cancel() {
