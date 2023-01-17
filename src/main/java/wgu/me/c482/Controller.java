@@ -13,10 +13,6 @@ abstract class Controller {
     private FXMLLoader fxmlLoader;
     private Scene scene;
 
-    private static Stage nextStage;
-    private static FXMLLoader nextLoader;
-    private static Scene nextScene;
-
     public Controller() {
         title = "Default Title";
     }
@@ -56,27 +52,4 @@ abstract class Controller {
         this.stage.close();
     }
     abstract void cancel();
-    public static void newWindow(String file, String title) {
-        createFXMLLoader(file);
-        createScene();
-        createStage();
-        nextStage.setTitle(title);
-        nextStage.setScene(nextScene);
-        nextStage.showAndWait();
-    }
-
-    private static void createFXMLLoader(String file) {
-        nextLoader = new FXMLLoader(Controller.class.getResource(file));
-    }
-    private static void createScene() {
-        try {
-            nextScene = new Scene(nextLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("XML file could not be loaded.");
-        }
-    }
-    private static void createStage() {
-        nextStage = new Stage();
-    }
 }
