@@ -27,16 +27,16 @@ abstract class Controller {
         setScene();
         setStage();
     }
-    public void setFile(String file) {
+    private void setFile(String file) {
         fxmlFile  = file;
     }
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
-    public void setFxmlLoader() {
+    private void setFxmlLoader() {
         fxmlLoader = new FXMLLoader(Controller.class.getResource(fxmlFile));
     }
-    public void setScene() {
+    private void setScene() {
         try {
             scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
