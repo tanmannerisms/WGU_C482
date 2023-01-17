@@ -5,10 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainController extends Controller{
-    private static String addPartXml = "add-part.fxml";
-    private static String addPartTitle = "Add-Part";
-    private static String addProductXml = "add-product.fxml";
-    private static String addProductTitle = "Add-Product";
 
     public MainController() {
         super();
@@ -18,12 +14,18 @@ public class MainController extends Controller{
     }
     @FXML
     public void addPartSceneChange() {
-        newWindow(addPartXml, addPartTitle);
+        String addPartXml = "add-part.fxml";
+        String addPartTitle = "Add-Part";
+        PartController addpartController = new PartController(addPartXml, addPartTitle);
+        addpartController.showStage();
     }
 
     @FXML
     public void addProductSceneChange() {
-        newWindow(addProductXml, addProductTitle);
+        String addProductXml = "add-product.fxml";
+        String addProductTitle = "Add-Product";
+        Controller addProductController = new ProductController(addProductXml, addProductTitle);
+        addProductController.showStage();
     }
     @Override
     void cancel() {
