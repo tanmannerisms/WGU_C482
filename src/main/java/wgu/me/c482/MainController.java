@@ -13,7 +13,7 @@ public class MainController extends Controller{
         super(file, title);
     }
     @FXML
-    public void addPartSceneChange() {
+    private void addPartSceneChange() {
         String addPartXml = "add-part.fxml";
         String addPartTitle = "Add-Part";
         PartController addpartController = new PartController(addPartXml, addPartTitle);
@@ -21,7 +21,7 @@ public class MainController extends Controller{
     }
 
     @FXML
-    public void addProductSceneChange() {
+    private void addProductSceneChange() {
         String addProductXml = "add-product.fxml";
         String addProductTitle = "Add-Product";
         Controller addProductController = new ProductController(addProductXml, addProductTitle);
