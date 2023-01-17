@@ -56,7 +56,7 @@
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
                                 <Button onAction="#addProductSceneChange" text="Add" />
-                                <Button text="Change" />
+                                <Button onAction="#changeProductSceneChange" text="Change" />
                                 <Button text="Delete" />
                             </buttons>
                         </ButtonBar>

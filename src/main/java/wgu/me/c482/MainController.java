@@ -1,8 +1,6 @@
 package wgu.me.c482;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class MainController extends Controller{
 
@@ -21,9 +19,10 @@ public class MainController extends Controller{
     }
     @FXML
     private void changeProductSceneChange() {
-        newSceneFile = "change-product.fxml";
+        newSceneFile = "modify-product.fxml";
         newSceneTitle = "Change Product";
-
+        ProductController changeProductController = new ProductController(newSceneFile, newSceneTitle);
+        changeProductController.showStage();
     }
     @FXML
     private void addPartSceneChange() {
