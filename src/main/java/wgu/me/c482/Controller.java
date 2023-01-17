@@ -7,64 +7,76 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 abstract class Controller {
-    protected String file;
-    protected String title;
-    protected Stage stage;
-    protected FXMLLoader loader;
-    protected Scene scene;
+    private String fxmlFile;
+    private String title;
+    private Stage stage;
+    private FXMLLoader fxmlLoader;
+    private Scene scene;
 
     private static Stage nextStage;
     private static FXMLLoader nextLoader;
     private static Scene nextScene;
 
-    Controller() {
+    public Controller() {
         title = "Default Title";
     }
-    Controller(String file, String title) {
-        this.file = file;
+    public Controller(String file, String title) {
+        setFile(file);
+        setTitle(title);
+        setFxmlLoader();
+        setScene();
+        setStage();
+    }
+    private void setFile(String file) {
+        fxmlFile  = file;
+    }
+    private void setTitle(String title) {
         this.title = title;
-        createLoader();
-        createScene();
-        this.stage = new Stage();
-        this.stage.setScene(this.scene);
-        this.stage.show();
     }
-    private void createLoader() {
-        loader = new FXMLLoader(Controller.class.getResource(file));
+    private void setFxmlLoader() {
+        fxmlLoader = new FXMLLoader(Controller.class.getResource(fxmlFile));
     }
-    private void createScene() {
+    private void setScene() {
         try {
-            scene = new Scene(loader.load());
+            scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("XML file " + file + " could not be loaded.");
+            System.out.println("XML file " + fxmlFile + " could not be loaded");
         }
     }
-
-    public void closeWindow() {
+    private void setStage() {
+        stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(scene);
+    }
+    protected void showStage() {
+        stage.show();
+    }
+    protected void closeWindow() {
         this.stage.close();
     }
     abstract void cancel();
-    protected static void newWindow(String file, String title) {
+    public static void newWindow(String file, String title) {
         createFXMLLoader(file);
-        createdScene();
+        createScene();
         createStage();
         nextStage.setTitle(title);
         nextStage.setScene(nextScene);
         nextStage.showAndWait();
     }
-    private static void createStage() {
-        nextStage = new Stage();
-    }
+
     private static void createFXMLLoader(String file) {
         nextLoader = new FXMLLoader(Controller.class.getResource(file));
     }
-    private static void createdScene() {
+    private static void createScene() {
         try {
             nextScene = new Scene(nextLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("XML file could not be loaded.");
         }
+    }
+    private static void createStage() {
+        nextStage = new Stage();
     }
 }

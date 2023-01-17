@@ -25,5 +25,6 @@ public class InvManagement extends Application {
          */
 
         MainController main = new MainController("main-form.fxml", "Home");
+        main.showStage();
     }
 }

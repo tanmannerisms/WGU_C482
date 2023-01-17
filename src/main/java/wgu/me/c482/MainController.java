@@ -10,10 +10,9 @@ public class MainController extends Controller{
     private static String addProductXml = "add-product.fxml";
     private static String addProductTitle = "Add-Product";
 
-    MainController() {
+    public MainController() {
         super();
     }
-
     MainController(String file, String title) {
         super(file, title);
     }
