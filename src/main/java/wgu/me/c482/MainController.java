@@ -10,14 +10,20 @@ public class MainController extends Controller{
     private static String addProductXml = "add-product.fxml";
     private static String addProductTitle = "Add-Product";
 
+    public MainController() {
+        super();
+    }
+    MainController(String file, String title) {
+        super(file, title);
+    }
     @FXML
     public void addPartSceneChange() {
-        newWindow(addPartXml, addPartTitle);
+        //newWindow(addPartXml, addPartTitle);
     }
 
     @FXML
     public void addProductSceneChange() {
-        newWindow(addProductXml, addProductTitle);
+        //newWindow(addProductXml, addProductTitle);
     }
     @Override
     void cancel() {
