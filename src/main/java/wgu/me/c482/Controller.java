@@ -49,7 +49,7 @@ abstract class Controller {
         stage.setTitle(title);
         stage.setScene(scene);
     }
-    public void showStage() {
+    protected void showStage() {
         stage.show();
     }
     protected void closeWindow() {

@@ -18,12 +18,12 @@ public class MainController extends Controller{
     }
     @FXML
     public void addPartSceneChange() {
-        //newWindow(addPartXml, addPartTitle);
+        newWindow(addPartXml, addPartTitle);
     }
 
     @FXML
     public void addProductSceneChange() {
-        //newWindow(addProductXml, addProductTitle);
+        newWindow(addProductXml, addProductTitle);
     }
     @Override
     void cancel() {
