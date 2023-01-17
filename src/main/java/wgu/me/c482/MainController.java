@@ -14,16 +14,22 @@ public class MainController extends Controller{
     }
     @FXML
     private void addProductSceneChange() {
-        String addProductXml = "add-product.fxml";
-        String addProductTitle = "Add-Product";
-        Controller addProductController = new ProductController(addProductXml, addProductTitle);
+        newSceneFile = "add-product.fxml";
+        newSceneTitle = "Add-Product";
+        ProductController addProductController = new ProductController(newSceneFile, newSceneTitle);
         addProductController.showStage();
     }
     @FXML
+    private void changeProductSceneChange() {
+        newSceneFile = "change-product.fxml";
+        newSceneTitle = "Change Product";
+
+    }
+    @FXML
     private void addPartSceneChange() {
-        String addPartXml = "add-part.fxml";
-        String addPartTitle = "Add-Part";
-        PartController addpartController = new PartController(addPartXml, addPartTitle);
+        newSceneFile = "add-part.fxml";
+        newSceneTitle = "Add-Part";
+        PartController addpartController = new PartController(newSceneFile, newSceneTitle);
         addpartController.showStage();
     }
     @Override

@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 abstract class Controller {
+    protected static String newSceneFile;
+    protected static String newSceneTitle;
+
     private String fxmlFile;
     private String title;
     private Stage stage;
