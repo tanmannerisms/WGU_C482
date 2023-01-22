@@ -12,7 +12,6 @@ import java.net.URL;
 import javafx.fxml.FXMLLoader;
 
 public class InvManagement extends Application {
-    //public String mainFormXml = "main-form.fxml";
     @Override
     public void start(Stage stage) throws Exception {
         /*
@@ -26,5 +25,6 @@ public class InvManagement extends Application {
 
         Controller main = new MainController("main-form.fxml", "Home");
         main.showStage();
+        Inventory inventory = new Inventory();
     }
 }
