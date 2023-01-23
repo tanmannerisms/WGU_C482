@@ -1,6 +1,7 @@
 package wgu.me.c482;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -50,6 +51,14 @@ abstract class Controller {
     }
     protected void showStage() {
         stage.show();
+    }
+    public static int getIntFromTextField(TextField textField) {
+        String text = textField.getText();
+        return Integer.parseInt(text);
+    }
+    public static double getDoubleFromTextField(TextField textField) {
+        String text = textField.getText();
+        return Double.parseDouble(text);
     }
     protected void closeWindow() {
         this.stage.close();
