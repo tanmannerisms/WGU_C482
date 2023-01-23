@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
-    private int partInventory, partMin, partMax, partMachineId;
+    private int partId, partInventory, partMin, partMax, partMachineId;
     private double partPrice;
 
     @FXML
@@ -38,6 +38,9 @@ public class PartController extends Controller {
         partCompanyName = sourceTypeField.getText();
     }
 
+    private void assignPartId() {
+
+    }
     @Override
     void cancel() {
     }
