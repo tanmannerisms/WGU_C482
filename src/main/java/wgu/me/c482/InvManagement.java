@@ -23,8 +23,8 @@ public class InvManagement extends Application {
         stage.show();
          */
 
-        Controller main = new MainController("main-form.fxml", "Home");
-        main.showStage();
         Inventory inventory = new Inventory();
+        Controller main = new MainController("main-form.fxml", "Home", inventory);
+        main.showStage();
     }
 }

@@ -4,8 +4,8 @@ public class ProductController extends Controller{
     public ProductController() {
         super();
     }
-    ProductController(String file, String title) {
-        super(file, title);
+    ProductController(String file, String title, Inventory inventory) {
+        super(file, title, inventory);
     }
     @Override
     void cancel() {

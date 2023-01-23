@@ -16,16 +16,18 @@ abstract class Controller {
     private Stage stage;
     private FXMLLoader fxmlLoader;
     private Scene scene;
+    protected Inventory inventory;
 
     public Controller() {
         title = "Default Title";
     }
-    public Controller(String file, String title) {
+    public Controller(String file, String title, Inventory inventory) {
         setFile(file);
         setTitle(title);
         setFxmlLoader();
         setScene();
         setStage();
+        setInventory(inventory);
     }
     private void setFile(String file) {
         fxmlFile  = file;
@@ -51,6 +53,9 @@ abstract class Controller {
     }
     protected void showStage() {
         stage.show();
+    }
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
     public static int getIntFromTextField(TextField textField) {
         String text = textField.getText();
