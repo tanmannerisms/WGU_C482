@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
-    private int partId, partInventory, partMin, partMax, partMachineId;
+    private int partId, partInventory, partStock, partMin, partMax, partMachineId;
     private double partPrice;
 
     @FXML
@@ -27,6 +27,7 @@ public class PartController extends Controller {
         partMin = getIntFromTextField(minField);
         partMax = getIntFromTextField(maxField);
         partMachineId = getIntFromTextField(sourceTypeField);
+        Part newPart = new InHouse(partId, partName, partPrice, partStock, partMin, partMax, partMachineId);
     }
 
     private void addOutSourcedPart() {
@@ -36,6 +37,7 @@ public class PartController extends Controller {
         partMin = getIntFromTextField(minField);
         partMax = getIntFromTextField(maxField);
         partCompanyName = sourceTypeField.getText();
+        Part newPart = new Outsourced(partId, partName, partPrice, partStock, partMin, partMax, partCompanyName);
     }
 
     private void assignPartId() {
