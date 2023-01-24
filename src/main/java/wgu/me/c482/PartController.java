@@ -1,6 +1,7 @@
 package wgu.me.c482;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 public class PartController extends Controller {
@@ -9,7 +10,9 @@ public class PartController extends Controller {
     private double partPrice;
 
     @FXML
-    private TextField id, nameField, inventoryField, minField, maxField, priceField, sourceTypeField;
+    private TextField idField, nameField, inventoryField, minField, maxField, priceField, sourceTypeField;
+    @FXML
+    private RadioButton inHouseButton, outSourcedButton;
 
 
     public PartController() {

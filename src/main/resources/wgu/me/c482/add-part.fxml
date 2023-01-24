@@ -77,7 +77,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="idField" editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <TextField fx:id="nameField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="inventoryField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="priceField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
