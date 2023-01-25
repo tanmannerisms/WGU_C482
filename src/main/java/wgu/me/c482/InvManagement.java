@@ -14,14 +14,6 @@ import javafx.fxml.FXMLLoader;
 public class InvManagement extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        FXMLLoader mainForm = new FXMLLoader(InvManagement.class.getResource("main-form.fxml"));
-        Scene mainScene = new Scene(mainForm.load(), 900, 500);
-        stage.setTitle("Home Page");
-        stage.setScene(mainScene);
-        stage.setResizable(false);
-        stage.show();
-         */
 
         Inventory inventory = new Inventory();
         Controller main = new MainController("main-form.fxml", "Home", inventory);

@@ -18,10 +18,10 @@
     </AnchorPane>
     <AnchorPane prefHeight="50">
         <AnchorPane AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="75" AnchorPane.rightAnchor="200">
-            <RadioButton mnemonicParsing="false" text="Internal" />
+            <RadioButton fx:id="inHouseButton" mnemonicParsing="false" text="Internal" />
         </AnchorPane>
         <AnchorPane AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="225" AnchorPane.rightAnchor="0">
-            <RadioButton mnemonicParsing="false" text="Outsourced" />
+            <RadioButton fx:id="outSourcedButton" mnemonicParsing="false" text="Outsourced" />
         </AnchorPane>
     </AnchorPane>
     <AnchorPane prefHeight="373.0" prefWidth="400">

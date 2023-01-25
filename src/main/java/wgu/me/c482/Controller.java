@@ -17,17 +17,23 @@ abstract class Controller {
     private FXMLLoader fxmlLoader;
     private Scene scene;
     protected Inventory inventory;
+    protected Controller controller;
 
     public Controller() {
         title = "Default Title";
+        System.out.println("No arg Controller constructor called");
     }
     public Controller(String file, String title, Inventory inventory) {
+        System.out.println("Begin controller constructor call with args");
         setFile(file);
         setTitle(title);
         setFxmlLoader();
         setScene();
         setStage();
+        setController();
         setInventory(inventory);
+        System.out.println("Controller constructor with args finished");
+        System.out.println();
     }
     private void setFile(String file) {
         fxmlFile  = file;
@@ -37,6 +43,10 @@ abstract class Controller {
     }
     private void setFxmlLoader() {
         fxmlLoader = new FXMLLoader(Controller.class.getResource(fxmlFile));
+    }
+    private void setController() {
+        this.controller = fxmlLoader.getController();
+        System.out.println(controller);
     }
     private void setScene() {
         try {
@@ -57,11 +67,11 @@ abstract class Controller {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-    public static int getIntFromTextField(TextField textField) {
+    protected static int getIntFromTextField(TextField textField) {
         String text = textField.getText();
         return Integer.parseInt(text);
     }
-    public static double getDoubleFromTextField(TextField textField) {
+    protected static double getDoubleFromTextField(TextField textField) {
         String text = textField.getText();
         return Double.parseDouble(text);
     }

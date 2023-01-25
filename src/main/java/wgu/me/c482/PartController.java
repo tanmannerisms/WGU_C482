@@ -3,6 +3,7 @@ package wgu.me.c482;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
@@ -13,14 +14,18 @@ public class PartController extends Controller {
     private TextField idField, nameField, inventoryField, minField, maxField, priceField, sourceTypeField;
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
+    final private ToggleGroup radioButtonGroup = new ToggleGroup();;
 
 
     public PartController() {
         super();
+        inHouseButton.setToggleGroup(radioButtonGroup);
+        outSourcedButton.setToggleGroup(radioButtonGroup);
     }
 
     PartController(String file, String title, Inventory inventory) {
         super(file, title, inventory);
+        System.out.print("End PartController constructor with args");
     }
 
     private void addInHousePart() {
