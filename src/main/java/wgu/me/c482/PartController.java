@@ -14,20 +14,23 @@ public class PartController extends Controller {
     private TextField idField, nameField, inventoryField, minField, maxField, priceField, sourceTypeField;
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
-    final private ToggleGroup radioButtonGroup = new ToggleGroup();;
-
+    private final ToggleGroup radioButtonGroup = new ToggleGroup();
 
     public PartController() {
         super();
-        inHouseButton.setToggleGroup(radioButtonGroup);
-        outSourcedButton.setToggleGroup(radioButtonGroup);
     }
 
-    PartController(String file, String title, Inventory inventory) {
-        super(file, title, inventory);
+    PartController(Inventory inventory) {
+        super(inventory);
+
+        outSourcedButton = new RadioButton();
+        System.out.println("Setting toggle group of buttons");
+        inHouseButton.setToggleGroup(radioButtonGroup);
+        outSourcedButton.setToggleGroup(radioButtonGroup);
         System.out.print("End PartController constructor with args");
     }
 
+    @FXML
     private void addInHousePart() {
         partName = nameField.getText();
         partInventory = getIntFromTextField(inventoryField);
@@ -36,8 +39,10 @@ public class PartController extends Controller {
         partMax = getIntFromTextField(maxField);
         partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(partId, partName, partPrice, partStock, partMin, partMax, partMachineId);
+        System.out.println("Part " + newPart.getName() + " has been successfully created.");
     }
 
+    @FXML
     private void addOutSourcedPart() {
         partName = nameField.getText();
         partInventory = getIntFromTextField(inventoryField);
@@ -50,8 +55,5 @@ public class PartController extends Controller {
 
     private void assignPartId() {
 
-    }
-    @Override
-    void cancel() {
     }
 }

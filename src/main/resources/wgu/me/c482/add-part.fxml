@@ -4,8 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import wgu.me.c482.* ?>
 
-<VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.PartController">
+<VBox prefHeight="600.0"
+      prefWidth="400.0"
+      xmlns="http://javafx.com/javafx/11.0.14-internal"
+      xmlns:fx="http://javafx.com/fxml/1" >
     <AnchorPane prefHeight="50">
         <Label text="Add Part" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5">
             <padding>
@@ -17,11 +21,19 @@
         </Label>
     </AnchorPane>
     <AnchorPane prefHeight="50">
-        <AnchorPane AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="75" AnchorPane.rightAnchor="200">
-            <RadioButton fx:id="inHouseButton" mnemonicParsing="false" text="Internal" />
+        <AnchorPane AnchorPane.bottomAnchor="25.0"
+                    AnchorPane.leftAnchor="75"
+                    AnchorPane.rightAnchor="200">
+            <RadioButton fx:id="inHouseButton"
+                         mnemonicParsing="false"
+                         text="Internal" />
         </AnchorPane>
-        <AnchorPane AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="225" AnchorPane.rightAnchor="0">
-            <RadioButton fx:id="outSourcedButton" mnemonicParsing="false" text="Outsourced" />
+        <AnchorPane AnchorPane.bottomAnchor="25.0"
+                    AnchorPane.leftAnchor="225"
+                    AnchorPane.rightAnchor="0">
+            <RadioButton fx:id="outSourcedButton"
+                         mnemonicParsing="false"
+                         text="Outsourced" />
         </AnchorPane>
     </AnchorPane>
     <AnchorPane prefHeight="373.0" prefWidth="400">
@@ -30,8 +42,12 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="24" prefWidth="240" />
+                <ColumnConstraints hgrow="SOMETIMES"
+                                   minWidth="100"
+                                   prefWidth="120" />
+                <ColumnConstraints hgrow="SOMETIMES"
+                                   minWidth="24"
+                                   prefWidth="240" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="5" prefHeight="50" vgrow="SOMETIMES" />
@@ -77,13 +93,43 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <TextField fx:id="idField" editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <TextField fx:id="nameField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="inventoryField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="priceField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="minField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="maxField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="sourceTypeField" maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="idField"
+                       editable="false"
+                       maxWidth="180.0"
+                       prefWidth="120.0"
+                       promptText="Auto-Generated"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="0" />
+            <TextField fx:id="nameField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1" />
+            <TextField fx:id="inventoryField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="2" />
+            <TextField fx:id="priceField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="3" />
+            <TextField fx:id="minField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="4" />
+            <TextField fx:id="maxField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="5" />
+            <TextField fx:id="sourceTypeField"
+                       maxWidth="180.0"
+                       prefWidth="120"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="6" />
         </GridPane>
       <padding>
          <Insets bottom="20.0" top="20.0" />
@@ -92,10 +138,23 @@
     <AnchorPane prefHeight="50" prefWidth="400">
         <HBox prefHeight="50" prefWidth="400">
             <AnchorPane prefWidth="200">
-                <Button prefHeight="25" prefWidth="75" text="Save" AnchorPane.bottomAnchor="12.5" AnchorPane.leftAnchor="62.5" AnchorPane.rightAnchor="62.5" AnchorPane.topAnchor="0" />
+                <Button text="Save"
+                        onAction="#addInHousePart"
+                        prefHeight="25"
+                        prefWidth="75"
+                        AnchorPane.bottomAnchor="12.5"
+                        AnchorPane.leftAnchor="62.5"
+                        AnchorPane.rightAnchor="62.5"
+                        AnchorPane.topAnchor="0" />
             </AnchorPane>
             <AnchorPane prefWidth="200">
-                <Button prefHeight="25" prefWidth="75" text="Cancel" AnchorPane.bottomAnchor="12.5" AnchorPane.leftAnchor="62.5" AnchorPane.rightAnchor="62.5" AnchorPane.topAnchor="0" />
+                <Button text="Cancel"
+                        prefHeight="25"
+                        prefWidth="75"
+                        AnchorPane.bottomAnchor="12.5"
+                        AnchorPane.leftAnchor="62.5"
+                        AnchorPane.rightAnchor="62.5"
+                        AnchorPane.topAnchor="0" />
             </AnchorPane>
         </HBox>
     </AnchorPane>

@@ -7,39 +7,31 @@ public class MainController extends Controller{
     public MainController() {
         super();
     }
-    MainController(String file, String title, Inventory inventory) {
-        super(file, title, inventory);
+    MainController(Inventory inventory) {
+        super(inventory);
     }
     @FXML
     private void addProductSceneChange() {
-        newSceneFile = "add-product.fxml";
-        newSceneTitle = "Add-Product";
-        ProductController addProductController = new ProductController(newSceneFile, newSceneTitle, this.inventory);
-        addProductController.showStage();
+        ProductController addProductController = new ProductController(inventory);
+        Window addProduct = new Window("add-product.fxml", "Add-Product", addProductController);
+        addProduct.showWindow();
     }
     @FXML
     private void changeProductSceneChange() {
-        newSceneFile = "modify-product.fxml";
-        newSceneTitle = "Edit Product";
-        ProductController changeProductController = new ProductController(newSceneFile, newSceneTitle, this.inventory);
-        changeProductController.showStage();
+        ProductController changeProductController = new ProductController(inventory);
+        Window changeProduct = new Window("modify-product.fxml", "Change Product", changeProductController);
+        changeProduct.showWindow();
     }
     @FXML
     private void addPartSceneChange() {
-        newSceneFile = "add-part.fxml";
-        newSceneTitle = "Add Part";
-        PartController addpartController = new PartController(newSceneFile, newSceneTitle, this.inventory);
-        addpartController.showStage();
+        PartController addPartController = new PartController(inventory);
+        Window addPart = new Window("add-part.fxml", "Add-Part", addPartController);
+        addPart.showWindow();
     }
     @FXML
     private void changePartSceneChange() {
-        newSceneFile = "modify-part.fxml";
-        newSceneTitle = "Edit Part";
-        PartController changePartController = new PartController(newSceneFile, newSceneTitle, this.inventory);
-        changePartController.showStage();
-    }
-    @Override
-    void cancel() {
-
+        PartController changePartController = new PartController(inventory);
+        Window changePart = new Window("modify-part.fxml", "Alter Part", changePartController);
+        changePart.showWindow();
     }
 }
