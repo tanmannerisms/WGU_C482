@@ -1,17 +1,23 @@
 package wgu.me.c482;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
     private int partId, partStock, partMin, partMax, partMachineId;
     private double partPrice;
+    private final String inHouseLabel = "Machine ID", outSourcedLabel = "Company Name";
 
     @FXML
     private TextField idField, nameField, stockField, minField, maxField, priceField, sourceTypeField;
+    @FXML
+    private Label sourceTypeLabel;
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
     @FXML
@@ -65,5 +71,18 @@ public class PartController extends Controller {
         inHouseButton.setToggleGroup(radioButtonGroup);
         outSourcedButton.setToggleGroup(radioButtonGroup);
         inHouseButton.setSelected(true);
+        sourceTypeLabel.setText(inHouseLabel);
+        inHouseButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                sourceTypeLabel.setText(inHouseLabel);
+            }
+        });
+        outSourcedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                sourceTypeLabel.setText(outSourcedLabel);
+            }
+        });
     }
 }

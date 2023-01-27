@@ -87,7 +87,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label  GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <Label fx:id="sourceTypeLabel" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                 <padding>
                     <Insets right="15.0" />
                 </padding>
