@@ -22,11 +22,6 @@ public class PartController extends Controller {
 
     PartController(Inventory inventory) {
         super(inventory);
-        inHouseButton = new RadioButton();
-        outSourcedButton = new RadioButton();
-        System.out.println("Setting toggle group of buttons");
-        inHouseButton.setToggleGroup(radioButtonGroup);
-        outSourcedButton.setToggleGroup(radioButtonGroup);
         System.out.println("End PartController constructor with args");
     }
     @FXML
@@ -64,5 +59,10 @@ public class PartController extends Controller {
         int id = inventory.partId;
         inventory.partId++;
         return id;
+    }
+    protected void setRadioButtons() {
+        inHouseButton.setToggleGroup(radioButtonGroup);
+        outSourcedButton.setToggleGroup(radioButtonGroup);
+        inHouseButton.setSelected(true);
     }
 }

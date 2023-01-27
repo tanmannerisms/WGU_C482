@@ -26,6 +26,7 @@ public class MainController extends Controller{
     private void addPartSceneChange() {
         PartController addPartController = new PartController(inventory);
         Window addPart = new Window("add-part.fxml", "Add-Part", addPartController);
+        addPartController.setRadioButtons();
         addPart.showWindow();
     }
     @FXML
