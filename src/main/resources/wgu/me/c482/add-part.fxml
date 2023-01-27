@@ -105,7 +105,7 @@
                        prefWidth="120"
                        GridPane.columnIndex="1"
                        GridPane.rowIndex="1" />
-            <TextField fx:id="inventoryField"
+            <TextField fx:id="stockField"
                        maxWidth="180.0"
                        prefWidth="120"
                        GridPane.columnIndex="1"

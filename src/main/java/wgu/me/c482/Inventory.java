@@ -8,6 +8,7 @@ import java.util.*;
 public class Inventory {
     private ObservableList<Part> allParts;
     private ObservableList<Product> allProducts;
+    int partId = 1, productId = 1;
 
     Inventory() {
         allParts = FXCollections.observableArrayList();
@@ -20,6 +21,7 @@ public class Inventory {
      */
     public void addPart(Part part) {
         this.allParts.add(part);
+        System.out.println("Part " + part.getName() + " added to inventory");
     }
 
     /**
@@ -28,6 +30,7 @@ public class Inventory {
      */
     public void addProduct(Product product) {
         this.allProducts.add(product);
+        System.out.println("Product " + product.getName() + " added to inventory");
     }
 
     /**

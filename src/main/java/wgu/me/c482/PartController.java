@@ -7,11 +7,11 @@ import javafx.scene.control.ToggleGroup;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
-    private int partId, partInventory, partStock, partMin, partMax, partMachineId;
+    private int partId, partStock, partMin, partMax, partMachineId;
     private double partPrice;
 
     @FXML
-    private TextField idField, nameField, inventoryField, minField, maxField, priceField, sourceTypeField;
+    private TextField idField, nameField, stockField, minField, maxField, priceField, sourceTypeField;
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
     private final ToggleGroup radioButtonGroup = new ToggleGroup();
@@ -22,38 +22,47 @@ public class PartController extends Controller {
 
     PartController(Inventory inventory) {
         super(inventory);
-
+        inHouseButton = new RadioButton();
         outSourcedButton = new RadioButton();
         System.out.println("Setting toggle group of buttons");
         inHouseButton.setToggleGroup(radioButtonGroup);
         outSourcedButton.setToggleGroup(radioButtonGroup);
-        System.out.print("End PartController constructor with args");
+        System.out.println("End PartController constructor with args");
     }
-
     @FXML
     private void addInHousePart() {
-        partName = nameField.getText();
-        partInventory = getIntFromTextField(inventoryField);
-        partPrice = getDoubleFromTextField(priceField);
-        partMin = getIntFromTextField(minField);
-        partMax = getIntFromTextField(maxField);
+        getPartFormInfo();
         partMachineId = getIntFromTextField(sourceTypeField);
-        Part newPart = new InHouse(partId, partName, partPrice, partStock, partMin, partMax, partMachineId);
+        Part newPart = new InHouse(
+                partId, partName, partPrice, partStock, partMin, partMax, partMachineId
+        );
         System.out.println("Part " + newPart.getName() + " has been successfully created.");
-    }
+        inventory.addPart(newPart);
 
+//        Need to get rid of this at some point or another
+        System.out.println(inventory.getAllParts());
+    }
     @FXML
     private void addOutSourcedPart() {
+        getPartFormInfo();
+        partCompanyName = sourceTypeField.getText();
+        Part newPart = new Outsourced(
+                partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
+        );
+        System.out.println("Part " + newPart.getName() + " has been successfully created.");
+        inventory.addPart(newPart);
+    }
+    private void getPartFormInfo() {
         partName = nameField.getText();
-        partInventory = getIntFromTextField(inventoryField);
+        partStock = getIntFromTextField(stockField);
         partPrice = getDoubleFromTextField(priceField);
         partMin = getIntFromTextField(minField);
         partMax = getIntFromTextField(maxField);
-        partCompanyName = sourceTypeField.getText();
-        Part newPart = new Outsourced(partId, partName, partPrice, partStock, partMin, partMax, partCompanyName);
+        partId = createPartId();
     }
-
-    private void assignPartId() {
-
+    private int createPartId() {
+        int id = inventory.partId;
+        inventory.partId++;
+        return id;
     }
 }
