@@ -10,8 +10,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 
 public class PartController extends Controller {
-    private String partName, partCompanyName;
-    private int partId, partStock, partMin, partMax, partMachineId;
+    private String partName;
+    private int partId;
+    private int partStock;
+    private int partMin;
+    private int partMax;
     private double partPrice;
     private final String inHouseLabel = "Machine ID", outSourcedLabel = "Company Name";
 
@@ -27,20 +30,20 @@ public class PartController extends Controller {
     private final ToggleGroup radioButtonGroup = new ToggleGroup();
 
     // Event Handlers
-    EventHandler<MouseEvent> onInHouseClick = new EventHandler<MouseEvent>() {
+    EventHandler<MouseEvent> onInHouseClick = new EventHandler<>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
             sourceTypeLabel.setText(inHouseLabel);
             saveButton.setOnMouseClicked(onSaveClick);
         }
     };
-    EventHandler<MouseEvent> onOutSourcedClick = new EventHandler<MouseEvent>() {
+    EventHandler<MouseEvent> onOutSourcedClick = new EventHandler<>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
             sourceTypeLabel.setText(outSourcedLabel);
         }
     };
-    EventHandler<MouseEvent> onSaveClick = new EventHandler<MouseEvent>() {
+    EventHandler<MouseEvent> onSaveClick = new EventHandler<>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
             if (radioButtonGroup.getSelectedToggle() == outSourcedButton) {
@@ -68,19 +71,16 @@ public class PartController extends Controller {
     }
     private void addInHousePart() {
         getPartFormInfo();
-        partMachineId = getIntFromTextField(sourceTypeField);
+        int partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
                 partId, partName, partPrice, partStock, partMin, partMax, partMachineId
         );
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         inventory.addPart(newPart);
-
-//        Need to get rid of this at some point or another
-        System.out.println(inventory.getAllParts());
     }
     private void addOutSourcedPart() {
         getPartFormInfo();
-        partCompanyName = sourceTypeField.getText();
+        String partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
                 partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
         );
