@@ -7,6 +7,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
 
 public class PartController extends Controller {
     private String partName, partCompanyName;
@@ -21,7 +22,33 @@ public class PartController extends Controller {
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
     @FXML
+    private Button saveButton;
+    @FXML
     private final ToggleGroup radioButtonGroup = new ToggleGroup();
+
+    // Event Handlers
+    EventHandler<MouseEvent> onInHouseClick = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+            sourceTypeLabel.setText(inHouseLabel);
+            saveButton.setOnMouseClicked(onSaveClick);
+        }
+    };
+    EventHandler<MouseEvent> onOutSourcedClick = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+            sourceTypeLabel.setText(outSourcedLabel);
+        }
+    };
+    EventHandler<MouseEvent> onSaveClick = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+            if (radioButtonGroup.getSelectedToggle() == outSourcedButton) {
+                addOutSourcedPart();
+            }
+            else addInHousePart();
+        }
+    };
 
     public PartController() {
         super();
@@ -31,27 +58,33 @@ public class PartController extends Controller {
         super(inventory);
         System.out.println("End PartController constructor with args");
     }
-    @FXML
+    protected void setRadioButtons() {
+        inHouseButton.setToggleGroup(radioButtonGroup);
+        outSourcedButton.setToggleGroup(radioButtonGroup);
+        inHouseButton.setSelected(true);
+        sourceTypeLabel.setText(inHouseLabel);
+        inHouseButton.setOnMouseClicked(onInHouseClick);
+        outSourcedButton.setOnMouseClicked(onOutSourcedClick);
+    }
     private void addInHousePart() {
         getPartFormInfo();
         partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
                 partId, partName, partPrice, partStock, partMin, partMax, partMachineId
         );
-        System.out.println("Part " + newPart.getName() + " has been successfully created.");
+        System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         inventory.addPart(newPart);
 
 //        Need to get rid of this at some point or another
         System.out.println(inventory.getAllParts());
     }
-    @FXML
     private void addOutSourcedPart() {
         getPartFormInfo();
         partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
                 partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
         );
-        System.out.println("Part " + newPart.getName() + " has been successfully created.");
+        System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         inventory.addPart(newPart);
     }
     private void getPartFormInfo() {
@@ -66,23 +99,5 @@ public class PartController extends Controller {
         int id = inventory.partId;
         inventory.partId++;
         return id;
-    }
-    protected void setRadioButtons() {
-        inHouseButton.setToggleGroup(radioButtonGroup);
-        outSourcedButton.setToggleGroup(radioButtonGroup);
-        inHouseButton.setSelected(true);
-        sourceTypeLabel.setText(inHouseLabel);
-        inHouseButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                sourceTypeLabel.setText(inHouseLabel);
-            }
-        });
-        outSourcedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                sourceTypeLabel.setText(outSourcedLabel);
-            }
-        });
     }
 }

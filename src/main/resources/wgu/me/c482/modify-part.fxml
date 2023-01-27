@@ -155,7 +155,7 @@
         <HBox prefHeight="50" prefWidth="400">
             <AnchorPane prefWidth="200">
                 <Button text="Save"
-                        onAction="#addOutSourcedPart"
+                        fx:id="saveButton"
                         prefHeight="25"
                         prefWidth="75"
                         AnchorPane.bottomAnchor="12.5"
