@@ -33,6 +33,7 @@ public class MainController extends Controller{
     private void changePartSceneChange() {
         PartController changePartController = new PartController(inventory);
         Window changePart = new Window("modify-part.fxml", "Alter Part", changePartController);
+        changePartController.setRadioButtons();
         changePart.showWindow();
     }
 }

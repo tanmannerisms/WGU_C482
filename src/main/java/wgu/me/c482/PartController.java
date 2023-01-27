@@ -14,6 +14,7 @@ public class PartController extends Controller {
     private TextField idField, nameField, stockField, minField, maxField, priceField, sourceTypeField;
     @FXML
     private RadioButton inHouseButton, outSourcedButton;
+    @FXML
     private final ToggleGroup radioButtonGroup = new ToggleGroup();
 
     public PartController() {

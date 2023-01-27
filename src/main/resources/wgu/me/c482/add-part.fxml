@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import wgu.me.c482.* ?>
 
 <VBox prefHeight="600.0"
       prefWidth="400.0"
