@@ -3,19 +3,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="100.0"
-            prefWidth="200.0"
-            xmlns="http://javafx.com/javafx/11.0.14-internal"
-            xmlns:fx="http://javafx.com/fxml/1">
-    <Text text="Invalid input! Check values and try again!"
-          fx:id="errorMessage"
-          textAlignment="CENTER"
-          wrappingWidth="150.0"
-          AnchorPane.leftAnchor="25.0"
-          AnchorPane.rightAnchor="25.0"
-          AnchorPane.topAnchor="20.0">
-      <font>
-         <Font name="System Bold" size="14.0" />
-      </font>
-    </Text>
+<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.me.c482.ErrorController">
+   <StackPane prefHeight="100.0" prefWidth="200.0">
+      <Text fx:id="errorTextField"
+            textAlignment="CENTER"
+            wrappingWidth="150.0">
+        <font>
+           <Font name="System Bold" size="14.0" />
+        </font>
+      </Text>
+   </StackPane>
 </AnchorPane>

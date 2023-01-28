@@ -21,7 +21,7 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
     protected void openErrorWindow(Exception e) {
-        Window error = new Window("input-error.fxml", "Error!");
-        error.showWindowAndWait();
+        ErrorWindow errorWindow = new ErrorWindow(e);
+        errorWindow.showWindowAndWait();
     }
 }
