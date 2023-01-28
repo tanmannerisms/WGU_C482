@@ -1,13 +1,6 @@
 package wgu.me.c482;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-
 import java.io.IOException;
 
 public abstract class Controller {
@@ -28,15 +21,7 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
     protected void openErrorWindow(Exception e) {
-/*
-        ErrorController errorController = new ErrorController();
-        Window error = new Window("input-error.fxml", "Error!", errorController);
-        errorController.setErrorMessage(e.getMessage());
+        Window error = new Window("input-error.fxml", "Error!");
         error.showWindowAndWait();
-*/
     }
-/*    protected void closeWindow(Event event) {
-        Stage stage = event.getSource();
-        stage.close();
-    }*/
 }

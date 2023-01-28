@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +19,7 @@ public class PartController extends Controller implements Initializable {
     private int partMin;
     private int partMax;
     private double partPrice;
-    private final String inHouseLabel = "Machine ID", outSourcedLabel = "Company Name";
+    private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
 
     @FXML
     private TextField idField, nameField, stockField, minField, maxField, priceField, sourceTypeField;
@@ -43,7 +42,7 @@ public class PartController extends Controller implements Initializable {
         inHouseButton.setToggleGroup(radioButtonTGroup);
         outSourcedButton.setToggleGroup(radioButtonTGroup);
         inHouseButton.setSelected(true);
-        sourceTypeLabel.setText(inHouseLabel);
+        sourceTypeLabel.setText(inHouseLabelText);
     }
     private void addInHousePart() {
         try {
@@ -111,11 +110,13 @@ public class PartController extends Controller implements Initializable {
         actionEvent.consume();
     }
     @FXML
-    private void onInHouseClick() {
-        sourceTypeLabel.setText(inHouseLabel);
+    private void onInHouseClick(ActionEvent actionEvent) {
+        sourceTypeLabel.setText(inHouseLabelText);
+        actionEvent.consume();
     }
     @FXML
-    private void onOutSourcedClick() {
-        sourceTypeLabel.setText(outSourcedLabel);
+    private void onOutSourcedClick(ActionEvent actionEvent) {
+        sourceTypeLabel.setText(outSourcedLabelText);
+        actionEvent.consume();
     }
 }

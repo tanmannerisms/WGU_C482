@@ -12,14 +12,11 @@ public class Window {
     private Stage stage;
     private final FXMLLoader fxmlLoader;
     private Scene scene;
-//    private final Controller controller;
 
     Window(String file, String title) {
         fxmlFile = file;
         windowTitle = title;
-//        this.controller = controller;
         fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
-        setSceneController();
         setScene();
         setStage();
     }
@@ -32,9 +29,6 @@ public class Window {
             e.printStackTrace();
             System.out.println("XML file " + fxmlFile + " could not be loaded");
         }
-    }
-    private void setSceneController() {
-//        fxmlLoader.setController(controller);
     }
     private void setStage() {
         stage = new Stage();
