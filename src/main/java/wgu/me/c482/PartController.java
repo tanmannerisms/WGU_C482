@@ -38,11 +38,7 @@ public class PartController extends Controller implements Initializable {
     public PartController() {
         super();
     }
-
-    PartController(Inventory inventory) {
-        super(inventory);
-        System.out.println("End PartController constructor with args");
-    }
+    
     protected void setRadioButtons() {
         inHouseButton.setToggleGroup(radioButtonTGroup);
         outSourcedButton.setToggleGroup(radioButtonTGroup);
@@ -63,7 +59,7 @@ public class PartController extends Controller implements Initializable {
                 partId, partName, partPrice, partStock, partMin, partMax, partMachineId
         );
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
-        inventory.addPart(newPart);
+        Inventory.addPart(newPart);
     }
     private void addOutSourcedPart() {
         try {
@@ -79,7 +75,7 @@ public class PartController extends Controller implements Initializable {
                 partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
         );
         System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
-        inventory.addPart(newPart);
+        Inventory.addPart(newPart);
     }
     private void getPartFormInfo() throws IOException {
         partName = nameField.getText();
@@ -102,8 +98,8 @@ public class PartController extends Controller implements Initializable {
         }
     }
     private int createPartId() {
-        int id = inventory.partId;
-        inventory.partId++;
+        int id = Inventory.partId;
+        Inventory.partId++;
         return id;
     }
     @FXML

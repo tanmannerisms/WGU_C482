@@ -6,21 +6,16 @@ import javafx.collections.ObservableList;
 import java.util.*;
 
 public class Inventory {
-    private ObservableList<Part> allParts;
-    private ObservableList<Product> allProducts;
-    int partId = 1, productId = 1;
-
-    Inventory() {
-        allParts = FXCollections.observableArrayList();
-        allProducts = FXCollections.observableArrayList();
-    }
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
+    static int partId = 1, productId = 1;
 
     /**
      *
      * @param part the part that gets added into the allParts ObservableList
      */
-    public void addPart(Part part) {
-        this.allParts.add(part);
+    public static void addPart(Part part) {
+        allParts.add(part);
         System.out.println("Part " + part.getName() + " added to inventory");
     }
 
@@ -28,8 +23,8 @@ public class Inventory {
      *
      * @param product the product that gets added into the allProducts ObservableList
      */
-    public void addProduct(Product product) {
-        this.allProducts.add(product);
+    public static void addProduct(Product product) {
+        allProducts.add(product);
         System.out.println("Product " + product.getName() + " added to inventory");
     }
 
@@ -38,8 +33,8 @@ public class Inventory {
      * @param partId the part ID that is being used to query the list of parts
      * @return the part object that matches the part ID passed in.
      */
-    public Part lookupPart(int partId) {
-        return this.allParts.get(partId);
+    public static Part lookupPart(int partId) {
+        return allParts.get(partId);
     }
 
     /**
@@ -47,8 +42,8 @@ public class Inventory {
      * @param productId the product ID that is being used to query the list of products
      * @return the product object that matches the product ID passed in.
      */
-    public Product lookupProduct(int productId) {
-        return this.allProducts.get(productId);
+    public static Product lookupProduct(int productId) {
+        return allProducts.get(productId);
     }
 
     /**
@@ -56,8 +51,8 @@ public class Inventory {
      * @param partName the part name that is being used to query the list of parts
      * @return the part(s) that match the name of the part name passed in.
      */
-    public ObservableList<Part> lookupPart(String partName) {
-        return this.allParts;
+    public static ObservableList<Part> lookupPart(String partName) {
+        return allParts;
     }
 
     /**
@@ -65,8 +60,8 @@ public class Inventory {
      * @param productName the product name that is being used to query the list of products
      * @return the product(s) that match the name of the product name passed in.
      */
-    public ObservableList<Product> lookupProduct(String productName) {
-        return this.allProducts;
+    public static ObservableList<Product> lookupProduct(String productName) {
+        return allProducts;
     }
 
     /**
@@ -74,8 +69,8 @@ public class Inventory {
      * @param index the index of the part that is wanting to be updated
      * @param selectedPart the updated part that is replacing the part at the specified index.
      */
-    public void updatePart(int index, Part selectedPart) {
-        this.allParts.set(index, selectedPart);
+    public static void updatePart(int index, Part selectedPart) {
+        allParts.set(index, selectedPart);
     }
 
     /**
@@ -83,8 +78,8 @@ public class Inventory {
      * @param index the index of the product that is wanting to be updated
      * @param newProduct the updated product that is replacing the product at the specified index.
      */
-    public void updateProduct(int index, Product newProduct) {
-        this.allProducts.set(index, newProduct);
+    public static void updateProduct(int index, Product newProduct) {
+        allProducts.set(index, newProduct);
     }
 
     /**
@@ -92,8 +87,8 @@ public class Inventory {
      * @param selectedPart the part that is wanting to be removed
      * @return a boolean value that declares whether the part was successfully removed.
      */
-    public boolean deletePart(Part selectedPart) {
-        return this.allParts.remove(selectedPart);
+    public static boolean deletePart(Part selectedPart) {
+        return allParts.remove(selectedPart);
     }
 
     /**
@@ -101,23 +96,23 @@ public class Inventory {
      * @param selectedProduct the product that is wanting to be removed
      * @return a boolean value that declares whether the product was successfully removed.
      */
-    public boolean deleteProduct(Product selectedProduct) {
-        return this.allProducts.remove(selectedProduct);
+    public static boolean deleteProduct(Product selectedProduct) {
+        return allProducts.remove(selectedProduct);
     }
 
     /**
      *
      * @return the list of parts
      */
-    public ObservableList<Part> getAllParts() {
-        return this.allParts;
+    public static ObservableList<Part> getAllParts() {
+        return allParts;
     }
 
     /**
      *
      * @return the list of products
      */
-    public ObservableList<Product> getAllProducts() {
-        return this.allProducts;
+    public static ObservableList<Product> getAllProducts() {
+        return allProducts;
     }
 }

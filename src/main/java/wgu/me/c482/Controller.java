@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 public abstract class Controller {
-    protected Inventory inventory;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
     static IOException MinTooLow = new IOException("Min cannot be below 0.");
@@ -19,15 +18,7 @@ public abstract class Controller {
     public Controller() {
         System.out.println("No arg Controller constructor called");
     }
-    public Controller(Inventory inventory) {
-        System.out.println("Begin controller constructor call with args");
-        setInventory(inventory);
-        System.out.println("Controller constructor with args finished");
-    }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
-    }
     protected static int getIntFromTextField(TextField textField) throws NumberFormatException {
         String text = textField.getText();
         return Integer.parseInt(text);

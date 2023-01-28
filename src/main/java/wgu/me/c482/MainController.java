@@ -14,9 +14,6 @@ public class MainController extends Controller implements Initializable {
     public MainController() {
         super();
     }
-    MainController(Inventory inventory) {
-        super(inventory);
-    }
     @FXML
     private void addProductSceneChange() {
 /*

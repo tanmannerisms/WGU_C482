@@ -19,9 +19,6 @@ public class ProductController extends Controller implements Initializable {
     public ProductController() {
         super();
     }
-    ProductController(Inventory inventory) {
-        super(inventory);
-    }
     @FXML
     private void addProduct() {
         getFormData();
@@ -39,8 +36,8 @@ public class ProductController extends Controller implements Initializable {
         productId = createProductId();
     }
     private int createProductId() {
-        int id = inventory.productId;
-        inventory.productId++;
+        int id = Inventory.productId;
+        Inventory.productId++;
         return id;
     }
 }
