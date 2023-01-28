@@ -12,12 +12,12 @@ public class Window {
     private Stage stage;
     private final FXMLLoader fxmlLoader;
     private Scene scene;
-    private final Controller controller;
+//    private final Controller controller;
 
-    Window(String file, String title, Controller controller) {
+    Window(String file, String title) {
         fxmlFile = file;
         windowTitle = title;
-        this.controller = controller;
+//        this.controller = controller;
         fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         setSceneController();
         setScene();
@@ -34,7 +34,7 @@ public class Window {
         }
     }
     private void setSceneController() {
-        fxmlLoader.setController(controller);
+//        fxmlLoader.setController(controller);
     }
     private void setStage() {
         stage = new Stage();

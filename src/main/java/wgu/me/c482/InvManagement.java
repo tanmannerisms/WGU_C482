@@ -16,7 +16,7 @@ public class InvManagement extends Application {
         inventory.addProduct(sample10);
 
         MainController mainFormController = new MainController(inventory);
-        Window mainWindow = new Window("main-form.fxml", "Home", mainFormController);
+        Window mainWindow = new Window("main-form.fxml", "Home");
         mainWindow.showWindow();
     }
 }

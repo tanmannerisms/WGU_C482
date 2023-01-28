@@ -9,7 +9,9 @@
       minWidth="900"
       prefHeight="500"
       prefWidth="900"
-      xmlns="http://javafx.com/javafx/11.0.14-internal" >
+      xmlns="http://javafx.com/javafx/11.0.14-internal"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="wgu.me.c482.MainController" >
     <AnchorPane minHeight="-Infinity" prefHeight="75.0" prefWidth="900.0">
          <Label layoutX="14.0" layoutY="24.0" text="Inventory Management">
              <font>

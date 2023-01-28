@@ -37,10 +37,12 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
     protected void openErrorWindow(Exception e) {
+/*
         ErrorController errorController = new ErrorController();
         Window error = new Window("input-error.fxml", "Error!", errorController);
         errorController.setErrorMessage(e.getMessage());
         error.showWindowAndWait();
+*/
     }
 /*    protected void closeWindow(Event event) {
         Stage stage = event.getSource();
