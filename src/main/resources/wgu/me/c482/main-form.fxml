@@ -102,7 +102,12 @@
                     </GridPane>
                 </AnchorPane>
                 <AnchorPane prefHeight="50.0" prefWidth="450">
-                    <Button prefHeight="25.0" prefWidth="75.0" text="EXIT" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="6.0">
+                    <Button text="EXIT"
+                            prefHeight="25.0"
+                            prefWidth="75.0"
+                            AnchorPane.bottomAnchor="14.0"
+                            AnchorPane.rightAnchor="50.0"
+                            AnchorPane.topAnchor="6.0">
                         <font>
                             <Font name="System Bold" size="14.0" />
                         </font>

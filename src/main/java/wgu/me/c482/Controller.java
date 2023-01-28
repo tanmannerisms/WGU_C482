@@ -1,7 +1,10 @@
 package wgu.me.c482;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
@@ -10,6 +13,8 @@ import java.io.IOException;
 class Controller {
     protected Inventory inventory;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
+    static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
+    static IOException MinTooLow = new IOException("Min cannot be below 0.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");
@@ -36,5 +41,9 @@ class Controller {
         Window error = new Window("input-error.fxml", "Error!", errorController);
         errorController.setErrorMessage(e.getMessage());
         error.showWindowAndWait();
+    }
+    protected void closeWindow(Event event) {
+        Stage stage = event.getSource();
+        stage.close();
     }
 }

@@ -74,9 +74,11 @@ public class PartController extends Controller {
     private void addInHousePart() {
         try {
             getPartFormInfo();
+            validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
+            return;
         }
         int partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
@@ -88,9 +90,11 @@ public class PartController extends Controller {
     private void addOutSourcedPart() {
         try {
             getPartFormInfo();
+            validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
+            return;
         }
         String partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
@@ -110,6 +114,14 @@ public class PartController extends Controller {
             throw InvalidNumericInput;
         }
         partId = createPartId();
+    }
+    private void validateFormInfo() throws IOException {
+        if (!(partMin <= partStock & partStock <= partMax)) {
+            throw StockOutOfBounds;
+        }
+        if (partMin < 0) {
+            throw MinTooLow;
+        }
     }
     private int createPartId() {
         int id = inventory.partId;
