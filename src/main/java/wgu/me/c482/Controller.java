@@ -9,7 +9,7 @@ import java.io.IOException;
 
 class Controller {
     protected Inventory inventory;
-    static IOException InvalidNumericInput = new IOException("Invalid input. Check numeric inputs and try again.");
+    static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");

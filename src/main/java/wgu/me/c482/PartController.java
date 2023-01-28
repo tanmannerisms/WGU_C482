@@ -72,7 +72,12 @@ public class PartController extends Controller {
         saveButton.setOnMouseClicked(onSaveClick);
     }
     private void addInHousePart() {
-        getPartFormInfo();
+        try {
+            getPartFormInfo();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            openErrorWindow(e);
+        }
         int partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
                 partId, partName, partPrice, partStock, partMin, partMax, partMachineId
@@ -81,7 +86,12 @@ public class PartController extends Controller {
         inventory.addPart(newPart);
     }
     private void addOutSourcedPart() {
-        getPartFormInfo();
+        try {
+            getPartFormInfo();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            openErrorWindow(e);
+        }
         String partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
                 partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
@@ -89,7 +99,7 @@ public class PartController extends Controller {
         System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         inventory.addPart(newPart);
     }
-    private void getPartFormInfo() {
+    private void getPartFormInfo() throws IOException {
         partName = nameField.getText();
         try {
             partStock = getIntFromTextField(stockField);
@@ -97,8 +107,7 @@ public class PartController extends Controller {
             partMin = getIntFromTextField(minField);
             partMax = getIntFromTextField(maxField);
         } catch (NumberFormatException | NullPointerException e) {
-            System.out.println(e.getMessage());
-            openErrorWindow(e);
+            throw InvalidNumericInput;
         }
         partId = createPartId();
     }
