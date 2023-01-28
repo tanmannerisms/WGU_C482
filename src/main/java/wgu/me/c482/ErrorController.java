@@ -11,7 +11,7 @@ public class ErrorController extends Controller implements Initializable {
     @FXML
     private Text errorTextField;
     private String errorMessage = "Error! Check values and try again.";
-    ErrorController(){
+    public ErrorController(){
         super();
     }
     @Override

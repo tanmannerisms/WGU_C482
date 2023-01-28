@@ -10,7 +10,7 @@ public class Window {
     private final String fxmlFile;
     private final String windowTitle;
     private Stage stage;
-    private final FXMLLoader fxmlLoader;
+    protected final FXMLLoader fxmlLoader;
     private Scene scene;
 
     Window(String file, String title) {
