@@ -35,7 +35,6 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void addPartSceneChange() {
-        PartController addPartController = new PartController(inventory);
         Window addPart = new Window("add-part.fxml", "Add-Part");
         addPart.showWindow();
     }
