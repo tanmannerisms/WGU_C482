@@ -14,8 +14,6 @@ public class Window {
     private Scene scene;
     private final Controller controller;
 
-
-
     Window(String file, String title, Controller controller) {
         fxmlFile = file;
         windowTitle = title;

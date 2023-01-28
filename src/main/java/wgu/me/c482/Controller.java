@@ -9,6 +9,7 @@ import java.io.IOException;
 
 class Controller {
     protected Inventory inventory;
+    static IOException InvalidNumericInput = new IOException("Invalid input. Check numeric inputs and try again.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");
@@ -22,12 +23,18 @@ class Controller {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-    protected static int getIntFromTextField(TextField textField) {
+    protected static int getIntFromTextField(TextField textField) throws NumberFormatException {
         String text = textField.getText();
         return Integer.parseInt(text);
     }
-    protected static double getDoubleFromTextField(TextField textField) {
+    protected static double getDoubleFromTextField(TextField textField) throws NumberFormatException, NullPointerException {
         String text = textField.getText();
         return Double.parseDouble(text);
+    }
+    protected void openErrorWindow(Exception e) {
+        ErrorController errorController = new ErrorController();
+        Window error = new Window("input-error.fxml", "Error!", errorController);
+        errorController.setErrorMessage(e.getMessage());
+        error.showWindowAndWait();
     }
 }

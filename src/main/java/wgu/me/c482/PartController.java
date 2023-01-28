@@ -9,6 +9,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 
+import java.io.IOException;
+
 public class PartController extends Controller {
     private String partName;
     private int partId;
@@ -34,7 +36,6 @@ public class PartController extends Controller {
         @Override
         public void handle(MouseEvent mouseEvent) {
             sourceTypeLabel.setText(inHouseLabel);
-            saveButton.setOnMouseClicked(onSaveClick);
         }
     };
     EventHandler<MouseEvent> onOutSourcedClick = new EventHandler<>() {
@@ -68,6 +69,7 @@ public class PartController extends Controller {
         sourceTypeLabel.setText(inHouseLabel);
         inHouseButton.setOnMouseClicked(onInHouseClick);
         outSourcedButton.setOnMouseClicked(onOutSourcedClick);
+        saveButton.setOnMouseClicked(onSaveClick);
     }
     private void addInHousePart() {
         getPartFormInfo();
@@ -89,10 +91,15 @@ public class PartController extends Controller {
     }
     private void getPartFormInfo() {
         partName = nameField.getText();
-        partStock = getIntFromTextField(stockField);
-        partPrice = getDoubleFromTextField(priceField);
-        partMin = getIntFromTextField(minField);
-        partMax = getIntFromTextField(maxField);
+        try {
+            partStock = getIntFromTextField(stockField);
+            partPrice = getDoubleFromTextField(priceField);
+            partMin = getIntFromTextField(minField);
+            partMax = getIntFromTextField(maxField);
+        } catch (NumberFormatException | NullPointerException e) {
+            System.out.println(e.getMessage());
+            openErrorWindow(e);
+        }
         partId = createPartId();
     }
     private int createPartId() {
