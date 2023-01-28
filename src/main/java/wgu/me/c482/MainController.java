@@ -33,14 +33,12 @@ public class MainController extends Controller implements Initializable {
     private void addPartSceneChange() {
         PartController addPartController = new PartController(inventory);
         Window addPart = new Window("add-part.fxml", "Add-Part", addPartController);
-        addPartController.setRadioButtons();
         addPart.showWindow();
     }
     @FXML
     private void changePartSceneChange() {
         PartController changePartController = new PartController(inventory);
         Window changePart = new Window("modify-part.fxml", "Alter Part", changePartController);
-        changePartController.setRadioButtons();
         changePart.showWindow();
     }
 }

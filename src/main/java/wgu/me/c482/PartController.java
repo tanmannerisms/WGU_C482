@@ -59,7 +59,7 @@ public class PartController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        setRadioButtons();
     }
     public PartController() {
         super();
