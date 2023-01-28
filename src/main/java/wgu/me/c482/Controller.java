@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-class Controller {
+public abstract class Controller {
     protected Inventory inventory;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
@@ -42,8 +42,8 @@ class Controller {
         errorController.setErrorMessage(e.getMessage());
         error.showWindowAndWait();
     }
-    protected void closeWindow(Event event) {
+/*    protected void closeWindow(Event event) {
         Stage stage = event.getSource();
         stage.close();
-    }
+    }*/
 }

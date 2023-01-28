@@ -2,6 +2,7 @@ package wgu.me.c482;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -10,8 +11,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PartController extends Controller {
+public class PartController extends Controller implements Initializable {
     private String partName;
     private int partId;
     private int partStock;
@@ -54,6 +57,10 @@ public class PartController extends Controller {
         }
     };
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
     public PartController() {
         super();
     }
