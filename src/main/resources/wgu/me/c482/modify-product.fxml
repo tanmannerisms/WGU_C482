@@ -6,7 +6,9 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="900.0"
-            xmlns="http://javafx.com/javafx/11.0.14-internal" >
+            xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="wgu.me.c482.ProductController">
     <HBox prefHeight="500">
         <AnchorPane prefWidth="450">
             <VBox AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">

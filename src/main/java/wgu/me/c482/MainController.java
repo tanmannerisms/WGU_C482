@@ -16,19 +16,13 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void addProductSceneChange() {
-/*
-        ProductController addProductController = new ProductController(inventory);
-        Window addProduct = new Window("add-product.fxml", "Add-Product", addProductController);
+        Window addProduct = new Window("add-product.fxml", "Add-Product");
         addProduct.showWindow();
-*/
     }
     @FXML
     private void changeProductSceneChange() {
-/*
-        ProductController changeProductController = new ProductController(inventory);
-        Window changeProduct = new Window("modify-product.fxml", "Change Product", changeProductController);
+        Window changeProduct = new Window("modify-product.fxml", "Change Product");
         changeProduct.showWindow();
-*/
     }
     @FXML
     private void addPartSceneChange() {
@@ -37,10 +31,7 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void changePartSceneChange() {
-/*
-        PartController changePartController = new PartController(inventory);
-        Window changePart = new Window("modify-part.fxml", "Alter Part", changePartController);
+        Window changePart = new Window("modify-part.fxml", "Alter Part");
         changePart.showWindow();
-*/
     }
 }
