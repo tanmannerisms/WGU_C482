@@ -56,15 +56,19 @@
                                    GridPane.rowIndex="1">
                             <columns>
                                 <TableColumn text="ID"
+                                             fx:id="productIdColumn"
                                              minWidth="50"
                                              prefWidth="102.5" />
                                 <TableColumn text="Name"
+                                             fx:id="productNameColumn"
                                              minWidth="50"
                                              prefWidth="102.5" />
                                 <TableColumn text="Inventory"
+                                             fx:id="productStockColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                                 <TableColumn text="Price/Cost per Unit"
+                                             fx:id="productPriceColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                             </columns>
@@ -112,15 +116,19 @@
                                    GridPane.rowIndex="1">
                             <columns>
                                 <TableColumn text="ID"
+                                             fx:id="partIdColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                                 <TableColumn text="Name"
+                                             fx:id="partNameColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                                 <TableColumn text="Inventory"
+                                             fx:id="partStockColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                                 <TableColumn text="Price/Cost per Unit"
+                                             fx:id="partPriceColumn"
                                              minWidth="50"
                                              prefWidth="102.5"  />
                             </columns>
