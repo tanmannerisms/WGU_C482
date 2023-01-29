@@ -83,7 +83,8 @@
                     <ButtonBar AnchorPane.bottomAnchor="10" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10">
                         <buttons>
                             <Button text="Save" />
-                            <Button text="Cancel" />
+                            <Button text="Cancel"
+                                    onAction="#closeWindow" />
                         </buttons>
                     </ButtonBar>
                 </AnchorPane>

@@ -171,6 +171,7 @@
             </AnchorPane>
             <AnchorPane prefWidth="200">
                 <Button text="Cancel"
+                        onAction="#closeWindow"
                         prefHeight="25"
                         prefWidth="75"
                         AnchorPane.bottomAnchor="12.5"

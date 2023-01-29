@@ -1,6 +1,11 @@
 package wgu.me.c482;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public abstract class Controller {
@@ -23,5 +28,11 @@ public abstract class Controller {
     protected void openErrorWindow(Exception e) {
         ErrorWindow errorWindow = new ErrorWindow(e);
         errorWindow.showWindowAndWait();
+    }
+    @FXML
+    private void closeWindow(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
     }
 }
