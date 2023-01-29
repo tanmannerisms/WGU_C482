@@ -72,12 +72,32 @@
                         </padding>
                     </Label>
 
-                    <TextField editable="false" maxWidth="180.0" prefWidth="120.0" promptText="Auto-Generated - Disabled" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <TextField maxWidth="180.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <TextField maxWidth="80.0" prefWidth="120" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                    <TextField maxWidth="80.0" prefWidth="60" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <TextField editable="false"
+                               maxWidth="180.0"
+                               prefWidth="120.0"
+                               promptText="Auto-Generated - Disabled"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0" />
+                    <TextField maxWidth="180.0"
+                               prefWidth="120"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1" />
+                    <TextField maxWidth="80.0"
+                               prefWidth="120"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="2" />
+                    <TextField maxWidth="80.0"
+                               prefWidth="60"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="3" />
+                    <TextField maxWidth="80.0"
+                               prefWidth="60"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="4" />
+                    <TextField maxWidth="80.0"
+                               prefWidth="60"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="5" />
                 </GridPane>
                 <AnchorPane prefHeight="50" >
                     <ButtonBar AnchorPane.bottomAnchor="10" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10">

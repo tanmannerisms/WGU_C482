@@ -8,10 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProductController extends Controller implements Initializable {
-    private String productName;
-    private int productId, productInventory, productMin, productMax;
-    private double productPrice;
-    private TextField idField, nameField, inventoryField, priceField, minField, maxField;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -23,17 +20,17 @@ public class ProductController extends Controller implements Initializable {
     private void addProduct() {
         getFormData();
         Product newProduct = new Product(
-                productId, productName, productPrice, productInventory, productMin, productMax
+                id, name, price, stock, min, max
         );
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
     }
     private void getFormData() {
-        productName = nameField.getText();
-        productInventory = getIntFromTextField(inventoryField);
-        productPrice = getDoubleFromTextField(priceField);
-        productMin = getIntFromTextField(minField);
-        productMax = getIntFromTextField(maxField);
-        productId = createProductId();
+        name = nameField.getText();
+        stock = getIntFromTextField(stockField);
+        price = getDoubleFromTextField(priceField);
+        min = getIntFromTextField(minField);
+        max = getIntFromTextField(maxField);
+        id = createProductId();
     }
     private int createProductId() {
         int id = Inventory.productId;

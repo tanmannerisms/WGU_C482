@@ -13,16 +13,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PartController extends Controller implements Initializable {
-    private String partName;
-    private int partId;
-    private int partStock;
-    private int partMin;
-    private int partMax;
-    private double partPrice;
+    private String partCompanyName;
+    private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
-
     @FXML
-    private TextField idField, nameField, stockField, minField, maxField, priceField, sourceTypeField;
+    private TextField sourceTypeField;
     @FXML
     private Label sourceTypeLabel;
     @FXML
@@ -53,9 +48,9 @@ public class PartController extends Controller implements Initializable {
             openErrorWindow(e);
             return;
         }
-        int partMachineId = getIntFromTextField(sourceTypeField);
+        partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
-                partId, partName, partPrice, partStock, partMin, partMax, partMachineId
+                id, name, price, stock, min, max, partMachineId
         );
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
@@ -70,31 +65,31 @@ public class PartController extends Controller implements Initializable {
             openErrorWindow(e);
             return;
         }
-        String partCompanyName = sourceTypeField.getText();
+        partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
-                partId, partName, partPrice, partStock, partMin, partMax, partCompanyName
+                id, name, price, stock, min, max, partCompanyName
         );
         System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
     private void getPartFormInfo() throws IOException {
-        partName = nameField.getText();
+        name = nameField.getText();
         try {
-            partStock = getIntFromTextField(stockField);
-            partPrice = getDoubleFromTextField(priceField);
-            partMin = getIntFromTextField(minField);
-            partMax = getIntFromTextField(maxField);
+            stock = getIntFromTextField(stockField);
+            price = getDoubleFromTextField(priceField);
+            min = getIntFromTextField(minField);
+            max = getIntFromTextField(maxField);
         } catch (NumberFormatException | NullPointerException e) {
             throw InvalidNumericInput;
         }
-        partId = createPartId();
+        id = createPartId();
     }
     private void validateFormInfo() throws IOException {
-        if (!(partMin <= partStock & partStock <= partMax)) {
+        if (!(min <= stock & stock <= max)) {
             throw StockOutOfBounds;
         }
-        if (partMin < 0) {
+        if (min < 0) {
             throw MinTooLow;
         }
     }

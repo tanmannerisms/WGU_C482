@@ -9,6 +9,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public abstract class Controller {
+    @FXML
+    protected String name;
+    @FXML
+    protected int id, stock, min, max;
+    @FXML
+    protected double price;
+    @FXML
+    protected TextField idField, nameField, stockField, priceField, minField, maxField;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
     static IOException MinTooLow = new IOException("Min cannot be below 0.");
