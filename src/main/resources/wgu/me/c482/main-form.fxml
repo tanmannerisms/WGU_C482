@@ -36,7 +36,9 @@
                             <RowConstraints minHeight="-Infinity" prefHeight="285.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
                         </rowConstraints>
-                        <Label text="Products" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Products"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
@@ -44,19 +46,35 @@
                                 <Insets left="20.0" />
                             </padding>
                         </Label>
-                        <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <TextField promptText="Search by Name or ID"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0" />
+                        <TableView fx:id="productTable"
+                                   prefHeight="200.0"
+                                   prefWidth="200.0"
+                                   GridPane.columnSpan="2"
+                                   GridPane.rowIndex="1">
                             <columns>
-                                <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                                <TableColumn text="ID"
+                                             minWidth="50"
+                                             prefWidth="102.5" />
+                                <TableColumn text="Name"
+                                             minWidth="50"
+                                             prefWidth="102.5" />
+                                <TableColumn text="Inventory"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
+                                <TableColumn text="Price/Cost per Unit"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
                             </columns>
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
                             <buttons>
-                                <Button onAction="#addProductSceneChange" text="Add" />
-                                <Button onAction="#changeProductSceneChange" text="Change" />
+                                <Button text="Add"
+                                        onAction="#addProductSceneChange" />
+                                <Button text="Change"
+                                        onAction="#changeProductSceneChange" />
                                 <Button text="Delete" />
                             </buttons>
                         </ButtonBar>
@@ -85,13 +103,26 @@
                                 <Insets left="20" />
                             </padding>
                         </Label>
-                        <TextField promptText="Search by Name or ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TableView prefHeight="200" prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <TextField promptText="Search by Name or ID"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0" />
+                        <TableView fx:id="partsTable" prefHeight="200"
+                                   prefWidth="200"
+                                   GridPane.columnSpan="2"
+                                   GridPane.rowIndex="1">
                             <columns>
-                                <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
-                                <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                                <TableColumn text="ID"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
+                                <TableColumn text="Name"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
+                                <TableColumn text="Inventory"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
+                                <TableColumn text="Price/Cost per Unit"
+                                             minWidth="50"
+                                             prefWidth="102.5"  />
                             </columns>
                         </TableView>
                         <ButtonBar GridPane.columnSpan="2" GridPane.rowIndex="2">
