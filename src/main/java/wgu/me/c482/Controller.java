@@ -34,5 +34,6 @@ public abstract class Controller {
         Button button = (Button) actionEvent.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
+        actionEvent.consume();
     }
 }

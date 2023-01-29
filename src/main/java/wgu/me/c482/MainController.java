@@ -21,6 +21,7 @@ public class MainController extends Controller implements Initializable {
     private TableColumn<Part, Double> partPriceColumn, productPriceColumn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setTableColumns();
         updateTables();
     }
     public MainController() {
@@ -29,40 +30,46 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private void addProductSceneChange(ActionEvent actionEvent) {
         Window addProduct = new Window("add-product.fxml", "Add-Product");
-        addProduct.showWindow();
+        addProduct.showWindowAndWait();
+        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
         Window changeProduct = new Window("modify-product.fxml", "Change Product");
-        changeProduct.showWindow();
+        changeProduct.showWindowAndWait();
+        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void addPartSceneChange(ActionEvent actionEvent) {
         Window addPart = new Window("add-part.fxml", "Add-Part");
-        addPart.showWindow();
+        addPart.showWindowAndWait();
+        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
         Window changePart = new Window("modify-part.fxml", "Alter Part");
-        changePart.showWindow();
+        changePart.showWindowAndWait();
+        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void updateTables() {
         partsTable.setItems(Inventory.getAllParts());
-        partIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
-        partNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
-        partStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
-        partPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
-
         productsTable.setItems(Inventory.getAllProducts());
+        System.out.println("Tables updated");
+    }
+    private void setTableColumns() {
         productIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
         productNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
         productStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
         productPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
 
+        partIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
+        partNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
+        partStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
+        partPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
     }
 }
