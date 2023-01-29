@@ -14,6 +14,7 @@ public class Inventory {
      */
     public static void addPart(Part part) {
         allParts.add(part);
+        partId++;
         System.out.println("Part " + part.getName() + " added to inventory");
     }
 
@@ -23,6 +24,7 @@ public class Inventory {
      */
     public static void addProduct(Product product) {
         allProducts.add(product);
+        productId++;
         System.out.println("Product " + product.getName() + " added to inventory");
     }
 

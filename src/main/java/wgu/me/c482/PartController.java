@@ -29,7 +29,6 @@ public class PartController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setRadioButtons();
-        setFields();
     }
     public PartController() {
         super();
@@ -48,6 +47,12 @@ public class PartController extends Controller implements Initializable {
             priceField.setText(Double.toString(importedPart.getPrice()));
             minField.setText(Integer.toString(importedPart.getMin()));
             maxField.setText(Integer.toString(importedPart.getMax()));
+        }
+        if (importedPart instanceof InHouse) {
+            sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
+        }
+        if (importedPart instanceof Outsourced) {
+            sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
         }
     }
     private void addInHousePart(ActionEvent actionEvent) {
@@ -105,9 +110,7 @@ public class PartController extends Controller implements Initializable {
         }
     }
     private int createPartId() {
-        int id = Inventory.partId;
-        Inventory.partId++;
-        return id;
+        return Inventory.partId;
     }
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {
