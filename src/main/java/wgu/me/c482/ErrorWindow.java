@@ -7,6 +7,7 @@ public class ErrorWindow extends Window{
         super(file, title);
         ErrorController controller = fxmlLoader.getController();
         controller.setErrorTextField(e.getMessage());
+        e.printStackTrace();
     }
     ErrorWindow(String errorMessage) {
         super(file, title);

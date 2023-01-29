@@ -75,6 +75,9 @@ public class MainController extends Controller implements Initializable {
         if (!partDeleted) {
             ErrorWindow errorWindow = new ErrorWindow("Part unsuccessfully deleted.");
         }
+        else {
+            ErrorWindow errorwindow = new ErrorWindow("Part successfully deleted");
+        }
     }
     @FXML
     private void deleteProduct() {
@@ -82,6 +85,9 @@ public class MainController extends Controller implements Initializable {
         productDeleted = Inventory.deleteProduct(getSelectedProduct());
         if (!productDeleted) {
             ErrorWindow errorWindow = new ErrorWindow("Product unsuccessfully deleted");
+        }
+        else {
+            ErrorWindow errorwindow = new ErrorWindow("Product successfully deleted");
         }
     }
     // Need to add these two methods to Controller.java instead.
