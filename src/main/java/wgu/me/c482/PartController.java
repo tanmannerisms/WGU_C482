@@ -50,9 +50,13 @@ public class PartController extends Controller implements Initializable {
         }
         if (importedPart instanceof InHouse) {
             sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
+            sourceTypeLabel.setText(inHouseLabelText);
+            radioButtonTGroup.selectToggle(inHouseButton);
         }
         if (importedPart instanceof Outsourced) {
             sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
+            sourceTypeLabel.setText(outSourcedLabelText);
+            radioButtonTGroup.selectToggle(outSourcedButton);
         }
     }
     private void addInHousePart(ActionEvent actionEvent) {

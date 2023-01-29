@@ -47,9 +47,15 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
-        Window changePart = new Window("modify-part.fxml", "Alter Part", getSelectedPart());
-        changePart.showWindowAndWait();
-        actionEvent.consume();
+        if (getSelectedPart() == null) {
+            ErrorWindow errorWindow = new ErrorWindow("Please select a part.");
+            errorWindow.showWindowAndWait();
+        }
+        else {
+            Window changePart = new Window("modify-part.fxml", "Alter Part", getSelectedPart());
+            changePart.showWindowAndWait();
+            actionEvent.consume();
+        }
     }
     @FXML
     private void updateTables() {
