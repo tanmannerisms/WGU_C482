@@ -24,10 +24,12 @@ public class PartController extends Controller implements Initializable {
     private RadioButton inHouseButton, outSourcedButton;
     @FXML
     private final ToggleGroup radioButtonTGroup = new ToggleGroup();
+    protected Part importedPart;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setRadioButtons();
+        setFields();
     }
     public PartController() {
         super();
@@ -39,16 +41,25 @@ public class PartController extends Controller implements Initializable {
         inHouseButton.setSelected(true);
         sourceTypeLabel.setText(inHouseLabelText);
     }
+    protected void setFields() {
+        if (importedPart != null) {
+            nameField.setText(importedPart.getName());
+            stockField.setText(Integer.toString(importedPart.getStock()));
+            priceField.setText(Double.toString(importedPart.getPrice()));
+            minField.setText(Integer.toString(importedPart.getMin()));
+            maxField.setText(Integer.toString(importedPart.getMax()));
+        }
+    }
     private void addInHousePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
+            partMachineId = getIntFromTextField(sourceTypeField);
             validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
             return;
         }
-        partMachineId = getIntFromTextField(sourceTypeField);
         Part newPart = new InHouse(
                 id, name, price, stock, min, max, partMachineId
         );
@@ -59,13 +70,13 @@ public class PartController extends Controller implements Initializable {
     private void addOutSourcedPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
+            partCompanyName = sourceTypeField.getText();
             validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
             return;
         }
-        partCompanyName = sourceTypeField.getText();
         Part newPart = new Outsourced(
                 id, name, price, stock, min, max, partCompanyName
         );

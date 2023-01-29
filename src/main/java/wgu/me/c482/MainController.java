@@ -35,7 +35,7 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
-        Window changeProduct = new Window("modify-product.fxml", "Change Product");
+        Window changeProduct = new Window("modify-product.fxml", "Change Product", getSelectedProduct());
         changeProduct.showWindowAndWait();
         actionEvent.consume();
     }
@@ -47,7 +47,7 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
-        Window changePart = new Window("modify-part.fxml", "Alter Part");
+        Window changePart = new Window("modify-part.fxml", "Alter Part", getSelectedPart());
         changePart.showWindowAndWait();
         actionEvent.consume();
     }
@@ -99,7 +99,7 @@ public class MainController extends Controller implements Initializable {
             }
         }
         else {
-            errorWindow = new ErrorWindow("No part selected.");
+            errorWindow = new ErrorWindow("No product selected.");
         }
         errorWindow.showWindow();
     }

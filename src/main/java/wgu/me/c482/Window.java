@@ -20,6 +20,25 @@ public class Window {
         setScene();
         setStage();
     }
+    Window(String file, String title, Part part) {
+        fxmlFile = file;
+        windowTitle = title;
+        fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        setScene();
+        setStage();
+        PartController partController = fxmlLoader.getController();
+        partController.importedPart = part;
+        partController.setFields();
+    }
+    Window(String file, String title, Product product) {
+        fxmlFile = file;
+        windowTitle = title;
+        fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        setScene();
+        setStage();
+        ProductController productController = fxmlLoader.getController();
+        productController.importedProduct = product;
+    }
 
 
     private void setScene() {

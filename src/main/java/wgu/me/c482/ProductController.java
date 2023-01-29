@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProductController extends Controller implements Initializable {
+    protected Product importedProduct;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
