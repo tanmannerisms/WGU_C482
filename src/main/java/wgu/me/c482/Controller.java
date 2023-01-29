@@ -16,7 +16,7 @@ public abstract class Controller {
     @FXML
     protected double price;
     @FXML
-    protected TextField idField, nameField, stockField, priceField, minField, maxField;
+    protected TextField nameField, stockField, priceField, minField, maxField;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
     static IOException MinTooLow = new IOException("Min cannot be below 0.");

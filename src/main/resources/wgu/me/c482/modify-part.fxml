@@ -112,8 +112,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <TextField fx:id="idField"
-                       editable="false"
+            <TextField editable="false"
                        maxWidth="180.0"
                        prefWidth="120.0"
                        promptText="Auto-Generated"
