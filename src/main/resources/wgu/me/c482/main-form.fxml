@@ -79,7 +79,8 @@
                                         onAction="#addProductSceneChange" />
                                 <Button text="Change"
                                         onAction="#changeProductSceneChange" />
-                                <Button text="Delete" />
+                                <Button text="Delete"
+                                        onAction="#deleteProduct"/>
                             </buttons>
                         </ButtonBar>
                     </GridPane>
@@ -137,7 +138,8 @@
                             <buttons>
                                 <Button onAction="#addPartSceneChange" text="Add" />
                                 <Button onAction="#changePartSceneChange" text="Change" />
-                                <Button text="Delete" />
+                                <Button text="Delete"
+                                        onAction="#deletePart"/>
                             </buttons>
                         </ButtonBar>
                     </GridPane>

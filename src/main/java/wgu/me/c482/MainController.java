@@ -31,28 +31,24 @@ public class MainController extends Controller implements Initializable {
     private void addProductSceneChange(ActionEvent actionEvent) {
         Window addProduct = new Window("add-product.fxml", "Add-Product");
         addProduct.showWindowAndWait();
-        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
         Window changeProduct = new Window("modify-product.fxml", "Change Product");
         changeProduct.showWindowAndWait();
-        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void addPartSceneChange(ActionEvent actionEvent) {
         Window addPart = new Window("add-part.fxml", "Add-Part");
         addPart.showWindowAndWait();
-        updateTables();
         actionEvent.consume();
     }
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
         Window changePart = new Window("modify-part.fxml", "Alter Part");
         changePart.showWindowAndWait();
-        updateTables();
         actionEvent.consume();
     }
     @FXML
@@ -71,5 +67,22 @@ public class MainController extends Controller implements Initializable {
         partNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
         partStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
         partPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
+    }
+    @FXML
+    private void deletePart() {
+        Inventory.deletePart(getSelectedPart());
+    }
+    @FXML
+    private void deleteProduct() {
+        Inventory.deleteProduct(getSelectedProduct());
+    }
+    // Need to add these two methods to Controller.java instead.
+    private Part getSelectedPart() {
+        Part part = (Part) partsTable.getSelectionModel().getSelectedItem();
+        return part;
+    }
+    private Product getSelectedProduct() {
+        Product product = (Product) productsTable.getSelectionModel().getSelectedItem();
+        return product;
     }
 }
