@@ -44,7 +44,7 @@ public class PartController extends Controller implements Initializable {
         inHouseButton.setSelected(true);
         sourceTypeLabel.setText(inHouseLabelText);
     }
-    private void addInHousePart() {
+    private void addInHousePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
             validateFormInfo();
@@ -59,8 +59,9 @@ public class PartController extends Controller implements Initializable {
         );
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
+        closeWindow(actionEvent);
     }
-    private void addOutSourcedPart() {
+    private void addOutSourcedPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
             validateFormInfo();
@@ -75,6 +76,7 @@ public class PartController extends Controller implements Initializable {
         );
         System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
+        closeWindow(actionEvent);
     }
     private void getPartFormInfo() throws IOException {
         partName = nameField.getText();
@@ -104,10 +106,9 @@ public class PartController extends Controller implements Initializable {
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {
         if (radioButtonTGroup.getSelectedToggle() == outSourcedButton) {
-            addOutSourcedPart();
+            addOutSourcedPart(actionEvent);
         }
-        else addInHousePart();
-        actionEvent.consume();
+        else addInHousePart(actionEvent);
     }
     @FXML
     private void onInHouseClick(ActionEvent actionEvent) {

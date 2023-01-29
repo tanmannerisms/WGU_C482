@@ -49,7 +49,7 @@
                         <TextField promptText="Search by Name or ID"
                                    GridPane.columnIndex="1"
                                    GridPane.rowIndex="0" />
-                        <TableView fx:id="productTable"
+                        <TableView fx:id="productsTable"
                                    prefHeight="200.0"
                                    prefWidth="200.0"
                                    GridPane.columnSpan="2"

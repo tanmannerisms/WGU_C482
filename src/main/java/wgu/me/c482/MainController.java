@@ -13,7 +13,7 @@ public class MainController extends Controller implements Initializable {
     private TableView productsTable, partsTable;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        updateTables();
     }
     public MainController() {
         super();
@@ -41,5 +41,10 @@ public class MainController extends Controller implements Initializable {
         Window changePart = new Window("modify-part.fxml", "Alter Part");
         changePart.showWindow();
         actionEvent.consume();
+    }
+    @FXML
+    private void updateTables() {
+        productsTable.setItems(Inventory.getAllProducts());
+        partsTable.setItems(Inventory.getAllParts());
     }
 }

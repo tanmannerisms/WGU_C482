@@ -30,7 +30,7 @@ public abstract class Controller {
         errorWindow.showWindowAndWait();
     }
     @FXML
-    private void closeWindow(ActionEvent actionEvent) {
+    protected void closeWindow(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
