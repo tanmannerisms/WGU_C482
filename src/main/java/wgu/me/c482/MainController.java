@@ -72,23 +72,36 @@ public class MainController extends Controller implements Initializable {
     private void deletePart() {
         boolean partDeleted;
         partDeleted = Inventory.deletePart(getSelectedPart());
-        if (!partDeleted) {
-            ErrorWindow errorWindow = new ErrorWindow("Part unsuccessfully deleted.");
+        ErrorWindow errorWindow;
+        if (getSelectedPart() != null) {
+            if (!partDeleted) {
+                errorWindow = new ErrorWindow("Part unsuccessfully deleted.");
+            }
+            else {
+                errorWindow = new ErrorWindow("Part successfully deleted");
+            }
         }
         else {
-            ErrorWindow errorwindow = new ErrorWindow("Part successfully deleted");
+            errorWindow = new ErrorWindow("No part selected.");
         }
+        errorWindow.showWindow();
     }
     @FXML
     private void deleteProduct() {
         boolean productDeleted;
         productDeleted = Inventory.deleteProduct(getSelectedProduct());
-        if (!productDeleted) {
-            ErrorWindow errorWindow = new ErrorWindow("Product unsuccessfully deleted");
+        ErrorWindow errorWindow;
+        if (getSelectedPart() != null) {
+            if (!productDeleted) {
+                errorWindow = new ErrorWindow("Product unsuccessfully deleted");
+            } else {
+                errorWindow = new ErrorWindow("Product successfully deleted");
+            }
         }
         else {
-            ErrorWindow errorwindow = new ErrorWindow("Product successfully deleted");
+            errorWindow = new ErrorWindow("No part selected.");
         }
+        errorWindow.showWindow();
     }
     // Need to add these two methods to Controller.java instead.
     private Part getSelectedPart() {

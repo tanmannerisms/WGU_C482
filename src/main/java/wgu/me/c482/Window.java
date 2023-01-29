@@ -41,7 +41,4 @@ public class Window {
     protected void showWindowAndWait() {
         stage.showAndWait();
     }
-    protected void closeWindow() {
-        stage.close();
-    }
 }
