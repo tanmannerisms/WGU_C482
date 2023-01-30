@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PartController extends Controller implements Initializable {
+    private boolean isInHouse;
     private String partCompanyName;
     private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
@@ -59,38 +60,49 @@ public class PartController extends Controller implements Initializable {
             radioButtonTGroup.selectToggle(outSourcedButton);
         }
     }
-    private void addInHousePart(ActionEvent actionEvent) {
+    private void addNewPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            partMachineId = getIntFromTextField(sourceTypeField);
             validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
             return;
         }
-        Part newPart = new InHouse(
-                id, name, price, stock, min, max, partMachineId
-        );
+        Part newPart;
+        if (isInHouse) {
+            newPart = new InHouse(
+                    id, name, price, stock, min, max, partMachineId
+            );
+        }
+        else {
+            newPart = new Outsourced(
+                    id, name, price, stock, min, max, partCompanyName
+            );
+        }
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
-    private void addOutSourcedPart(ActionEvent actionEvent) {
+    private void updatePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            partCompanyName = sourceTypeField.getText();
             validateFormInfo();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
             return;
         }
-        Part newPart = new Outsourced(
-                id, name, price, stock, min, max, partCompanyName
-        );
-        System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
-        Inventory.addPart(newPart);
+        importedPart.setName(name);
+        importedPart.setPrice(price);
+        importedPart.setMin(min);
+        importedPart.setMax(max);
+        if (isInHouse) {
+            ((InHouse) importedPart).setMachineId(partMachineId);
+        }
+        else ((Outsourced) importedPart).setCompanyName(partCompanyName);
+        Inventory.updatePart((importedPart.getId() - 1), importedPart);
+        importedPart.printPart();
         closeWindow(actionEvent);
     }
     private void getPartFormInfo() throws IOException {
@@ -100,6 +112,11 @@ public class PartController extends Controller implements Initializable {
             price = getDoubleFromTextField(priceField);
             min = getIntFromTextField(minField);
             max = getIntFromTextField(maxField);
+            if (isInHouse) {
+                partMachineId = getIntFromTextField(sourceTypeField);
+            } else {
+                partCompanyName = sourceTypeField.getText();
+            }
         } catch (NumberFormatException | NullPointerException e) {
             throw InvalidNumericInput;
         }
@@ -118,19 +135,21 @@ public class PartController extends Controller implements Initializable {
     }
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {
-        if (radioButtonTGroup.getSelectedToggle() == outSourcedButton) {
-            addOutSourcedPart(actionEvent);
+        if (importedPart == null) {
+            addNewPart(actionEvent);
         }
-        else addInHousePart(actionEvent);
+        else updatePart(actionEvent);
     }
     @FXML
     private void onInHouseClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(inHouseLabelText);
+        isInHouse = true;
         actionEvent.consume();
     }
     @FXML
     private void onOutSourcedClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(outSourcedLabelText);
+        isInHouse = false;
         actionEvent.consume();
     }
 }
