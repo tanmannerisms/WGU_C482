@@ -25,18 +25,53 @@ public abstract class Controller {
         System.out.println("No arg Controller constructor called");
     }
 
+    /** NEED TO SIMPLIFY
+     * Method to convert a String to an Integer. String is parsed from TextField that is passed in.
+     *
+     * @param textField the TextField that is to be parsed.
+     * @return the integer that was converted from the String.
+     * @throws NumberFormatException when parsed String is not an Integer.
+     */
     protected static int getIntFromTextField(TextField textField) throws NumberFormatException {
         String text = textField.getText();
         return Integer.parseInt(text);
     }
+
+    /** NEED TO SIMPLIFY
+     * Method to convert a String to a Double. String is parsed from TextField that is passed in.
+     *
+     * @param textField the TextField that is to be parsed.
+     * @return the double that was converted from the String.
+     * @throws NumberFormatException when parsed String is not a Double.
+     * @throws NullPointerException when TextField is empty.
+     */
     protected static double getDoubleFromTextField(TextField textField) throws NumberFormatException, NullPointerException {
         String text = textField.getText();
         return Double.parseDouble(text);
     }
+
+    /**
+     * Method to open up a new window with an error message
+     *
+     * @param e the exception that is passed in from a catch statement.
+     */
     protected void openErrorWindow(Exception e) {
         ErrorWindow errorWindow = new ErrorWindow(e);
         errorWindow.showWindowAndWait();
     }
+
+
+    /**
+     * ADD A openNotifyWindow HERE.
+     */
+
+
+
+    /**
+     * Method used to close the active window
+     *
+     * @param actionEvent is used to gather the information needed to close the window.
+     */
     @FXML
     protected void closeWindow(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();

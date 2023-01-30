@@ -19,6 +19,15 @@ public class MainController extends Controller implements Initializable {
     private TableColumn<Part, String> partNameColumn, productNameColumn;
     @FXML
     private TableColumn<Part, Double> partPriceColumn, productPriceColumn;
+
+    /**
+     * Method used for establishing the tables in the window.
+     *
+     * @param url not used.
+     * @param resourceBundle not used.
+     * @see #setTableColumns()
+     * @see #updateTables()
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setTableColumns();
@@ -27,24 +36,58 @@ public class MainController extends Controller implements Initializable {
     public MainController() {
         super();
     }
+
+    /**
+     * Method used for opening the add-product window.
+     *
+     * @param actionEvent consumed.
+     * @see Window#Window(String, String)
+     */
     @FXML
     private void addProductSceneChange(ActionEvent actionEvent) {
         Window addProduct = new Window("add-product.fxml", "Add-Product");
         addProduct.showWindowAndWait();
         actionEvent.consume();
     }
+
+    /** NEED TO ADD IF THEN LIKE WITH CHANGEPARTSCENECHANGE
+     * Method used for opening the change-product window. Passes the selected product to the ProductController instance.
+     *
+     * @param actionEvent consumed.
+     * @see Window#Window(String, String, Product)  Window
+     * @see #getSelectedProduct()
+     */
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
         Window changeProduct = new Window("modify-product.fxml", "Change Product", getSelectedProduct());
         changeProduct.showWindowAndWait();
         actionEvent.consume();
     }
+
+    /**
+     * Method used for opening the add-part window.
+     *
+     * @param actionEvent consumed.
+     * @see Window#Window(String, String)
+     */
     @FXML
     private void addPartSceneChange(ActionEvent actionEvent) {
         Window addPart = new Window("add-part.fxml", "Add-Part");
         addPart.showWindowAndWait();
         actionEvent.consume();
     }
+
+    /**
+     * Method used for opening the change-part window if there is a part selected. Passes the selected part to the
+     * PartController instance.
+     * Will open up a notification window if nothing is selected in the Parts TableView
+     *
+     * @param actionEvent consumed.
+     * @see #getSelectedPart()
+     * @see ErrorWindow#ErrorWindow(String)
+     * @see Window#Window(String, String, Part)
+     * @see #getSelectedPart()
+     */
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
         if (getSelectedPart() == null) {
@@ -57,12 +100,24 @@ public class MainController extends Controller implements Initializable {
             actionEvent.consume();
         }
     }
+
+    /**
+     * Method for updating the items in the two tables.
+     * Currently only used for setting the tables on the initialization of the window. May not need a method for this.
+     *
+     * @see Inventory#getAllParts()
+     * @see Inventory#getAllProducts()
+     */
     @FXML
     private void updateTables() {
         partsTable.setItems(Inventory.getAllParts());
         productsTable.setItems(Inventory.getAllProducts());
         System.out.println("Tables updated");
     }
+
+    /**
+     * Method for establishing the properties for the columns in the two TableViews in the main-form window.
+     */
     private void setTableColumns() {
         productIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
         productNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
@@ -74,6 +129,14 @@ public class MainController extends Controller implements Initializable {
         partStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
         partPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
     }
+
+    /**
+     * Method used to delete a Product from the Inventory when there is a Part selected in the Table Opens error
+     * window if nothing selected.
+     *
+     * @see #getSelectedPart()
+     * @see ErrorWindow#ErrorWindow(String)
+     */
     @FXML
     private void deletePart() {
         boolean partDeleted;
@@ -92,12 +155,20 @@ public class MainController extends Controller implements Initializable {
         }
         errorWindow.showWindow();
     }
+
+    /**
+     * Method used to delete a Product from the Inventory when there is a Product selected in the Table. Opens error
+     * window if nothing selected.
+     *
+     * @see #getSelectedProduct()
+     * @see ErrorWindow#ErrorWindow(String)
+     */
     @FXML
     private void deleteProduct() {
         boolean productDeleted;
-        productDeleted = Inventory.deleteProduct(getSelectedProduct());
         ErrorWindow errorWindow;
         if (getSelectedPart() != null) {
+            productDeleted = Inventory.deleteProduct(getSelectedProduct());
             if (!productDeleted) {
                 errorWindow = new ErrorWindow("Product unsuccessfully deleted");
             } else {
@@ -110,9 +181,23 @@ public class MainController extends Controller implements Initializable {
         errorWindow.showWindow();
     }
     // Need to add these two methods to Controller.java instead.
+
+    /**
+     * Method used to get the currently selected part from the main-form window.
+     *
+     * @return the Part that is selected.
+     * @see #partsTable
+     */
     private Part getSelectedPart() {
         return (Part) partsTable.getSelectionModel().getSelectedItem();
     }
+
+    /**
+     * Method used to get the currently selected Product from the main-form window.
+     *
+     * @return the Product that is selected.
+     * @see #productsTable
+     */
     private Product getSelectedProduct() {
         return (Product) productsTable.getSelectionModel().getSelectedItem();
     }
