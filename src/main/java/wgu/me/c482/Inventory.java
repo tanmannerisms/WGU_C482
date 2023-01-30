@@ -125,4 +125,22 @@ public class Inventory {
     public static ObservableList<Product> getAllProducts() {
         return allProducts;
     }
+
+    /**
+     *
+     * @param part is the part that you need the index of.
+     * @return The index of the passed in part as an integer.
+     */
+    public static int getPartIndex(Part part) {
+        return allParts.indexOf(lookupPart(part.getId()));
+    }
+
+    /**
+     *
+     * @param product is the product that you need the index of.
+     * @return The index of the passed in product as an integer.
+     */
+    public static int getProductIndex(Product product) {
+        return allProducts.indexOf(lookupProduct(product.getId()));
+    }
 }

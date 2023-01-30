@@ -84,6 +84,12 @@ public class PartController extends Controller implements Initializable {
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
+
+    /**
+     * RUNTIME ERROR: This method was running into an error where the program would try to convert one Part type to
+     * another. This was corrected by
+     * @param actionEvent
+     */
     private void updatePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
