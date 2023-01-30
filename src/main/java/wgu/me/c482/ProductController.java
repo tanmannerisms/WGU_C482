@@ -2,7 +2,6 @@ package wgu.me.c482;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,8 +33,6 @@ public class ProductController extends Controller implements Initializable {
         id = createProductId();
     }
     private int createProductId() {
-        int id = Inventory.productId;
-        Inventory.productId++;
-        return id;
+        return Inventory.productIdIterator++;
     }
 }

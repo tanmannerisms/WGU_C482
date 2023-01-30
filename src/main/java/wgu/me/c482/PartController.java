@@ -131,7 +131,7 @@ public class PartController extends Controller implements Initializable {
         }
     }
     private int createPartId() {
-        return Inventory.partId;
+        return Inventory.partIdIterator;
     }
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {

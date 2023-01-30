@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 public class Inventory {
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
-    static int partId = 1, productId = 1;
+    static int partIdIterator = 1, productIdIterator = 1;
 
     /**
      *
@@ -14,7 +14,7 @@ public class Inventory {
      */
     public static void addPart(Part part) {
         allParts.add(part);
-        partId++;
+        partIdIterator++;
         System.out.println("Part " + part.getName() + " added to inventory");
     }
 
@@ -24,7 +24,7 @@ public class Inventory {
      */
     public static void addProduct(Product product) {
         allProducts.add(product);
-        productId++;
+        productIdIterator++;
         System.out.println("Product " + product.getName() + " added to inventory");
     }
 
@@ -49,7 +49,7 @@ public class Inventory {
      */
     public static Product lookupProduct(int productId) {
         for (Product returnProduct : allProducts) {
-            if (returnProduct.getId() == partId) {
+            if (returnProduct.getId() == productId) {
                 return returnProduct;
             }
         }
