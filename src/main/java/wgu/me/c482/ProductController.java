@@ -17,6 +17,11 @@ public class ProductController extends Controller implements Initializable {
     public ProductController() {
         super();
     }
+
+    /**
+     * Creates a new Product and adds it to the Inventory.
+     *
+     */
     @FXML
     private void addProduct() {
         getFormData();
@@ -24,7 +29,13 @@ public class ProductController extends Controller implements Initializable {
                 id, name, price, stock, min, max
         );
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
+        Inventory.addProduct(newProduct);
     }
+
+    /**
+     * TO BE DELETED. SEE PartController#getPartFormInfo()
+     *
+     */
     private void getFormData() {
         name = nameField.getText();
         stock = getIntFromTextField(stockField);

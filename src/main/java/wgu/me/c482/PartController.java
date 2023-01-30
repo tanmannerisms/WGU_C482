@@ -27,6 +27,13 @@ public class PartController extends Controller implements Initializable {
     private final ToggleGroup radioButtonTGroup = new ToggleGroup();
     protected Part importedPart;
 
+    /**
+     * Sets initial layout of window.
+     *
+     * @param url not used.
+     * @param resourceBundle not used.
+     * @see #setRadioButtons()
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setRadioButtons();
@@ -34,13 +41,22 @@ public class PartController extends Controller implements Initializable {
     public PartController() {
         super();
     }
-    
+
+    /**
+     * Sets the initial radio button layout when the controller is initialized.
+     *
+     * @see #initialize(URL, ResourceBundle)
+     */
     protected void setRadioButtons() {
         inHouseButton.setToggleGroup(radioButtonTGroup);
         outSourcedButton.setToggleGroup(radioButtonTGroup);
         inHouseButton.setSelected(true);
         sourceTypeLabel.setText(inHouseLabelText);
     }
+
+    /** NEED TO NEST OTHER IF STATEMENTS INSIDE THE CHECK FOR IMPORTED PART.
+     * Populates the TextFields with data from the importedPart
+     */
     protected void setFields() {
         if (importedPart != null) {
             nameField.setText(importedPart.getName());
@@ -60,6 +76,20 @@ public class PartController extends Controller implements Initializable {
             radioButtonTGroup.selectToggle(outSourcedButton);
         }
     }
+
+    /**
+     * Creates a new part and adds it to the inventory using the data int the TextFields of the add-part window.
+     * Opens error window when getting data from the TextFields if data not congruent with requirements.
+     *
+     * @param actionEvent passed to closeWindow() for consumption
+     * @see #closeWindow(ActionEvent)
+     * @see #getPartFormInfo()
+     * @see #validateFormInfo()
+     * @see InHouse#InHouse(int, String, double, int, int, int, int)  InHouse
+     * @see Outsourced#Outsourced(int, String, double, int, int, int, String)  Outsourced
+     * @see Inventory#addPart(Part)
+     * @see Controller#closeWindow(ActionEvent)
+     */
     private void addNewPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
@@ -84,6 +114,15 @@ public class PartController extends Controller implements Initializable {
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
+
+    /** NEEDS FIXED. CURRENTLY NOT ALLOWING CONVERSION FROM INHOUSE TO OUTSOURCED & VICE VERSA.
+     * Sets all the information of the part passed in from changePartSceneChange(), using the TextFields.
+     * The TextFields need not have changed for this to successfully run.
+     * Opens error window when getting data from the TextFields if data not congruent with requirements.
+     *
+     * @param actionEvent passed to the closeWindow() for consumption.
+     * @see #closeWindow(ActionEvent)
+     */
     private void updatePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
@@ -105,6 +144,13 @@ public class PartController extends Controller implements Initializable {
         importedPart.printPart();
         closeWindow(actionEvent);
     }
+
+    /** NEED TO ADD THIS TO ABSTRACT CONTROLLER CLASS FOR USE IN PRODUCTCONTROLLER.
+     * Gets all the data from the TextFields.
+     *
+     * @throws IOException InvalidNumericInput
+     * @see Controller#InvalidNumericInput
+     */
     private void getPartFormInfo() throws IOException {
         name = nameField.getText();
         try {
@@ -122,6 +168,14 @@ public class PartController extends Controller implements Initializable {
         }
         id = createPartId();
     }
+
+    /**
+     * Checks the info taken from the TextFields to verify stock/inventory numbers.
+     *
+     * @throws IOException StockOutOfBounds, MinTooLow
+     * @see MainController#StockOutOfBounds
+     * @see MainController#MinTooLow
+     */
     private void validateFormInfo() throws IOException {
         if (!(min <= stock & stock <= max)) {
             throw StockOutOfBounds;
@@ -130,9 +184,23 @@ public class PartController extends Controller implements Initializable {
             throw MinTooLow;
         }
     }
+
+    /**
+     *
+     * @return the partId static variable.
+     */
     private int createPartId() {
         return Inventory.partId;
     }
+
+    /**
+     * Method called when the save button is pressed. Calls the addNewPart method if no part was imported.
+     * Otherwise, calls the updatePart method.
+     *
+     * @param actionEvent passed into the other methods for closing the window after updating/adding a part.
+     * @see #updatePart(ActionEvent)
+     * @see #addNewPart(ActionEvent)
+     */
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {
         if (importedPart == null) {
@@ -140,12 +208,24 @@ public class PartController extends Controller implements Initializable {
         }
         else updatePart(actionEvent);
     }
+
+    /**
+     * Sets the sourceTypeLabel to "Machine ID".
+     *
+     * @param actionEvent consumed.
+     */
     @FXML
     private void onInHouseClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(inHouseLabelText);
         isInHouse = true;
         actionEvent.consume();
     }
+
+    /**
+     * Sets the sourceTypeLabel to "Company Name".
+     *
+     * @param actionEvent consumed.
+     */
     @FXML
     private void onOutSourcedClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(outSourcedLabelText);
