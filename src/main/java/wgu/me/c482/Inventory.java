@@ -34,7 +34,12 @@ public class Inventory {
      * @return the part object that matches the part ID passed in.
      */
     public static Part lookupPart(int partId) {
-        return allParts.get(partId);
+        for (Part returnPart : allParts) {
+            if (returnPart.getId() == partId) {
+                return returnPart;
+            }
+        }
+        return null;
     }
 
     /**
@@ -43,7 +48,12 @@ public class Inventory {
      * @return the product object that matches the product ID passed in.
      */
     public static Product lookupProduct(int productId) {
-        return allProducts.get(productId);
+        for (Product returnProduct : allProducts) {
+            if (returnProduct.getId() == partId) {
+                return returnProduct;
+            }
+        }
+        return null;
     }
 
     /**
