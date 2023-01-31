@@ -55,7 +55,7 @@ public class MainController extends Controller implements Initializable {
         actionEvent.consume();
     }
 
-    /** NEED TO ADD IF THEN LIKE WITH CHANGEPARTSCENECHANGE
+    /**
      * Method used for opening the change-product window. Passes the selected product to the ProductController instance.
      *
      * @param actionEvent consumed.
@@ -64,9 +64,14 @@ public class MainController extends Controller implements Initializable {
      */
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
-        Window changeProduct = new Window("modify-product.fxml", "Change Product", getSelectedProduct());
-        changeProduct.showWindowAndWait();
-        actionEvent.consume();
+        if (getSelectedProduct() == null) {
+            openNotifyWindow("Please select a product.");
+        }
+        else {
+            Window changeProduct = new Window("modify-product.fxml", "Change Product", getSelectedProduct());
+            changeProduct.showWindowAndWait();
+            actionEvent.consume();
+        }
     }
 
     /**

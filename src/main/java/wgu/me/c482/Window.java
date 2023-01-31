@@ -57,6 +57,7 @@ public class Window {
         setStage();
         ProductController productController = fxmlLoader.getController();
         productController.importedProduct = product;
+        productController.setFields();
     }
 
     /**
