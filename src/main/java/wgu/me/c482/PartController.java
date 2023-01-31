@@ -159,19 +159,16 @@ public class PartController extends Controller implements Initializable {
         closeWindow(actionEvent);
     }
 
-    /** NEED TO ADD THIS TO ABSTRACT CONTROLLER CLASS FOR USE IN PRODUCTCONTROLLER.
+    /**
      * Gets all the data from the TextFields.
      *
      * @throws IOException InvalidNumericInput
      * @see Controller#InvalidNumericInput
+     * @see Controller#getFormInfo()
      */
     private void getPartFormInfo() throws IOException {
-        name = nameField.getText();
         try {
-            stock = getIntFromTextField(stockField);
-            price = getDoubleFromTextField(priceField);
-            min = getIntFromTextField(minField);
-            max = getIntFromTextField(maxField);
+            getFormInfo();
             if (inHouseSelected) {
                 partMachineId = getIntFromTextField(sourceTypeField);
             } else {

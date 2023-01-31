@@ -55,6 +55,18 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
 
+    protected void getFormInfo() throws IOException {
+        name = nameField.getText();
+        try {
+            stock = getIntFromTextField(stockField);
+            price = getDoubleFromTextField(priceField);
+            min = getIntFromTextField(minField);
+            max = getIntFromTextField(maxField);
+        } catch (NumberFormatException | NullPointerException e) {
+            throw InvalidNumericInput;
+        }
+    }
+
     protected ObservableList<Part> searchParts(TextField searchParam) {
         ObservableList<Part> searchResults;
         try {
