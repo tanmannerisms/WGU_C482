@@ -110,27 +110,27 @@
         <AnchorPane prefWidth="450">
             <VBox AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
                 <AnchorPane prefHeight="235">
-                    <TextField prefWidth="180" promptText="Search by Part ID or Name" AnchorPane.rightAnchor="35"/>
-                    <TableView prefHeight="170.0"
+                    <TextField fx:id="partSearchField" onAction="#onSearchAction" prefWidth="180" promptText="Search by Part ID or Name" AnchorPane.rightAnchor="35"/>
+                    <TableView fx:id="partsTable" prefHeight="170.0"
                                prefWidth="400.0"
                                AnchorPane.leftAnchor="0"
                                AnchorPane.topAnchor="30">
                         <columns>
-                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" fx:id="partIdColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" fx:id="partNameColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" fx:id="partStockColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" fx:id="partPriceColumn"/>
                         </columns>
                     </TableView>
                     <Button text="Add Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
                 </AnchorPane>
                 <AnchorPane prefHeight="235">
-                    <TableView prefHeight="170.0" prefWidth="400.0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="30">
+                    <TableView fx:id="associatedPartsTable" prefHeight="170.0" prefWidth="400.0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="30">
                         <columns>
-                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" />
-                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" />
+                            <TableColumn minWidth="50" prefWidth="102.5" text="ID" fx:id="associatedPartIdColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Name" fx:id="associatedPartNameColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Inventory" fx:id="associatedPartStockColumn"/>
+                            <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" fx:id="associatedPartPriceColumn"/>
                         </columns>
                     </TableView>
                     <Button text="Remove Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
