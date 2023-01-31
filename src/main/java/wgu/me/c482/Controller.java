@@ -55,6 +55,11 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
 
+    /**
+     * Gets the form info from the standard TextFields and sets the main variables if possible.
+     * @throws IOException InvalidNumericInput when unable to convert types.
+     * @see #InvalidNumericInput
+     */
     protected void getFormInfo() throws IOException {
         name = nameField.getText();
         try {
@@ -67,6 +72,12 @@ public abstract class Controller {
         }
     }
 
+    /**
+     * Searches for the parts associated with the TextFields input. Returns the matching part(s)
+     *
+     * @param searchParam the TextField to be parsed and used as a parameter for the part search.
+     * @return a List of part(s) that matches the search parameter.
+     */
     protected ObservableList<Part> searchParts(TextField searchParam) {
         ObservableList<Part> searchResults;
         try {
@@ -77,6 +88,12 @@ public abstract class Controller {
         }
         return searchResults;
     }
+
+    /**
+     * Sets the information for the partsTable TableView
+     *
+     * @param partList the list of part(s) that will be used to set the TableView.
+     */
     protected void updatePartsTable(ObservableList<Part> partList) {
         partsTable.setItems(partList);
     }

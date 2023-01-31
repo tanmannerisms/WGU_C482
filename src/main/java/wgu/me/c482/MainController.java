@@ -109,7 +109,7 @@ public class MainController extends Controller implements Initializable {
         productsTable.setItems(productList);
     }
 
-                              /**
+    /**
      * Method for establishing the properties for the columns in the two TableViews in the main-form window.
      */
     private void setTableColumns() {
@@ -191,6 +191,16 @@ public class MainController extends Controller implements Initializable {
     private Product getSelectedProduct() {
         return (Product) productsTable.getSelectionModel().getSelectedItem();
     }
+
+    /**
+     *  The method called when the Enter button is pressed while typing in one of the TextFields of the main-form.
+     *
+     * @param actionEvent the source of the action. Used to determine which search function to call
+     * @see Controller#searchParts(TextField)
+     * @see Controller#updatePartsTable(ObservableList)
+     * @see #searchProducts(TextField)
+     * @see #updateProductsTable(ObservableList)
+     */
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(partSearchField)) {
@@ -201,6 +211,12 @@ public class MainController extends Controller implements Initializable {
         }
     }
 
+    /**
+     * Searches for the products using the ID or Name taken from the TextField passed in
+     *
+     * @param searchParam the TextField used to get the Product(s) that match the parameters
+     * @return the list of Product(s) found matching the parameters.
+     */
     private ObservableList<Product> searchProducts(TextField searchParam) {
         ObservableList<Product> searchResults = FXCollections.observableArrayList();
         try {
