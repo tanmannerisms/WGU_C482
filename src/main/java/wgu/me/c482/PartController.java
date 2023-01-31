@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PartController extends Controller implements Initializable {
-    private boolean isInHouse;
+    private boolean inHouseSelected;
     private String partCompanyName;
     private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
@@ -100,7 +100,7 @@ public class PartController extends Controller implements Initializable {
             return;
         }
         Part newPart;
-        if (isInHouse) {
+        if (inHouseSelected) {
             newPart = new InHouse(
                     id, name, price, stock, min, max, partMachineId
             );
@@ -136,11 +136,24 @@ public class PartController extends Controller implements Initializable {
         importedPart.setPrice(price);
         importedPart.setMin(min);
         importedPart.setMax(max);
-        if (isInHouse) {
+        Part newPart;
+        if (inHouseSelected & importedPart instanceof InHouse) {
             ((InHouse) importedPart).setMachineId(partMachineId);
         }
-        else ((Outsourced) importedPart).setCompanyName(partCompanyName);
-        Inventory.updatePart((importedPart.getId() - 1), importedPart);
+        else if (inHouseSelected & importedPart instanceof Outsourced) {
+            newPart = new InHouse(importedPart.getId(), name, price, stock, min, max, partMachineId);
+            Inventory.updatePart(Inventory.getPartIndex(importedPart), newPart);
+        }
+        else if (!inHouseSelected & importedPart instanceof Outsourced) {
+            ((Outsourced) importedPart).setCompanyName(partCompanyName);
+        }
+        else if (!inHouseSelected & importedPart instanceof InHouse) {
+            newPart = new Outsourced(importedPart.getId(), name, price, stock, min, max, partCompanyName);
+            Inventory.updatePart(Inventory.getPartIndex(importedPart), newPart);
+        }
+        else {
+            openNotifyWindow("Could not determine part type.");
+        }
         importedPart.printPart();
         closeWindow(actionEvent);
     }
@@ -158,7 +171,7 @@ public class PartController extends Controller implements Initializable {
             price = getDoubleFromTextField(priceField);
             min = getIntFromTextField(minField);
             max = getIntFromTextField(maxField);
-            if (isInHouse) {
+            if (inHouseSelected) {
                 partMachineId = getIntFromTextField(sourceTypeField);
             } else {
                 partCompanyName = sourceTypeField.getText();
@@ -187,7 +200,7 @@ public class PartController extends Controller implements Initializable {
 
     /**
      *
-     * @return the partId static variable.
+     * @return the partIdIterator static variable.
      */
     private int createPartId() {
         return Inventory.partIdIterator;
@@ -217,7 +230,7 @@ public class PartController extends Controller implements Initializable {
     @FXML
     private void onInHouseClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(inHouseLabelText);
-        isInHouse = true;
+        inHouseSelected = true;
         actionEvent.consume();
     }
 
@@ -229,7 +242,7 @@ public class PartController extends Controller implements Initializable {
     @FXML
     private void onOutSourcedClick(ActionEvent actionEvent) {
         sourceTypeLabel.setText(outSourcedLabelText);
-        isInHouse = false;
+        inHouseSelected = false;
         actionEvent.consume();
     }
 }

@@ -69,7 +69,7 @@ public abstract class Controller {
         partsTable.setItems(partList);
     }
 
-                                   /**
+    /**
      * Method to open up a new window with an error message
      *
      * @param e the exception that is passed in from a catch statement.
@@ -83,6 +83,9 @@ public abstract class Controller {
     /**
      * ADD A openNotifyWindow HERE.
      */
+    protected void openNotifyWindow(String notifyMessage) {
+
+    }
 
 
 
