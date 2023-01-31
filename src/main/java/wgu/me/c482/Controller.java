@@ -60,7 +60,7 @@ public abstract class Controller {
      * @throws IOException InvalidNumericInput when unable to convert types.
      * @see #InvalidNumericInput
      */
-    protected void getFormInfo() throws IOException {
+    protected void getFormData() throws IOException {
         name = nameField.getText();
         try {
             stock = getIntFromTextField(stockField);

@@ -164,11 +164,11 @@ public class PartController extends Controller implements Initializable {
      *
      * @throws IOException InvalidNumericInput
      * @see Controller#InvalidNumericInput
-     * @see Controller#getFormInfo()
+     * @see Controller#getFormData()
      */
     private void getPartFormInfo() throws IOException {
         try {
-            getFormInfo();
+            getFormData();
             if (inHouseSelected) {
                 partMachineId = getIntFromTextField(sourceTypeField);
             } else {

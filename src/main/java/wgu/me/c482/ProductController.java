@@ -3,6 +3,7 @@ package wgu.me.c482;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,23 +24,15 @@ public class ProductController extends Controller implements Initializable {
      */
     @FXML
     private void addProduct() {
-        getFormData();
+        try {
+            getFormData();
+        } catch (IOException e) {
+            openErrorWindow(e);
+        }
         Product newProduct = new Product(
                 Inventory.productIdIterator, name, price, stock, min, max
         );
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
         Inventory.addProduct(newProduct);
-    }
-
-    /**
-     * TO BE DELETED. SEE PartController#getPartFormInfo()
-     *
-     */
-    private void getFormData() {
-        name = nameField.getText();
-        stock = getIntFromTextField(stockField);
-        price = getDoubleFromTextField(priceField);
-        min = getIntFromTextField(minField);
-        max = getIntFromTextField(maxField);
     }
 }
