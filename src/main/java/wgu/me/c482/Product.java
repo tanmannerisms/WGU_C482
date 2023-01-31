@@ -156,6 +156,9 @@ public class Product {
     public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
         return this.associatedParts.remove(selectedAssociatedPart);
     }
+    public boolean deleteAllAssociatedParts() {
+        this.associatedParts.clear();
+    }
 
     /**
      * Gets the List of Parts associated with the current Product.

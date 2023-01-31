@@ -79,7 +79,19 @@ public class ProductController extends Controller implements Initializable {
         Inventory.addProduct(newProduct);
     }
     private void updateProduct(ActionEvent actionEvent) {
-
+        try {
+            getFormData();
+        } catch (IOException e) {
+            openErrorWindow(e);
+            return;
+        }
+        importedProduct.setName(name);
+        importedProduct.setPrice(price);
+        importedProduct.setStock(stock);
+        importedProduct.setMin(min);
+        importedProduct.setMax(max);
+        importedProduct.deleteAllAssociatedParts();
+        importedProduct.addAssociatedParts(associatedParts);
     }
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
