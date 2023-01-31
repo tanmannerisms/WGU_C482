@@ -54,7 +54,7 @@ public class PartController extends Controller implements Initializable {
         sourceTypeLabel.setText(inHouseLabelText);
     }
 
-    /** NEED TO NEST OTHER IF STATEMENTS INSIDE THE CHECK FOR IMPORTED PART.
+    /**
      * Populates the TextFields with data from the importedPart
      */
     protected void setFields() {
@@ -64,16 +64,17 @@ public class PartController extends Controller implements Initializable {
             priceField.setText(Double.toString(importedPart.getPrice()));
             minField.setText(Integer.toString(importedPart.getMin()));
             maxField.setText(Integer.toString(importedPart.getMax()));
-        }
-        if (importedPart instanceof InHouse) {
-            sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
-            sourceTypeLabel.setText(inHouseLabelText);
-            radioButtonTGroup.selectToggle(inHouseButton);
-        }
-        if (importedPart instanceof Outsourced) {
-            sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
-            sourceTypeLabel.setText(outSourcedLabelText);
-            radioButtonTGroup.selectToggle(outSourcedButton);
+
+            if (importedPart instanceof InHouse) {
+                sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
+                sourceTypeLabel.setText(inHouseLabelText);
+                radioButtonTGroup.selectToggle(inHouseButton);
+            }
+            if (importedPart instanceof Outsourced) {
+                sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
+                sourceTypeLabel.setText(outSourcedLabelText);
+                radioButtonTGroup.selectToggle(outSourcedButton);
+            }
         }
     }
 
