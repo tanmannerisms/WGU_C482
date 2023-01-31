@@ -116,7 +116,7 @@ public class PartController extends Controller implements Initializable {
         closeWindow(actionEvent);
     }
 
-    /** NEEDS FIXED. CURRENTLY NOT ALLOWING CONVERSION FROM INHOUSE TO OUTSOURCED & VICE VERSA.
+    /**
      * Sets all the information of the part passed in from changePartSceneChange(), using the TextFields.
      * The TextFields need not have changed for this to successfully run.
      * Opens error window when getting data from the TextFields if data not congruent with requirements.
