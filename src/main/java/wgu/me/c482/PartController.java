@@ -103,12 +103,12 @@ public class PartController extends Controller implements Initializable {
         Part newPart;
         if (inHouseSelected) {
             newPart = new InHouse(
-                    id, name, price, stock, min, max, partMachineId
+                    Inventory.partIdIterator, name, price, stock, min, max, partMachineId
             );
         }
         else {
             newPart = new Outsourced(
-                    id, name, price, stock, min, max, partCompanyName
+                    Inventory.partIdIterator, name, price, stock, min, max, partCompanyName
             );
         }
         System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
@@ -180,7 +180,6 @@ public class PartController extends Controller implements Initializable {
         } catch (NumberFormatException | NullPointerException e) {
             throw InvalidNumericInput;
         }
-        id = createPartId();
     }
 
     /**
@@ -197,14 +196,6 @@ public class PartController extends Controller implements Initializable {
         if (min < 0) {
             throw MinTooLow;
         }
-    }
-
-    /**
-     *
-     * @return the partIdIterator static variable.
-     */
-    private int createPartId() {
-        return Inventory.partIdIterator;
     }
 
     /**

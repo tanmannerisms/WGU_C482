@@ -15,7 +15,7 @@ public abstract class Controller {
     @FXML
     protected String name;
     @FXML
-    protected int id, stock, min, max;
+    protected int stock, min, max;
     @FXML
     protected double price;
     @FXML
