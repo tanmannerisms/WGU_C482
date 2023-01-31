@@ -25,7 +25,7 @@ public class ProductController extends Controller implements Initializable {
     private void addProduct() {
         getFormData();
         Product newProduct = new Product(
-                id, name, price, stock, min, max
+                Inventory.productIdIterator, name, price, stock, min, max
         );
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
         Inventory.addProduct(newProduct);
@@ -41,9 +41,5 @@ public class ProductController extends Controller implements Initializable {
         price = getDoubleFromTextField(priceField);
         min = getIntFromTextField(minField);
         max = getIntFromTextField(maxField);
-        id = createProductId();
-    }
-    private int createProductId() {
-        return Inventory.productIdIterator++;
     }
 }
