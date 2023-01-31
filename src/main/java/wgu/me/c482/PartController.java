@@ -190,7 +190,7 @@ public class PartController extends Controller implements Initializable {
      * @return the partId static variable.
      */
     private int createPartId() {
-        return Inventory.partId;
+        return Inventory.partIdIterator;
     }
 
     /**

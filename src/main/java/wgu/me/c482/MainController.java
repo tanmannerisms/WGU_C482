@@ -119,15 +119,15 @@ public class MainController extends Controller implements Initializable {
      * Method for establishing the properties for the columns in the two TableViews in the main-form window.
      */
     private void setTableColumns() {
-        productIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
-        productNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
-        productStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
-        productPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
+        productIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productStockColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        partIdColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
-        partNameColumn.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
-        partStockColumn.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
-        partPriceColumn.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
+        partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partStockColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
     /**
