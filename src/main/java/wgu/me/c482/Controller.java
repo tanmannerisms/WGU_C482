@@ -84,7 +84,8 @@ public abstract class Controller {
      * ADD A openNotifyWindow HERE.
      */
     protected void openNotifyWindow(String notifyMessage) {
-
+        ErrorWindow notifyWindow = new ErrorWindow(notifyMessage);
+        notifyWindow.showWindowAndWait();
     }
 
 

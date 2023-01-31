@@ -89,15 +89,14 @@ public class MainController extends Controller implements Initializable {
      *
      * @param actionEvent consumed.
      * @see #getSelectedPart()
-     * @see ErrorWindow#ErrorWindow(String)
+     * @see Controller#openNotifyWindow(String)
      * @see Window#Window(String, String, Part)
      * @see #getSelectedPart()
      */
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
         if (getSelectedPart() == null) {
-            ErrorWindow errorWindow = new ErrorWindow("Please select a part.");
-            errorWindow.showWindowAndWait();
+            openNotifyWindow("Please select a part.");
         }
         else {
             Window changePart = new Window("modify-part.fxml", "Alter Part", getSelectedPart());
@@ -130,25 +129,23 @@ public class MainController extends Controller implements Initializable {
      * window if nothing selected.
      *
      * @see #getSelectedPart()
-     * @see ErrorWindow#ErrorWindow(String)
+     * @see Controller#openNotifyWindow(String)
      */
     @FXML
     private void deletePart() {
         boolean partDeleted;
         partDeleted = Inventory.deletePart(getSelectedPart());
-        ErrorWindow errorWindow;
         if (getSelectedPart() != null) {
             if (!partDeleted) {
-                errorWindow = new ErrorWindow("Part unsuccessfully deleted.");
+                openNotifyWindow("Part unsuccessfully deleted.");
             }
             else {
-                errorWindow = new ErrorWindow("Part successfully deleted");
+                openNotifyWindow("Part successfully deleted");
             }
         }
         else {
-            errorWindow = new ErrorWindow("No part selected.");
+            openNotifyWindow("No part selected.");
         }
-        errorWindow.showWindow();
     }
 
     /**
@@ -156,24 +153,22 @@ public class MainController extends Controller implements Initializable {
      * window if nothing selected.
      *
      * @see #getSelectedProduct()
-     * @see ErrorWindow#ErrorWindow(String)
+     * @see Controller#openNotifyWindow(String)
      */
     @FXML
     private void deleteProduct() {
         boolean productDeleted;
-        ErrorWindow errorWindow;
         if (getSelectedPart() != null) {
             productDeleted = Inventory.deleteProduct(getSelectedProduct());
             if (!productDeleted) {
-                errorWindow = new ErrorWindow("Product unsuccessfully deleted");
+                openNotifyWindow("Product unsuccessfully deleted");
             } else {
-                errorWindow = new ErrorWindow("Product successfully deleted");
+                openNotifyWindow("Product successfully deleted");
             }
         }
         else {
-            errorWindow = new ErrorWindow("No product selected.");
+            openNotifyWindow("No product selected.");
         }
-        errorWindow.showWindow();
     }
     // Need to add these two methods to Controller.java instead.
 
