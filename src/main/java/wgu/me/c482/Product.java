@@ -138,6 +138,16 @@ public class Product {
     }
 
     /**
+     * 
+     * @param selectedAssociatedPart
+     * @return
+     */
+    public void addAssociatedParts(ObservableList<Part> associatedParts) {
+        for (Part part : associatedParts) {
+            addAssociatedPart(part);
+        }
+    }
+    /**
      * Removes a part from the List of Parts associated with the current Product.
      *
      * @param selectedAssociatedPart the Part to be deleted.

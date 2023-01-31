@@ -65,7 +65,7 @@ public class ProductController extends Controller implements Initializable {
      *
      */
     @FXML
-    private void addProduct() {
+    private void addNewProduct(ActionEvent actionEvent) {
         try {
             getFormData();
         } catch (IOException e) {
@@ -74,17 +74,27 @@ public class ProductController extends Controller implements Initializable {
         Product newProduct = new Product(
                 Inventory.productIdIterator, name, price, stock, min, max
         );
+        newProduct.addAssociatedParts(associatedParts);
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
         Inventory.addProduct(newProduct);
+    }
+    private void updateProduct(ActionEvent actionEvent) {
+
     }
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
         updatePartsTable(searchParts((TextField) actionEvent.getSource()));
     }
-
     @FXML
     private void onAddAssociatePartClick(ActionEvent actionEvent) {
         associatedParts.add(getSelectedPart());
         updateAssociatedPartsTable(associatedParts);
+    }
+    @FXML
+    private void onSaveClick(ActionEvent actionEvent) {
+        if (importedProduct != null) {
+            addNewProduct(actionEvent);
+        }
+        else updateProduct(actionEvent);
     }
 }

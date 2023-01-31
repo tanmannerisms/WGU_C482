@@ -175,9 +175,6 @@ public class MainController extends Controller implements Initializable {
             openNotifyWindow("No product selected.");
         }
     }
-    // Need to add these two methods to Controller.java instead.
-
-
 
     /**
      * Method used to get the currently selected Product from the main-form window.
