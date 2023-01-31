@@ -99,6 +99,16 @@ public abstract class Controller {
     }
 
     /**
+     * Method used to get the currently selected part from the main-form window.
+     *
+     * @return the Part that is selected.
+     * @see #partsTable
+     */
+    protected Part getSelectedPart() {
+        return (Part) partsTable.getSelectionModel().getSelectedItem();
+    }
+
+    /**
      * Method to open up a new window with an error message
      *
      * @param e the exception that is passed in from a catch statement.

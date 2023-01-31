@@ -177,15 +177,7 @@ public class MainController extends Controller implements Initializable {
     }
     // Need to add these two methods to Controller.java instead.
 
-    /**
-     * Method used to get the currently selected part from the main-form window.
-     *
-     * @return the Part that is selected.
-     * @see #partsTable
-     */
-    private Part getSelectedPart() {
-        return (Part) partsTable.getSelectionModel().getSelectedItem();
-    }
+
 
     /**
      * Method used to get the currently selected Product from the main-form window.

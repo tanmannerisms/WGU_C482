@@ -24,6 +24,7 @@ public class ProductController extends Controller implements Initializable {
     private TableColumn<Part, String> partNameColumn, associatedPartNameColumn;
     @FXML
     private TableColumn<Part, Double> partPriceColumn, associatedPartPriceColumn;
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,7 +36,7 @@ public class ProductController extends Controller implements Initializable {
     }
     protected void setImportedProductInfo() {
         setFields();
-        updateAssociatedPartsTable();
+        updateAssociatedPartsTable(importedProduct.getAllAssociatedParts());
     }
     private void setFields() {
         nameField.setText(importedProduct.getName());
@@ -55,8 +56,8 @@ public class ProductController extends Controller implements Initializable {
         associatedPartStockColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         associatedPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
-    private void updateAssociatedPartsTable() {
-        associatedPartsTable.setItems(importedProduct.getAllAssociatedParts());
+    private void updateAssociatedPartsTable(ObservableList<Part> associatedParts) {
+        associatedPartsTable.setItems(associatedParts);
     }
 
     /**
@@ -79,5 +80,11 @@ public class ProductController extends Controller implements Initializable {
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
         updatePartsTable(searchParts((TextField) actionEvent.getSource()));
+    }
+
+    @FXML
+    private void onAddAssociatePartClick(ActionEvent actionEvent) {
+        associatedParts.add(getSelectedPart());
+        updateAssociatedPartsTable(associatedParts);
     }
 }
