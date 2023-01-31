@@ -47,6 +47,8 @@
                             </padding>
                         </Label>
                         <TextField promptText="Search by Name or ID"
+                                   fx:id="productSearchField"
+                                   onAction="#onSearchAction"
                                    GridPane.columnIndex="1"
                                    GridPane.rowIndex="0" />
                         <TableView fx:id="productsTable"
@@ -109,6 +111,8 @@
                             </padding>
                         </Label>
                         <TextField promptText="Search by Name or ID"
+                                   fx:id="partSearchField"
+                                   onAction="#onSearchAction"
                                    GridPane.columnIndex="1"
                                    GridPane.rowIndex="0" />
                         <TableView fx:id="partsTable" prefHeight="200"

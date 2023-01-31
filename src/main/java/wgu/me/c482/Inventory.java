@@ -62,7 +62,13 @@ public class Inventory {
      * @return the part(s) that match the name of the part name passed in.
      */
     public static ObservableList<Part> lookupPart(String partName) {
-        return allParts;
+        ObservableList<Part> returnList = FXCollections.observableArrayList();
+        for (Part part : allParts) {
+            if (part.getName().toLowerCase().contains(partName.toLowerCase())) {
+                returnList.add(part);
+            }
+        }
+        return returnList;
     }
 
     /**
@@ -71,7 +77,13 @@ public class Inventory {
      * @return the product(s) that match the name of the product name passed in.
      */
     public static ObservableList<Product> lookupProduct(String productName) {
-        return allProducts;
+        ObservableList<Product> returnList = FXCollections.observableArrayList();
+        for (Product product : allProducts) {
+            if (product.getName().toLowerCase().contains(productName.toLowerCase())) {
+                returnList.add(product);
+            }
+        }
+        return returnList;
     }
 
     /**

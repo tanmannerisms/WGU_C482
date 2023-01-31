@@ -1,8 +1,11 @@
 package wgu.me.c482;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,6 +20,8 @@ public abstract class Controller {
     protected double price;
     @FXML
     protected TextField nameField, stockField, priceField, minField, maxField;
+    @FXML
+    protected TableView partsTable;
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
     static IOException MinTooLow = new IOException("Min cannot be below 0.");
@@ -50,7 +55,21 @@ public abstract class Controller {
         return Double.parseDouble(text);
     }
 
-    /**
+    protected ObservableList<Part> searchParts(TextField searchParam) {
+        ObservableList<Part> searchResults;
+        try {
+            int partId = getIntFromTextField(searchParam);
+            searchResults = FXCollections.observableArrayList(Inventory.lookupPart(partId));
+        } catch (NumberFormatException e) {
+            searchResults = Inventory.lookupPart(searchParam.getText());
+        }
+        return searchResults;
+    }
+    protected void updatePartsTable(ObservableList<Part> partList) {
+        partsTable.setItems(partList);
+    }
+
+                                   /**
      * Method to open up a new window with an error message
      *
      * @param e the exception that is passed in from a catch statement.

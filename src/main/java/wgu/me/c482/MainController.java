@@ -1,10 +1,13 @@
 package wgu.me.c482;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -12,13 +15,15 @@ import java.util.ResourceBundle;
 
 public class MainController extends Controller implements Initializable {
     @FXML
-    private TableView productsTable, partsTable;
+    private TableView productsTable;
     @FXML
     private TableColumn<Part, Integer> partIdColumn, partStockColumn, productIdColumn, productStockColumn;
     @FXML
     private TableColumn<Part, String> partNameColumn, productNameColumn;
     @FXML
     private TableColumn<Part, Double> partPriceColumn, productPriceColumn;
+    @FXML
+    private TextField partSearchField, productSearchField;
 
     /**
      * Method used for establishing the tables in the window.
@@ -26,12 +31,12 @@ public class MainController extends Controller implements Initializable {
      * @param url not used.
      * @param resourceBundle not used.
      * @see #setTableColumns()
-     * @see #updateTables()
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setTableColumns();
-        updateTables();
+        updatePartsTable(Inventory.getAllParts());
+        updateProductsTable(Inventory.getAllProducts());
     }
     public MainController() {
         super();
@@ -101,21 +106,11 @@ public class MainController extends Controller implements Initializable {
         }
     }
 
-    /**
-     * Method for updating the items in the two tables.
-     * Currently only used for setting the tables on the initialization of the window. May not need a method for this.
-     *
-     * @see Inventory#getAllParts()
-     * @see Inventory#getAllProducts()
-     */
-    @FXML
-    private void updateTables() {
-        partsTable.setItems(Inventory.getAllParts());
-        productsTable.setItems(Inventory.getAllProducts());
-        System.out.println("Tables updated");
+    private void updateProductsTable(ObservableList<Product> productList) {
+        productsTable.setItems(productList);
     }
 
-    /**
+                              /**
      * Method for establishing the properties for the columns in the two TableViews in the main-form window.
      */
     private void setTableColumns() {
@@ -200,5 +195,25 @@ public class MainController extends Controller implements Initializable {
      */
     private Product getSelectedProduct() {
         return (Product) productsTable.getSelectionModel().getSelectedItem();
+    }
+    @FXML
+    private void onSearchAction(ActionEvent actionEvent) {
+        if (actionEvent.getSource().equals(partSearchField)) {
+            updatePartsTable(searchParts(partSearchField));
+        }
+        if (actionEvent.getSource().equals(productSearchField)) {
+            updateProductsTable(searchProducts(productSearchField));
+        }
+    }
+
+    private ObservableList<Product> searchProducts(TextField searchParam) {
+        ObservableList<Product> searchResults = FXCollections.observableArrayList();
+        try {
+            int productId = getIntFromTextField(searchParam);
+            searchResults = FXCollections.observableArrayList(Inventory.lookupProduct(productId));
+        } catch (NumberFormatException e) {
+            searchResults = Inventory.lookupProduct(searchParam.getText());
+        }
+        return searchResults;
     }
 }
