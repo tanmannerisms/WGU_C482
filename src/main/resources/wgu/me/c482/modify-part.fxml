@@ -30,7 +30,7 @@
             <RadioButton fx:id="inHouseButton"
                          onAction="#onInHouseClick"
                          mnemonicParsing="false"
-                         text="Internal" />
+                         text="In-House" />
         </AnchorPane>
         <AnchorPane AnchorPane.bottomAnchor="25.0"
                     AnchorPane.leftAnchor="225"
