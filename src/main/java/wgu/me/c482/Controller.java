@@ -22,9 +22,11 @@ public abstract class Controller {
     protected TextField nameField, stockField, priceField, minField, maxField;
     @FXML
     protected TableView partsTable;
+    static IOException ZeroNotAllowed = new IOException("Value cannot be zero.");
+    static IOException MinAboveMax = new IOException("Min value cannot be above max.");
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
-    static IOException MinTooLow = new IOException("Min cannot be below 0.");
+    static IOException MinTooLow = new IOException("Min value cannot be below 0.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");
@@ -80,6 +82,9 @@ public abstract class Controller {
      * @see MainController#MinTooLow
      */
     protected void validateFormData() throws IOException {
+        if (min > max) {
+            throw MinAboveMax;
+        }
         if (!(min <= stock & stock <= max)) {
             throw StockOutOfBounds;
         }
