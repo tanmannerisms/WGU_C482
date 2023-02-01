@@ -60,16 +60,18 @@ public class MainController extends Controller implements Initializable {
      *
      * @param actionEvent consumed.
      * @see Window#Window(String, String, Product)  Window
-     * @see #getSelectedProduct()
+     * @see Controller#getSelectedTableItem(TableView)
      */
     @FXML
     private void changeProductSceneChange(ActionEvent actionEvent) {
-        if (getSelectedProduct() == null) {
+        if (getSelectedTableItem(productsTable) == null) {
             openNotifyWindow("Please select a product.");
         }
         else {
-            Window changeProduct = new Window("modify-product.fxml", "Change Product", getSelectedProduct());
+            Window changeProduct = new Window("modify-product.fxml", "Change Product", (Product) getSelectedTableItem(productsTable));
             changeProduct.showWindowAndWait();
+            updatePartsTable(Inventory.getAllParts());
+            updateProductsTable(Inventory.getAllProducts());
             actionEvent.consume();
         }
     }
@@ -93,19 +95,21 @@ public class MainController extends Controller implements Initializable {
      * Will open up a notification window if nothing is selected in the Parts TableView
      *
      * @param actionEvent consumed.
-     * @see #getSelectedPart()
+     * @see Controller#getSelectedTableItem(TableView)
      * @see Controller#openNotifyWindow(String)
      * @see Window#Window(String, String, Part)
-     * @see #getSelectedPart()
+     * @see Controller#getSelectedTableItem(TableView)
      */
     @FXML
     private void changePartSceneChange(ActionEvent actionEvent) {
-        if (getSelectedPart() == null) {
+        if (getSelectedTableItem(partsTable) == null) {
             openNotifyWindow("Please select a part.");
         }
         else {
-            Window changePart = new Window("modify-part.fxml", "Alter Part", getSelectedPart());
+            Window changePart = new Window("modify-part.fxml", "Alter Part", (Part) getSelectedTableItem(partsTable));
             changePart.showWindowAndWait();
+            updatePartsTable(Inventory.getAllParts());
+            updateProductsTable(Inventory.getAllProducts());
             actionEvent.consume();
         }
     }
@@ -133,14 +137,14 @@ public class MainController extends Controller implements Initializable {
      * Method used to delete a Product from the Inventory when there is a Part selected in the Table Opens error
      * window if nothing selected.
      *
-     * @see #getSelectedPart()
+     * @see Controller#getSelectedTableItem(TableView)
      * @see Controller#openNotifyWindow(String)
      */
     @FXML
-    private void deletePart() {
+    private void deletePart(ActionEvent actionEvent) {
         boolean partDeleted;
-        partDeleted = Inventory.deletePart(getSelectedPart());
-        if (getSelectedPart() != null) {
+        partDeleted = Inventory.deletePart((Part) getSelectedTableItem(partsTable));
+        if (getSelectedTableItem(partsTable) != null) {
             if (!partDeleted) {
                 openNotifyWindow("Part unsuccessfully deleted.");
             }
@@ -157,33 +161,21 @@ public class MainController extends Controller implements Initializable {
      * Method used to delete a Product from the Inventory when there is a Product selected in the Table. Opens error
      * window if nothing selected.
      *
-     * @see #getSelectedProduct()
+     * @see Controller#getSelectedTableItem(TableView)
      * @see Controller#openNotifyWindow(String)
      */
     @FXML
-    private void deleteProduct() {
-        boolean productDeleted;
-        if (getSelectedPart() != null) {
-            productDeleted = Inventory.deleteProduct(getSelectedProduct());
-            if (!productDeleted) {
-                openNotifyWindow("Product unsuccessfully deleted");
-            } else {
-                openNotifyWindow("Product successfully deleted");
-            }
+    private void deleteProduct(ActionEvent actionEvent) {
+        boolean productDeleted = false;
+        if (getSelectedTableItem(partsTable) != null) {
+            productDeleted = Inventory.deleteProduct((Product) getSelectedTableItem(partsTable));
         }
-        else {
-            openNotifyWindow("No product selected.");
+        else openNotifyWindow("No product selected.");
+        if (!productDeleted) {
+            openNotifyWindow("Product unsuccessfully deleted");
+        } else {
+            openNotifyWindow("Product successfully deleted");
         }
-    }
-
-    /**
-     * Method used to get the currently selected Product from the main-form window.
-     *
-     * @return the Product that is selected.
-     * @see #productsTable
-     */
-    private Product getSelectedProduct() {
-        return (Product) productsTable.getSelectionModel().getSelectedItem();
     }
 
     /**

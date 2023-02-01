@@ -102,11 +102,21 @@ public class ProductController extends Controller implements Initializable {
         updatePartsTable(searchParts((TextField) actionEvent.getSource()));
     }
     @FXML
-    private void onAddAssociatePartClick(ActionEvent actionEvent) {
-        if (getSelectedPart() != null) {
-            associatedParts.add(getSelectedPart());
+    private void onAddAssociatedPartClick(ActionEvent actionEvent) {
+        if (getSelectedTableItem(partsTable) != null) {
+            associatedParts.add((Part) getSelectedTableItem(partsTable));
             updateAssociatedPartsTable(associatedParts);
         }
+        else openNotifyWindow("Please select a part.");
+        actionEvent.consume();
+    }
+    @FXML
+    private void onRemoveAssociatedPartClick(ActionEvent actionEvent) {
+        if (getSelectedTableItem(associatedPartsTable) != null) {
+            associatedParts.remove((Part) getSelectedTableItem(associatedPartsTable));
+        }
+        else openNotifyWindow("Please select a part.");
+        actionEvent.consume();
     }
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {

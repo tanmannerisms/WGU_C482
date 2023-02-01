@@ -131,7 +131,7 @@
                         </columns>
                     </TableView>
                     <Button text="Add Part"
-                            onAction="#onAddAssociatePartClick"
+                            onAction="#onAddAssociatedPartClick"
                             AnchorPane.rightAnchor="35"
                             AnchorPane.bottomAnchor="0"/>
                 </AnchorPane>
@@ -144,7 +144,10 @@
                             <TableColumn minWidth="50" prefWidth="102.5" text="Price/Cost per Unit" fx:id="associatedPartPriceColumn"/>
                         </columns>
                     </TableView>
-                    <Button text="Remove Part" AnchorPane.rightAnchor="35" AnchorPane.bottomAnchor="0"/>
+                    <Button text="Remove Part"
+                            onAction="#onRemoveAssociatedPartClick"
+                            AnchorPane.rightAnchor="35"
+                            AnchorPane.bottomAnchor="0"/>
                 </AnchorPane>
             </VBox>
         </AnchorPane>

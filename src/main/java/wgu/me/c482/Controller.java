@@ -101,11 +101,11 @@ public abstract class Controller {
     /**
      * Method used to get the currently selected part from the main-form window.
      *
-     * @return the Part that is selected.
+     * @return the object that is selected in the table that is passed in.
      * @see #partsTable
      */
-    protected Part getSelectedPart() {
-        return (Part) partsTable.getSelectionModel().getSelectedItem();
+    protected Object getSelectedTableItem(TableView tableView) {
+        return tableView.getSelectionModel().getSelectedItem();
     }
 
     /**
@@ -126,8 +126,6 @@ public abstract class Controller {
         ErrorWindow notifyWindow = new ErrorWindow(notifyMessage);
         notifyWindow.showWindowAndWait();
     }
-
-
 
     /**
      * Method used to close the active window
