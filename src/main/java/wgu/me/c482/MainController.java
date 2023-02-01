@@ -167,9 +167,8 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private void deleteProduct(ActionEvent actionEvent) {
         boolean productDeleted;
-        Product product = (Product) getSelectedTableItem(partsTable);
-        productDeleted = Inventory.deleteProduct(product);
         if (getSelectedTableItem(productsTable) != null) {
+            productDeleted = Inventory.deleteProduct(getSelectedProduct());
             if (!productDeleted) {
                 openNotifyWindow("Product unsuccessfully deleted");
             }
@@ -217,5 +216,16 @@ public class MainController extends Controller implements Initializable {
             searchResults = Inventory.lookupProduct(searchParam.getText());
         }
         return searchResults;
+    }
+
+    /**
+     * Gets the productsTable item that is selected. The getSelectedTableItem method doesn't work when trying to cast
+     * the returned object to a Product.
+     *
+     * @return
+     */
+    private Product getSelectedProduct() {
+        Product product = (Product) productsTable.getSelectionModel().getSelectedItem();
+        return product;
     }
 }

@@ -121,8 +121,7 @@ public abstract class Controller {
      * @see #partsTable
      */
     protected Object getSelectedTableItem(TableView tableView) {
-        Object obj = tableView.getSelectionModel().getSelectedItem();
-        return obj;
+        return tableView.getSelectionModel().getSelectedItem();
     }
 
     /**
