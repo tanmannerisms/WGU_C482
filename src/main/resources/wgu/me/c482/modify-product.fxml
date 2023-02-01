@@ -65,7 +65,8 @@
                         </padding>
                     </Label>
 
-                    <TextField editable="false"
+                    <TextField fx:id="idField"
+                               editable="false"
                                maxWidth="180.0"
                                prefWidth="120.0"
                                GridPane.columnIndex="1"
