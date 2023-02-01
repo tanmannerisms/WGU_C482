@@ -19,7 +19,7 @@ public class ProductController extends Controller implements Initializable {
     @FXML
     private TableView associatedPartsTable;
     @FXML
-    private TextField partSearchField;
+    private TextField partSearchField, idField;
     @FXML
     private TableColumn<Part, Integer> partIdColumn, partStockColumn, associatedPartIdColumn, associatedPartStockColumn;
     @FXML
@@ -41,6 +41,7 @@ public class ProductController extends Controller implements Initializable {
         updateAssociatedPartsTable(importedProduct.getAllAssociatedParts());
     }
     private void setFields() {
+        idField.setText(Integer.toString(importedProduct.getId()));
         nameField.setText(importedProduct.getName());
         stockField.setText(Integer.toString(importedProduct.getStock()));
         minField.setText(Integer.toString(importedProduct.getMin()));

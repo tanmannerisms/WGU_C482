@@ -32,7 +32,7 @@ public class PartController extends Controller implements Initializable {
     private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
     @FXML
-    private TextField sourceTypeField;
+    private TextField sourceTypeField, idField;
     @FXML
     private Label sourceTypeLabel;
     @FXML
@@ -73,6 +73,7 @@ public class PartController extends Controller implements Initializable {
      */
     protected void setFields() {
         if (importedPart != null) {
+            idField.setText(Integer.toString(importedPart.getId()));
             nameField.setText(importedPart.getName());
             stockField.setText(Integer.toString(importedPart.getStock()));
             priceField.setText(Double.toString(importedPart.getPrice()));
