@@ -73,6 +73,7 @@ public class ProductController extends Controller implements Initializable {
             validateFormData();
         } catch (IOException e) {
             openErrorWindow(e);
+            return;
         }
         Product newProduct = new Product(
                 Inventory.productIdIterator, name, price, stock, min, max
