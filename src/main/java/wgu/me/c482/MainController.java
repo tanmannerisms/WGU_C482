@@ -198,10 +198,18 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(partSearchField)) {
-            updatePartsTable(searchParts(partSearchField));
+            ObservableList<Part> searchResults = searchParts(partSearchField);
+            if (searchResults.size() != 0) {
+                updatePartsTable(searchResults);
+            }
+            else openNotifyWindow("Part(s) not found.");
         }
         if (actionEvent.getSource().equals(productSearchField)) {
-            updateProductsTable(searchProducts(productSearchField));
+            ObservableList<Product> searchResults = searchProducts(productSearchField);
+            if (searchResults.size() != 0) {
+                updateProductsTable(searchResults);
+            }
+            else openNotifyWindow("Product(s) not found");
         }
     }
 
