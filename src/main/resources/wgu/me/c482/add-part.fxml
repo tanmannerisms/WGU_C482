@@ -75,7 +75,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Inv"
+            <Label text="Inventory"
                    GridPane.columnIndex="0"
                    GridPane.halignment="RIGHT"
                    GridPane.rowIndex="2">
