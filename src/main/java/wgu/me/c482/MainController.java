@@ -70,8 +70,8 @@ public class MainController extends Controller implements Initializable {
         else {
             Window changeProduct = new Window("modify-product.fxml", "Change Product", (Product) getSelectedTableItem(productsTable));
             changeProduct.showWindowAndWait();
-            updatePartsTable(Inventory.getAllParts());
-            updateProductsTable(Inventory.getAllProducts());
+            productsTable.refresh();
+            partsTable.refresh();
             actionEvent.consume();
         }
     }
@@ -108,8 +108,8 @@ public class MainController extends Controller implements Initializable {
         else {
             Window changePart = new Window("modify-part.fxml", "Alter Part", (Part) getSelectedTableItem(partsTable));
             changePart.showWindowAndWait();
-            updatePartsTable(Inventory.getAllParts());
-            updateProductsTable(Inventory.getAllProducts());
+            productsTable.refresh();
+            partsTable.refresh();
             actionEvent.consume();
         }
     }

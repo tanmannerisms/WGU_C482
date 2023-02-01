@@ -12,6 +12,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * RUNTIME ERROR: When altering a part, the part will automatically be set to outsourced when trying to edit it for a
+ * second time.
+ *
+ * Ex. Added an InHouse part named Test to the inventory through the add-part form. Select the part and hit change.
+ *      It opens up the change-part form with the OutSourced radio button selected. Change it back to InHouse and save.
+ *      Open it back up under the change-part form. InHouse radio button is selected as expected. Click save and open
+ *      it back up again for the same part. Now the OutSourced radio button is selected again. Clicking on cancel
+ *      instead of save will circumvent this.
+ *
+ * After having run the program in debug mode and crawling through the code, line by line, I found that the boolean
+ * value inHouseSelected was not being set on initialization of the change-part form. I added that functionality into
+ * the setFields() method.
+ */
 public class PartController extends Controller implements Initializable {
     private boolean inHouseSelected;
     private String partCompanyName;
@@ -69,11 +83,13 @@ public class PartController extends Controller implements Initializable {
                 sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
                 sourceTypeLabel.setText(inHouseLabelText);
                 radioButtonTGroup.selectToggle(inHouseButton);
+                inHouseSelected = true;
             }
             if (importedPart instanceof Outsourced) {
                 sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
                 sourceTypeLabel.setText(outSourcedLabelText);
                 radioButtonTGroup.selectToggle(outSourcedButton);
+                inHouseSelected = false;
             }
         }
     }
@@ -135,6 +151,7 @@ public class PartController extends Controller implements Initializable {
         }
         importedPart.setName(name);
         importedPart.setPrice(price);
+        importedPart.setStock(stock);
         importedPart.setMin(min);
         importedPart.setMax(max);
         Part newPart;
