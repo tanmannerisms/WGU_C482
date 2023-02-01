@@ -73,6 +73,22 @@ public abstract class Controller {
     }
 
     /**
+     * Checks the info taken from the TextFields to verify stock/inventory numbers.
+     *
+     * @throws IOException StockOutOfBounds, MinTooLow
+     * @see MainController#StockOutOfBounds
+     * @see MainController#MinTooLow
+     */
+    protected void validateFormData() throws IOException {
+        if (!(min <= stock & stock <= max)) {
+            throw StockOutOfBounds;
+        }
+        if (min < 0) {
+            throw MinTooLow;
+        }
+    }
+
+    /**
      * Searches for the parts associated with the TextFields input. Returns the matching part(s)
      *
      * @param searchParam the TextField to be parsed and used as a parameter for the part search.

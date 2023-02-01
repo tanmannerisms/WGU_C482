@@ -101,7 +101,7 @@ public class PartController extends Controller implements Initializable {
      * @param actionEvent passed to closeWindow() for consumption
      * @see #closeWindow(ActionEvent)
      * @see #getPartFormInfo()
-     * @see #validateFormInfo()
+     * @see #validateFormData()
      * @see InHouse#InHouse(int, String, double, int, int, int, int)  InHouse
      * @see Outsourced#Outsourced(int, String, double, int, int, int, String)  Outsourced
      * @see Inventory#addPart(Part)
@@ -110,7 +110,7 @@ public class PartController extends Controller implements Initializable {
     private void addNewPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            validateFormInfo();
+            validateFormData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
@@ -143,7 +143,7 @@ public class PartController extends Controller implements Initializable {
     private void updatePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            validateFormInfo();
+            validateFormData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
@@ -196,21 +196,6 @@ public class PartController extends Controller implements Initializable {
         }
     }
 
-    /**
-     * Checks the info taken from the TextFields to verify stock/inventory numbers.
-     *
-     * @throws IOException StockOutOfBounds, MinTooLow
-     * @see MainController#StockOutOfBounds
-     * @see MainController#MinTooLow
-     */
-    private void validateFormInfo() throws IOException {
-        if (!(min <= stock & stock <= max)) {
-            throw StockOutOfBounds;
-        }
-        if (min < 0) {
-            throw MinTooLow;
-        }
-    }
 
     /**
      * Method called when the save button is pressed. Calls the addNewPart method if no part was imported.

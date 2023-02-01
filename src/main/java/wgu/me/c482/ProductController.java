@@ -70,6 +70,7 @@ public class ProductController extends Controller implements Initializable {
     private void addNewProduct(ActionEvent actionEvent) {
         try {
             getFormData();
+            validateFormData();
         } catch (IOException e) {
             openErrorWindow(e);
         }
@@ -84,6 +85,7 @@ public class ProductController extends Controller implements Initializable {
     private void updateProduct(ActionEvent actionEvent) {
         try {
             getFormData();
+            validateFormData();
         } catch (IOException e) {
             openErrorWindow(e);
             return;
@@ -94,7 +96,7 @@ public class ProductController extends Controller implements Initializable {
         importedProduct.setMin(min);
         importedProduct.setMax(max);
         importedProduct.deleteAllAssociatedParts();
-        importedProduct.addAssociatedParts(associatedParts);
+        importedProduct.setAssociatedParts(associatedParts);
         closeWindow(actionEvent);
     }
     @FXML
