@@ -52,6 +52,8 @@ public class MainController extends Controller implements Initializable {
     private void addProductSceneChange(ActionEvent actionEvent) {
         Window addProduct = new Window("add-product.fxml", "Add-Product");
         addProduct.showWindowAndWait();
+        productsTable.refresh();
+        partsTable.refresh();
         actionEvent.consume();
     }
 
@@ -86,6 +88,8 @@ public class MainController extends Controller implements Initializable {
     private void addPartSceneChange(ActionEvent actionEvent) {
         Window addPart = new Window("add-part.fxml", "Add-Part");
         addPart.showWindowAndWait();
+        productsTable.refresh();
+        partsTable.refresh();
         actionEvent.consume();
     }
 

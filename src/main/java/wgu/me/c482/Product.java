@@ -151,6 +151,16 @@ public class Product {
             addAssociatedPart(part);
         }
     }
+
+    /**
+     * Deletes a single part from the list of associated parts.
+     *
+     * @param selectedAssociatedPart the singular part to be deleted from the associated parts list
+     * @return true if successfully deleted and false if unsuccessfully deleted.
+     */
+    public boolean deleteAssociatePart(Part selectedAssociatedPart) {
+        return associatedParts.remove(selectedAssociatedPart);
+    }
     /**
      * Removes all parts from the List of Parts associated with the current Product.
      */
