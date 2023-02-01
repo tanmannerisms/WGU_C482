@@ -1,5 +1,7 @@
 package wgu.me.c482;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -77,6 +79,7 @@ public class ProductController extends Controller implements Initializable {
         newProduct.addAssociatedParts(associatedParts);
         System.out.println("Part " + newProduct.getName() + " has been successfully created.");
         Inventory.addProduct(newProduct);
+        closeWindow(actionEvent);
     }
     private void updateProduct(ActionEvent actionEvent) {
         try {
@@ -92,6 +95,7 @@ public class ProductController extends Controller implements Initializable {
         importedProduct.setMax(max);
         importedProduct.deleteAllAssociatedParts();
         importedProduct.addAssociatedParts(associatedParts);
+        closeWindow(actionEvent);
     }
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
@@ -99,12 +103,14 @@ public class ProductController extends Controller implements Initializable {
     }
     @FXML
     private void onAddAssociatePartClick(ActionEvent actionEvent) {
-        associatedParts.add(getSelectedPart());
-        updateAssociatedPartsTable(associatedParts);
+        if (getSelectedPart() != null) {
+            associatedParts.add(getSelectedPart());
+            updateAssociatedPartsTable(associatedParts);
+        }
     }
     @FXML
     private void onSaveClick(ActionEvent actionEvent) {
-        if (importedProduct != null) {
+        if (importedProduct == null) {
             addNewProduct(actionEvent);
         }
         else updateProduct(actionEvent);

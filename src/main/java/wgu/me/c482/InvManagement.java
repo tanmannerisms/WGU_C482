@@ -17,7 +17,7 @@ public class InvManagement extends Application {
         Part sample1 = new Outsourced(2, "SamplePart1", 0.99, 5, 0, 10, "Pseudo Company");
         Inventory.addPart(sample0);
         Inventory.addPart(sample1);
-        Product sample10 = new Product(0, "SampleProduct", 10.99, 1, 0, 100);
+        Product sample10 = new Product(1, "SampleProduct", 10.99, 1, 0, 100);
         Inventory.addProduct(sample10);
     }
 }

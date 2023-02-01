@@ -1,9 +1,10 @@
 package wgu.me.c482;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Product {
-    private ObservableList<Part> associatedParts;
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int id;
     private String name;
     private double price;
@@ -139,7 +140,7 @@ public class Product {
 
     /**
      * 
-     * @param selectedAssociatedPart
+     * @param associatedParts
      * @return
      */
     public void addAssociatedParts(ObservableList<Part> associatedParts) {
@@ -156,7 +157,7 @@ public class Product {
     public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
         return this.associatedParts.remove(selectedAssociatedPart);
     }
-    public boolean deleteAllAssociatedParts() {
+    public void deleteAllAssociatedParts() {
         this.associatedParts.clear();
     }
 
