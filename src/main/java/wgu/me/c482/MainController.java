@@ -166,17 +166,22 @@ public class MainController extends Controller implements Initializable {
      */
     @FXML
     private void deleteProduct(ActionEvent actionEvent) {
-        boolean productDeleted = false;
-        if (getSelectedTableItem(partsTable) != null) {
-            productDeleted = Inventory.deleteProduct((Product) getSelectedTableItem(partsTable));
+        boolean productDeleted;
+        Product product = (Product) getSelectedTableItem(partsTable);
+        productDeleted = Inventory.deleteProduct(product);
+        if (getSelectedTableItem(productsTable) != null) {
+            if (!productDeleted) {
+                openNotifyWindow("Product unsuccessfully deleted");
+            }
+            else {
+                openNotifyWindow("Product successfully deleted");
+            }
         }
-        else openNotifyWindow("No product selected.");
-        if (!productDeleted) {
-            openNotifyWindow("Product unsuccessfully deleted");
-        } else {
-            openNotifyWindow("Product successfully deleted");
+        else {
+            openNotifyWindow("No product selected.");
         }
     }
+
 
     /**
      *  The method called when the Enter button is pressed while typing in one of the TextFields of the main-form.
