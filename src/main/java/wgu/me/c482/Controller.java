@@ -10,7 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * FUTURE ENHANCEMENTS: More advanced error handling to allow for a Textfield to be passed in to the error handling
+ * system, allowing to reduce the amount of code while still maintaining the functionality of the specification for the
+ * location of the error.
+ */
 public abstract class Controller {
     @FXML
     protected String name;
