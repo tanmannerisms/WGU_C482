@@ -39,6 +39,7 @@ public class ProductController extends Controller implements Initializable {
     protected void setImportedProductInfo() {
         setFields();
         updateAssociatedPartsTable(importedProduct.getAllAssociatedParts());
+        idField.setText(Integer.toString(importedProduct.getId()));
     }
     private void setFields() {
         idField.setText(Integer.toString(importedProduct.getId()));

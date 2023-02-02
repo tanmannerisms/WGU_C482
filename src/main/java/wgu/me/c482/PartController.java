@@ -32,7 +32,7 @@ public class PartController extends Controller implements Initializable {
     private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
     @FXML
-    private TextField sourceTypeField, idField;
+    private TextField sourceTypeField;
     @FXML
     private Label sourceTypeLabel;
     @FXML

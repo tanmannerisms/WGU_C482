@@ -19,7 +19,7 @@ public abstract class Controller {
     @FXML
     protected double price;
     @FXML
-    protected TextField nameField, stockField, priceField, minField, maxField;
+    protected TextField idField, nameField, stockField, priceField, minField, maxField;
     @FXML
     protected TableView partsTable;
     static IOException ZeroNotAllowed = new IOException("Value cannot be zero.");
