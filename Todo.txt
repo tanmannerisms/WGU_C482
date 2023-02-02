@@ -3,6 +3,5 @@ verify javadoc for all methods (do constructors to be safe)
 add javadoc comment in InvManagement for future enhancements
 //Need to add button for search to get around having to press enter.
 
-Add confirmation to delete associated part.
 Need more granular error messages for numeric validation in add/change parts/products
 Need javadoc folder

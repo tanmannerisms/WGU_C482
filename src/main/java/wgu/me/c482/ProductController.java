@@ -117,7 +117,9 @@ public class ProductController extends Controller implements Initializable {
     @FXML
     private void onRemoveAssociatedPartClick(ActionEvent actionEvent) {
         if (getSelectedTableItem(associatedPartsTable) != null) {
-            associatedParts.remove((Part) getSelectedTableItem(associatedPartsTable));
+            Part partToRemove = (Part) getSelectedTableItem(associatedPartsTable);
+            associatedParts.remove(partToRemove);
+            openNotifyWindow("Part " + partToRemove.getName() + " removed from " + importedProduct.getName() + ".");
         }
         else openNotifyWindow("Please select a part.");
         actionEvent.consume();
