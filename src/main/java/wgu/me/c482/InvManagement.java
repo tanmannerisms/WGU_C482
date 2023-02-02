@@ -2,7 +2,26 @@ package wgu.me.c482;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+/**
+ * RUNTIME ERROR: When altering a part, the part will automatically be set to outsourced when trying to edit it for a
+ * second time.
+ *
+ * Ex. Added an InHouse part named Test to the inventory through the add-part form. Select the part and hit change.
+ *      It opens up the change-part form with the OutSourced radio button selected. Change it back to InHouse and save.
+ *      Open it back up under the change-part form. InHouse radio button is selected as expected. Click save and open
+ *      it back up again for the same part. Now the OutSourced radio button is selected again. Clicking on cancel
+ *      instead of save will circumvent this.
+ *
+ * After having run the program in debug mode and crawling through the code, line by line, I found that the boolean
+ * value inHouseSelected was not being set on initialization of the change-part form. I added that functionality into
+ * the setFields() method.
+ */
 
+/**
+ * FUTURE ENHANCEMENTS: More advanced error handling to allow for a Textfield to be passed in to the error handling
+ * system, allowing to reduce the amount of code while still maintaining the functionality of the specification for the
+ * location of the error.
+ */
 
 public class InvManagement extends Application {
     /**
