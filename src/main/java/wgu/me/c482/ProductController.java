@@ -162,9 +162,10 @@ public class ProductController extends Controller implements Initializable {
     @FXML
     private void onAddAssociatedPartClick(ActionEvent actionEvent) {
         if (getSelectedTableItem(partsTable) != null) {
-            associatedParts.add((Part) getSelectedTableItem(partsTable));
+            Part partToAdd = (Part) getSelectedTableItem(partsTable);
+            associatedParts.add(partToAdd);
             updateAssociatedPartsTable(associatedParts);
-            // Add a notification for adding part to list.
+            openNotifyWindow("Part " + partToAdd.getName() + " added to " + importedProduct.getName() + ".");
         }
         else openNotifyWindow("Please select a part.");
         actionEvent.consume();
@@ -183,7 +184,7 @@ public class ProductController extends Controller implements Initializable {
         if (getSelectedTableItem(associatedPartsTable) != null) {
             Part partToRemove = (Part) getSelectedTableItem(associatedPartsTable);
             associatedParts.remove(partToRemove);
-            // Add update part table here.
+            updateAssociatedPartsTable(associatedParts);
             openNotifyWindow("Part " + partToRemove.getName() + " removed from " + importedProduct.getName() + ".");
         }
         else openNotifyWindow("Please select a part.");
