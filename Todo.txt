@@ -1,4 +1,3 @@
-add placeholder text for ID field in add and chnag product
 verify javadoc for all methods (do constructors to be safe)
 add javadoc comment in InvManagement for future enhancements
 //Need to add button for search to get around having to press enter.

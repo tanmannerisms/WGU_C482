@@ -27,6 +27,10 @@ public abstract class Controller {
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
     static IOException MinTooLow = new IOException("Min value cannot be below 0.");
+    static IOException StockIntError = new IOException("Stock must be an integer value.");
+    static IOException MinIntError = new IOException("Minimum value must be an integer.");
+    static IOException MaxIntError = new IOException("Maximum value must be an integer.");
+    static IOException PriceDoubleError = new IOException("Price must be a number value.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");
@@ -66,11 +70,23 @@ public abstract class Controller {
         name = nameField.getText();
         try {
             stock = getIntFromTextField(stockField);
-            price = getDoubleFromTextField(priceField);
+        } catch (NumberFormatException e) {
+            throw StockIntError;
+        }
+        try {
             min = getIntFromTextField(minField);
+        } catch (NumberFormatException e) {
+            throw MinIntError;
+        }
+        try {
             max = getIntFromTextField(maxField);
+        } catch (NumberFormatException e) {
+            throw MaxIntError;
+        }
+        try {
+            price = getDoubleFromTextField(priceField);
         } catch (NumberFormatException | NullPointerException e) {
-            throw InvalidNumericInput;
+            throw PriceDoubleError;
         }
     }
 
