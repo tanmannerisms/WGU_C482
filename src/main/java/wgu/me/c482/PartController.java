@@ -32,7 +32,7 @@ public class PartController extends Controller implements Initializable {
     private int partMachineId;
     private final String inHouseLabelText = "Machine ID", outSourcedLabelText = "Company Name";
     @FXML
-    private TextField sourceTypeField, idField;
+    private TextField sourceTypeField;
     @FXML
     private Label sourceTypeLabel;
     @FXML
@@ -40,6 +40,7 @@ public class PartController extends Controller implements Initializable {
     @FXML
     private final ToggleGroup radioButtonTGroup = new ToggleGroup();
     protected Part importedPart;
+    static IOException MachineIdError = new IOException("Machine ID must be an integer value.");
 
     /**
      * Sets initial layout of window.
@@ -65,6 +66,7 @@ public class PartController extends Controller implements Initializable {
         inHouseButton.setToggleGroup(radioButtonTGroup);
         outSourcedButton.setToggleGroup(radioButtonTGroup);
         inHouseButton.setSelected(true);
+        inHouseSelected = true;
         sourceTypeLabel.setText(inHouseLabelText);
     }
 
@@ -122,13 +124,14 @@ public class PartController extends Controller implements Initializable {
             newPart = new InHouse(
                     Inventory.partIdIterator, name, price, stock, min, max, partMachineId
             );
+            System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         }
         else {
             newPart = new Outsourced(
                     Inventory.partIdIterator, name, price, stock, min, max, partCompanyName
             );
+            System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         }
-        System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
@@ -185,15 +188,15 @@ public class PartController extends Controller implements Initializable {
      * @see Controller#getFormData()
      */
     private void getPartFormInfo() throws IOException {
-        try {
-            getFormData();
-            if (inHouseSelected) {
+        getFormData();
+        if (inHouseSelected) {
+            try {
                 partMachineId = getIntFromTextField(sourceTypeField);
-            } else {
-                partCompanyName = sourceTypeField.getText();
+            } catch (NumberFormatException e) {
+                throw MachineIdError;
             }
-        } catch (NumberFormatException | NullPointerException e) {
-            throw InvalidNumericInput;
+        } else {
+            partCompanyName = sourceTypeField.getText();
         }
     }
 

@@ -171,14 +171,19 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private void deleteProduct(ActionEvent actionEvent) {
         boolean productDeleted;
+        Product productToDelete;
         if (getSelectedTableItem(productsTable) != null) {
-            productDeleted = Inventory.deleteProduct(getSelectedProduct());
-            if (!productDeleted) {
-                openNotifyWindow("Product unsuccessfully deleted");
+            productToDelete = getSelectedProduct();
+            if ( productToDelete.getAllAssociatedParts().isEmpty() ) {
+                productDeleted = Inventory.deleteProduct(getSelectedProduct());
+                if (!productDeleted) {
+                    openNotifyWindow("Product unsuccessfully deleted");
+                }
+                else {
+                    openNotifyWindow("Product successfully deleted");
+                }
             }
-            else {
-                openNotifyWindow("Product successfully deleted");
-            }
+            else openNotifyWindow("Cannot delete Product that has part(s) associated with it.");
         }
         else {
             openNotifyWindow("No product selected.");
