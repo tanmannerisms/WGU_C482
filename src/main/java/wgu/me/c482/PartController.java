@@ -175,7 +175,6 @@ public class PartController extends Controller implements Initializable {
         else {
             openNotifyWindow("Could not determine part type.");
         }
-        importedPart.printPart();
         closeWindow(actionEvent);
     }
 
