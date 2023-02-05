@@ -50,8 +50,7 @@ public class ProductController extends Controller implements Initializable {
      */
     protected void setImportedProductInfo() {
         setFields();
-        associatedParts = importedProduct.getAllAssociatedParts();
-        updateAssociatedPartsTable();
+        updateAssociatedPartsTable(importedProduct.getAllAssociatedParts());
         idField.setText(Integer.toString(importedProduct.getId()));
     }
 
@@ -85,8 +84,9 @@ public class ProductController extends Controller implements Initializable {
     /**
      * Refreshes the associatedPartsTable with the associatedParts from the importedProduct.
      *
+     * @param associatedParts the observable list that is used to update the table.
      */
-    private void updateAssociatedPartsTable() {
+    private void updateAssociatedPartsTable(ObservableList<Part> associatedParts) {
         associatedPartsTable.setItems(associatedParts);
     }
 
@@ -156,7 +156,7 @@ public class ProductController extends Controller implements Initializable {
      *
      * @param actionEvent consumes the ActionEvent.
      * @see Controller#getSelectedTableItem(TableView)
-     * @see #updateAssociatedPartsTable
+     * @see #updateAssociatedPartsTable(ObservableList)
      * @see Controller#openNotifyWindow(String)
      */
     @FXML
@@ -164,7 +164,7 @@ public class ProductController extends Controller implements Initializable {
         if (getSelectedTableItem(partsTable) != null) {
             Part partToAdd = (Part) getSelectedTableItem(partsTable);
             associatedParts.add(partToAdd);
-            updateAssociatedPartsTable();
+            updateAssociatedPartsTable(associatedParts);
             openNotifyWindow("Part " + partToAdd.getName() + " added to " + importedProduct.getName() + ".");
         }
         else openNotifyWindow("Please select a part.");
@@ -178,14 +178,13 @@ public class ProductController extends Controller implements Initializable {
      * @param actionEvent consumes the ActionEvent.
      * @see Controller#getSelectedTableItem(TableView)
      * @see Controller#openNotifyWindow(String)
-     * @see #updateAssociatedPartsTable()
      */
     @FXML
     private void onRemoveAssociatedPartClick(ActionEvent actionEvent) {
         if (getSelectedTableItem(associatedPartsTable) != null) {
             Part partToRemove = (Part) getSelectedTableItem(associatedPartsTable);
             associatedParts.remove(partToRemove);
-            updateAssociatedPartsTable();
+            updateAssociatedPartsTable(associatedParts);
             openNotifyWindow("Part " + partToRemove.getName() + " removed from " + importedProduct.getName() + ".");
         }
         else openNotifyWindow("Please select a part.");
