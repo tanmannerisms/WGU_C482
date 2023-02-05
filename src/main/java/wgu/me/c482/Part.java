@@ -106,12 +106,4 @@ public abstract class Part {
     public void setMax(int max) {
         this.max = max;
     }
-    public void printPart() {
-        System.out.println("Name: " + getName());
-        System.out.println("ID: " + getId());
-        System.out.println("Price: " + getPrice());
-        System.out.println("Min: " + getMin());
-        System.out.println("Max: " + getMax());
-        System.out.println("Stock: " + getStock());
-    }
 }
