@@ -10,22 +10,22 @@ public class Inventory {
 
     /**
      *
-     * @param part the part that gets added into the allParts ObservableList
+     * @param newPart the part that gets added into the allParts ObservableList
      */
-    public static void addPart(Part part) {
-        allParts.add(part);
+    public static void addPart(Part newPart) {
+        allParts.add(newPart);
         partIdIterator++;
-        System.out.println("Part " + part.getName() + " added to inventory");
+        System.out.println("Part " + newPart.getName() + " added to inventory");
     }
 
     /**
      *
-     * @param product the product that gets added into the allProducts ObservableList
+     * @param newProduct the product that gets added into the allProducts ObservableList
      */
-    public static void addProduct(Product product) {
-        allProducts.add(product);
+    public static void addProduct(Product newProduct) {
+        allProducts.add(newProduct);
         productIdIterator++;
-        System.out.println("Product " + product.getName() + " added to inventory");
+        System.out.println("Product " + newProduct.getName() + " added to inventory");
     }
 
     /**

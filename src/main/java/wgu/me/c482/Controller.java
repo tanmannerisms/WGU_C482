@@ -10,7 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * FUTURE ENHANCEMENTS: More advanced error handling to allow for a Textfield to be passed in to the error handling
+ * system, allowing to reduce the amount of code while still maintaining the functionality of the specification for the
+ * location of the error.
+ */
 public abstract class Controller {
     @FXML
     protected String name;
@@ -19,12 +23,18 @@ public abstract class Controller {
     @FXML
     protected double price;
     @FXML
-    protected TextField nameField, stockField, priceField, minField, maxField;
+    protected TextField idField, nameField, stockField, priceField, minField, maxField;
     @FXML
     protected TableView partsTable;
+    static IOException ZeroNotAllowed = new IOException("Value cannot be zero.");
+    static IOException MinAboveMax = new IOException("Min value cannot be above max.");
     static IOException InvalidNumericInput = new IOException("Invalid numeric input. Check inputs and try again.");
     static IOException StockOutOfBounds = new IOException("Stock level is out of bounds for specified min & max.");
-    static IOException MinTooLow = new IOException("Min cannot be below 0.");
+    static IOException MinTooLow = new IOException("Min value cannot be below 0.");
+    static IOException StockIntError = new IOException("Stock must be an integer value.");
+    static IOException MinIntError = new IOException("Minimum value must be an integer.");
+    static IOException MaxIntError = new IOException("Maximum value must be an integer.");
+    static IOException PriceDoubleError = new IOException("Price must be a number value.");
 
     public Controller() {
         System.out.println("No arg Controller constructor called");
@@ -64,11 +74,42 @@ public abstract class Controller {
         name = nameField.getText();
         try {
             stock = getIntFromTextField(stockField);
-            price = getDoubleFromTextField(priceField);
+        } catch (NumberFormatException e) {
+            throw StockIntError;
+        }
+        try {
             min = getIntFromTextField(minField);
+        } catch (NumberFormatException e) {
+            throw MinIntError;
+        }
+        try {
             max = getIntFromTextField(maxField);
+        } catch (NumberFormatException e) {
+            throw MaxIntError;
+        }
+        try {
+            price = getDoubleFromTextField(priceField);
         } catch (NumberFormatException | NullPointerException e) {
-            throw InvalidNumericInput;
+            throw PriceDoubleError;
+        }
+    }
+
+    /**
+     * Checks the info taken from the TextFields to verify stock/inventory numbers.
+     *
+     * @throws IOException StockOutOfBounds, MinTooLow
+     * @see MainController#StockOutOfBounds
+     * @see MainController#MinTooLow
+     */
+    protected void validateFormData() throws IOException {
+        if (min > max) {
+            throw MinAboveMax;
+        }
+        if (!(min <= stock & stock <= max)) {
+            throw StockOutOfBounds;
+        }
+        if (min < 0) {
+            throw MinTooLow;
         }
     }
 

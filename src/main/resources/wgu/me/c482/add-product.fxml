@@ -41,7 +41,7 @@
                         <RowConstraints prefHeight="50" vgrow="SOMETIMES" />
                     </rowConstraints>
 
-                    <Label text="ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                    <Label text="ID"  GridPane.halignment="RIGHT" GridPane.rowIndex="0">
                         <padding>
                             <Insets right="15.0" />
                         </padding>
@@ -51,7 +51,7 @@
                             <Insets right="15.0" />
                         </padding>
                     </Label>
-                    <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                    <Label text="Inventory" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                         <padding>
                             <Insets right="15.0" />
                         </padding>
@@ -72,7 +72,9 @@
                         </padding>
                     </Label>
 
-                    <TextField editable="false"
+                    <TextField fx:id="idField"
+                               promptText="Auto-Generated"
+                               editable="false"
                                maxWidth="180.0"
                                prefWidth="120.0"
                                GridPane.columnIndex="1"
@@ -118,7 +120,11 @@
         <AnchorPane prefWidth="450">
             <VBox AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
                 <AnchorPane prefHeight="235">
-                    <TextField fx:id="partSearchField" onAction="#onSearchAction" prefWidth="180" promptText="Search by Part ID or Name" AnchorPane.rightAnchor="35"/>
+                    <TextField fx:id="partSearchField"
+                               onAction="#onSearchAction"
+                               prefWidth="180"
+                               promptText="Search by Part ID or Name"
+                               AnchorPane.rightAnchor="35"/>
                     <TableView fx:id="partsTable" prefHeight="170.0"
                                prefWidth="400.0"
                                AnchorPane.leftAnchor="0"

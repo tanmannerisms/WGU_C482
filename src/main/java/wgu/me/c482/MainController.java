@@ -52,6 +52,8 @@ public class MainController extends Controller implements Initializable {
     private void addProductSceneChange(ActionEvent actionEvent) {
         Window addProduct = new Window("add-product.fxml", "Add-Product");
         addProduct.showWindowAndWait();
+        productsTable.refresh();
+        partsTable.refresh();
         actionEvent.consume();
     }
 
@@ -70,8 +72,8 @@ public class MainController extends Controller implements Initializable {
         else {
             Window changeProduct = new Window("modify-product.fxml", "Change Product", (Product) getSelectedTableItem(productsTable));
             changeProduct.showWindowAndWait();
-            updatePartsTable(Inventory.getAllParts());
-            updateProductsTable(Inventory.getAllProducts());
+            productsTable.refresh();
+            partsTable.refresh();
             actionEvent.consume();
         }
     }
@@ -86,6 +88,8 @@ public class MainController extends Controller implements Initializable {
     private void addPartSceneChange(ActionEvent actionEvent) {
         Window addPart = new Window("add-part.fxml", "Add-Part");
         addPart.showWindowAndWait();
+        productsTable.refresh();
+        partsTable.refresh();
         actionEvent.consume();
     }
 
@@ -108,8 +112,8 @@ public class MainController extends Controller implements Initializable {
         else {
             Window changePart = new Window("modify-part.fxml", "Alter Part", (Part) getSelectedTableItem(partsTable));
             changePart.showWindowAndWait();
-            updatePartsTable(Inventory.getAllParts());
-            updateProductsTable(Inventory.getAllProducts());
+            productsTable.refresh();
+            partsTable.refresh();
             actionEvent.consume();
         }
     }
@@ -166,17 +170,26 @@ public class MainController extends Controller implements Initializable {
      */
     @FXML
     private void deleteProduct(ActionEvent actionEvent) {
-        boolean productDeleted = false;
-        if (getSelectedTableItem(partsTable) != null) {
-            productDeleted = Inventory.deleteProduct((Product) getSelectedTableItem(partsTable));
+        boolean productDeleted;
+        Product productToDelete;
+        if (getSelectedTableItem(productsTable) != null) {
+            productToDelete = getSelectedProduct();
+            if ( productToDelete.getAllAssociatedParts().isEmpty() ) {
+                productDeleted = Inventory.deleteProduct(getSelectedProduct());
+                if (!productDeleted) {
+                    openNotifyWindow("Product unsuccessfully deleted");
+                }
+                else {
+                    openNotifyWindow("Product successfully deleted");
+                }
+            }
+            else openNotifyWindow("Cannot delete Product that has part(s) associated with it.");
         }
-        else openNotifyWindow("No product selected.");
-        if (!productDeleted) {
-            openNotifyWindow("Product unsuccessfully deleted");
-        } else {
-            openNotifyWindow("Product successfully deleted");
+        else {
+            openNotifyWindow("No product selected.");
         }
     }
+
 
     /**
      *  The method called when the Enter button is pressed while typing in one of the TextFields of the main-form.
@@ -190,10 +203,18 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private void onSearchAction(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(partSearchField)) {
-            updatePartsTable(searchParts(partSearchField));
+            ObservableList<Part> searchResults = searchParts(partSearchField);
+            if (searchResults.size() != 0) {
+                updatePartsTable(searchResults);
+            }
+            else openNotifyWindow("Part(s) not found.");
         }
         if (actionEvent.getSource().equals(productSearchField)) {
-            updateProductsTable(searchProducts(productSearchField));
+            ObservableList<Product> searchResults = searchProducts(productSearchField);
+            if (searchResults.size() != 0) {
+                updateProductsTable(searchResults);
+            }
+            else openNotifyWindow("Product(s) not found");
         }
     }
 
@@ -212,5 +233,16 @@ public class MainController extends Controller implements Initializable {
             searchResults = Inventory.lookupProduct(searchParam.getText());
         }
         return searchResults;
+    }
+
+    /**
+     * Gets the productsTable item that is selected. The getSelectedTableItem method doesn't work when trying to cast
+     * the returned object to a Product.
+     *
+     * @return
+     */
+    private Product getSelectedProduct() {
+        Product product = (Product) productsTable.getSelectionModel().getSelectedItem();
+        return product;
     }
 }

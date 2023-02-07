@@ -44,7 +44,7 @@
                             <Insets right="15.0" />
                         </padding>
                     </Label>
-                    <Label text="Inv" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                    <Label text="Inventory" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                         <padding>
                             <Insets right="15.0" />
                         </padding>
@@ -65,7 +65,8 @@
                         </padding>
                     </Label>
 
-                    <TextField editable="false"
+                    <TextField fx:id="idField"
+                               editable="false"
                                maxWidth="180.0"
                                prefWidth="120.0"
                                GridPane.columnIndex="1"

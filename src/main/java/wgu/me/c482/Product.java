@@ -74,6 +74,9 @@ public class Product {
     public void setMax(int max) {
         this.max = max;
     }
+    public void setAssociatedParts(ObservableList<Part> associatedParts) {
+        this.associatedParts = associatedParts;
+    }
 
     /**
      * Gets the ID of the current Product.
@@ -148,17 +151,23 @@ public class Product {
             addAssociatedPart(part);
         }
     }
+
     /**
-     * Removes a part from the List of Parts associated with the current Product.
+     * Deletes a single part from the list of associated parts.
      *
-     * @param selectedAssociatedPart the Part to be deleted.
-     * @return a boolean value to notify of a successful delete.
+     * @param selectedAssociatedPart the singular part to be deleted from the associated parts list
+     * @return true if successfully deleted and false if unsuccessfully deleted.
      */
-    public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
-        return this.associatedParts.remove(selectedAssociatedPart);
+    public boolean deleteAssociatePart(Part selectedAssociatedPart) {
+        return associatedParts.remove(selectedAssociatedPart);
     }
+    /**
+     * Removes all parts from the List of Parts associated with the current Product.
+     */
     public void deleteAllAssociatedParts() {
-        this.associatedParts.clear();
+        if (associatedParts != null) {
+            this.associatedParts.clear();
+        }
     }
 
     /**

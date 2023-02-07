@@ -11,7 +11,20 @@ import javafx.scene.control.ToggleGroup;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * RUNTIME ERROR: When altering a part, the part will automatically be set to outsourced when trying to edit it for a
+ * second time.
+ *
+ * Ex. Added an InHouse part named Test to the inventory through the add-part form. Select the part and hit change.
+ *      It opens up the change-part form with the OutSourced radio button selected. Change it back to InHouse and save.
+ *      Open it back up under the change-part form. InHouse radio button is selected as expected. Click save and open
+ *      it back up again for the same part. Now the OutSourced radio button is selected again. Clicking on cancel
+ *      instead of save will circumvent this.
+ *
+ * After having run the program in debug mode and crawling through the code, line by line, I found that the boolean
+ * value inHouseSelected was not being set on initialization of the change-part form. I added that functionality into
+ * the setFields() method.
+ */
 public class PartController extends Controller implements Initializable {
     private boolean inHouseSelected;
     private String partCompanyName;
@@ -26,6 +39,7 @@ public class PartController extends Controller implements Initializable {
     @FXML
     private final ToggleGroup radioButtonTGroup = new ToggleGroup();
     protected Part importedPart;
+    static IOException MachineIdError = new IOException("Machine ID must be an integer value.");
 
     /**
      * Sets initial layout of window.
@@ -51,6 +65,7 @@ public class PartController extends Controller implements Initializable {
         inHouseButton.setToggleGroup(radioButtonTGroup);
         outSourcedButton.setToggleGroup(radioButtonTGroup);
         inHouseButton.setSelected(true);
+        inHouseSelected = true;
         sourceTypeLabel.setText(inHouseLabelText);
     }
 
@@ -59,6 +74,7 @@ public class PartController extends Controller implements Initializable {
      */
     protected void setFields() {
         if (importedPart != null) {
+            idField.setText(Integer.toString(importedPart.getId()));
             nameField.setText(importedPart.getName());
             stockField.setText(Integer.toString(importedPart.getStock()));
             priceField.setText(Double.toString(importedPart.getPrice()));
@@ -69,11 +85,13 @@ public class PartController extends Controller implements Initializable {
                 sourceTypeField.setText(Integer.toString(((InHouse) importedPart).getMachineId()));
                 sourceTypeLabel.setText(inHouseLabelText);
                 radioButtonTGroup.selectToggle(inHouseButton);
+                inHouseSelected = true;
             }
             if (importedPart instanceof Outsourced) {
                 sourceTypeField.setText(((Outsourced) importedPart).getCompanyName());
                 sourceTypeLabel.setText(outSourcedLabelText);
                 radioButtonTGroup.selectToggle(outSourcedButton);
+                inHouseSelected = false;
             }
         }
     }
@@ -85,7 +103,7 @@ public class PartController extends Controller implements Initializable {
      * @param actionEvent passed to closeWindow() for consumption
      * @see #closeWindow(ActionEvent)
      * @see #getPartFormInfo()
-     * @see #validateFormInfo()
+     * @see #validateFormData()
      * @see InHouse#InHouse(int, String, double, int, int, int, int)  InHouse
      * @see Outsourced#Outsourced(int, String, double, int, int, int, String)  Outsourced
      * @see Inventory#addPart(Part)
@@ -94,7 +112,7 @@ public class PartController extends Controller implements Initializable {
     private void addNewPart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            validateFormInfo();
+            validateFormData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
@@ -105,13 +123,14 @@ public class PartController extends Controller implements Initializable {
             newPart = new InHouse(
                     Inventory.partIdIterator, name, price, stock, min, max, partMachineId
             );
+            System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         }
         else {
             newPart = new Outsourced(
                     Inventory.partIdIterator, name, price, stock, min, max, partCompanyName
             );
+            System.out.println("Outsourced part " + newPart.getName() + " has been successfully created.");
         }
-        System.out.println("In-house part " + newPart.getName() + " has been successfully created.");
         Inventory.addPart(newPart);
         closeWindow(actionEvent);
     }
@@ -127,7 +146,7 @@ public class PartController extends Controller implements Initializable {
     private void updatePart(ActionEvent actionEvent) {
         try {
             getPartFormInfo();
-            validateFormInfo();
+            validateFormData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             openErrorWindow(e);
@@ -135,6 +154,7 @@ public class PartController extends Controller implements Initializable {
         }
         importedPart.setName(name);
         importedPart.setPrice(price);
+        importedPart.setStock(stock);
         importedPart.setMin(min);
         importedPart.setMax(max);
         Part newPart;
@@ -155,7 +175,6 @@ public class PartController extends Controller implements Initializable {
         else {
             openNotifyWindow("Could not determine part type.");
         }
-        importedPart.printPart();
         closeWindow(actionEvent);
     }
 
@@ -167,33 +186,18 @@ public class PartController extends Controller implements Initializable {
      * @see Controller#getFormData()
      */
     private void getPartFormInfo() throws IOException {
-        try {
-            getFormData();
-            if (inHouseSelected) {
+        getFormData();
+        if (inHouseSelected) {
+            try {
                 partMachineId = getIntFromTextField(sourceTypeField);
-            } else {
-                partCompanyName = sourceTypeField.getText();
+            } catch (NumberFormatException e) {
+                throw MachineIdError;
             }
-        } catch (NumberFormatException | NullPointerException e) {
-            throw InvalidNumericInput;
+        } else {
+            partCompanyName = sourceTypeField.getText();
         }
     }
 
-    /**
-     * Checks the info taken from the TextFields to verify stock/inventory numbers.
-     *
-     * @throws IOException StockOutOfBounds, MinTooLow
-     * @see MainController#StockOutOfBounds
-     * @see MainController#MinTooLow
-     */
-    private void validateFormInfo() throws IOException {
-        if (!(min <= stock & stock <= max)) {
-            throw StockOutOfBounds;
-        }
-        if (min < 0) {
-            throw MinTooLow;
-        }
-    }
 
     /**
      * Method called when the save button is pressed. Calls the addNewPart method if no part was imported.

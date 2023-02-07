@@ -30,7 +30,7 @@
             <RadioButton fx:id="inHouseButton"
                          onAction="#onInHouseClick"
                          mnemonicParsing="false"
-                         text="Internal" />
+                         text="In-House" />
         </AnchorPane>
         <AnchorPane AnchorPane.bottomAnchor="25.0"
                     AnchorPane.leftAnchor="225"
@@ -72,7 +72,7 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <Label text="Inv"
+            <Label text="Inventory"
                    GridPane.columnIndex="0"
                    GridPane.rowIndex="2"
                    GridPane.halignment="RIGHT">
@@ -112,7 +112,8 @@
                     <Insets right="15.0" />
                 </padding>
             </Label>
-            <TextField editable="false"
+            <TextField fx:id="idField"
+                       editable="false"
                        maxWidth="180.0"
                        prefWidth="120.0"
                        promptText="Auto-Generated"
